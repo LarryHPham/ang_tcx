@@ -1,0 +1,30 @@
+<div *ngIf="searchInput" class="search-large searchcheck">
+    <form (ngSubmit)="onSubmit()">
+        <div class="search-input-container">
+            <input class="search-input autocomplete" disabled [value]="autoCompleteText" />
+            <input class="search-input main searchcheck" [formControl]="term" [class.search-empty]="!hasInputText" (keydown)="searchKeydown($event)" autocomplete="off" placeholder="{{searchInput.placeholderText}}" />
+        </div>
+        <button type="submit" class="search-button searchcheck">
+            <i class="fa fa-search"></i>
+        </button>
+    </form>
+    <div *ngIf="searchInput.hasSuggestions && dropdownIsFocused && hasInputText" class="search-dropdown searchcheck">
+        <div class="search-dropdown-caret"></div>
+        <div class="search-dropdown-title">Suggestions</div>
+        <div *ngIf="dropdownList.length === 0" class="autocomplete-error">
+          <i class="fa fa-search-icon"></i>
+          <span class="error-text">
+            Sorry we can’t find any results matching your search request.
+          </span>
+        </div>
+        <ul *ngIf="dropdownList.length > 0" (click)="unFocus()" (mouseout)="resetSelected()">
+          <li class="search-dropdown-items searchcheck" *ngFor="let item of dropdownList; let i = index;" (mouseover)="itemHovered(i)">
+            <a [routerLink]="item.routerLink" class="search-dropdown-item searchcheck" [ngClass]="{active: (i === selectedIndex)}">
+              <!-- <span class="search-dropdown-item-img"><circle-image [data]="item.imageUrl"></circle-image></span> -->
+              <span class="search-dropdown-item-title" [innerHtml]="item.title"></span>
+              <!-- <i class="fa fa-angle-right"></i> -->
+            </a>
+          </li>
+        </ul>
+    </div>
+  </div>

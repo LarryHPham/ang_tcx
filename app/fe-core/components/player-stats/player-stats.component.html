@@ -1,0 +1,103 @@
+<div *ngIf="tabs" class="stats">
+    <div class="stats-car">
+        <slider-carousel *ngIf="isCarousel" [carouselData]="carouselData" (indexNum)="indexNum($event)" [indexInput]="selectedIndex"></slider-carousel>
+    </div>
+    <tabs (tabSelected)="tabSelected($event)">
+        <tab *ngFor="let tab of tabs" [tabTitle]="tab.tabTitle" [active]="tab.isActive">
+            <div class="stats-table-title">
+                <h4 [innerHtml]="tab.tableName"></h4>
+                <p class="stats-season-dropdown" *ngIf="isSpecialTeam">
+                    Position:
+                    <dropdown style=" min-width: 70px; @media @mobile{width: 95px}"
+                      [isModule]="'true'"
+                      [list]="tab.subTabs"
+                      [selectedKey]="kicking"
+                      (selectionChanged)="dropdown2Changed($event) "></dropdown>
+                </p>
+                <p class="stats-season-dropdown">
+                    Season:
+                    <dropdown
+                      [isModule]="'true'"
+                      [list]="tab.seasonIds"
+                      [selectedKey]="selectedSeasonId"
+                      (selectionChanged)="dropdownChanged($event)"></dropdown>
+                </p>
+            </div>
+            <div>
+                <!-- <div class="stats-table-title">
+                   <h4 [innerHtml]="tab.tableName"></h4>
+                   <p class="stats-season-dropdown">
+                     Now Viewing:<dropdown [list]="tab.seasonIds" [selectedKey]="initialSeasonId" (selectionChanged)="dropdownChanged($event)"></dropdown>
+                   </p>
+                 </div>-->
+
+                <div *ngIf="tab.tableData" class="pane-content">
+                    <custom-table [model]="tab.tableData" (sortChanged)="updateCarousel($event)"></custom-table>
+                </div>
+            </div>
+
+            <loading-component *ngIf="!tab.isLoaded && !tab.hasError"></loading-component>
+            <div *ngIf="!tab.tableData && tab.isLoaded" class="stats-no-data pane-content">
+                <no-data-box [data]="noDataMessage" [icon]="'fa fa-remove'"></no-data-box>
+            </div>
+
+            <!--<glossary-component [glossaryData]="GlossaryData"></glossary-component>-->
+            <!--<div *ngIf="showGlossary" class="stats-glossary pane-content ">
+                <div class="stats-glossary-title">Glossary</div>
+                <div class="stats-glossary-box row">
+                    <ul>
+                        <li *ngFor="let term of tab.glossary" class="col-xs-6">
+                            <span class="text-heavy">{{term.key}}:</span> {{term.value}}
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
+
+        </tab>
+    </tabs>
+    <glossary-component *ngIf="showGlossary" [glossaryData]="GlossaryData"></glossary-component>
+    <!--<responsive-widget style="display:table-row;" colspan=50 *ngIf="(!isLast && rowIndex != 10))" embedPlace="widgetForPage"></responsive-widget>-->
+    <responsive-widget style="display:table-row;" colspan=50 *ngIf="isLessThanTen" embedPlace="widgetForPage"></responsive-widget>
+
+</div>
+
+<!-- *ngIf="(isLast && tableData.rows.length <= 10)"
+<div *ngIf="tabs" class="stats">
+  <div class="stats-car">
+    <slider-carousel *ngIf="carouselData" [carouselData]="carouselData" (indexNum)="indexNum($event)" [indexInput]="selectedIndex"></slider-carousel>
+  </div>
+  <tabs (tabSelected)="tabSelected($event)">
+    <tab *ngFor="let tab of tabs" [tabTitle]="tab.tabTitle" [active]="tab.isActive">
+
+      <div>
+        <div class="stats-table-title">
+          <h4 [innerHtml]="tab.tableName"></h4>
+          <p class="stats-season-dropdown">
+            Now Viewing:<dropdown [list]="tab.seasonIds" [selectedKey]="initialSeasonId" (selectionChanged)="dropdownChanged($event)"></dropdown>
+          </p>
+        </div>
+
+        <div *ngIf="tab.tableData" class="pane-content">
+          <custom-table [model]="tab.tableData" (sortChanged)="updateCarousel($event)"></custom-table>
+        </div>
+      </div>
+
+      <loading-component *ngIf="!tab.isLoaded && !tab.hasError"></loading-component>
+      <div *ngIf="!tab.tableData && tab.isLoaded" class="stats-no-data pane-content">
+          <no-data-box [data]="noDataMessage" [icon]="'fa fa-remove'"></no-data-box>
+      </div>
+
+      <div *ngIf="showGlossary" class="stats-glossary pane-content">
+        <h4 class="stats-glossary-title">Glossary</h4>
+        <div class="stats-glossary-box row">
+          <ul>
+            <li *ngFor="let term of tab.glossary" class="col-xs-6">
+              <span class="text-heavy">{{term.key}}:</span> {{term.value}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </tab>
+  </tabs>
+</div>-->

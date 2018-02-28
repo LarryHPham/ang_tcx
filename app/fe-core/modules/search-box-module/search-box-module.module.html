@@ -1,0 +1,35 @@
+<div *ngIf="searchData" class="search-box-module-container container-fluid" [ngStyle]="{'background-image':'url('+searchData.searchBackground+')'}">
+<!--
+  <article-search-bar [searchTitle]="modSearchTitle" [searchSubTitle]="modSearchSubTitle" [subCategoryList]="sportsList" [isSearchModule]="true" [scope]="scope"></article-search-bar>
+-->
+  <h4 class="search-box-module-header">
+    {{searchData.searchModTitle}}
+  </h4>
+  <p class="search-box-module-desc">
+    {{searchData.searchSubText}}
+  </p>
+
+  <div class="search-box-container">
+
+<!--
+    <search [searchInput]="searchInput" [isModule]="true" [DDarray]="sportsList"></search>
+-->
+    <div class="search-input-container">
+        <span *ngIf="searchData.searchScopeDropdown" class="category-dropdown">
+            <dropdown [list]="searchData.searchScopeDropdown" [selectedKey]="scope.toUpperCase()" icon="caret-down" ddtitle='Select A Sport'  (selectionChanged)="selectedSport($event) "></dropdown>
+        </span>
+
+        <input autocomplete="off"
+        (keyup)="onKey($event)"
+        placeholder="{{searchData.searchPlaceHolderText}}"
+        class="search-input main searchcheck"  [ngClass]="searchData.searchScopeDropdown ? 'left-pad-dd':''" />
+
+    </div>
+    <span
+      (click)="onKey($event)"
+      target="_blank"
+      class="search-button searchcheck">
+      <i class="fa fa-search"></i>
+    </span>
+  </div>
+</div>

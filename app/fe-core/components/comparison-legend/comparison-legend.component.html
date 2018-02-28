@@ -1,0 +1,12 @@
+
+<div *ngIf="comparisonLegendInput" class="comparison-legend">
+    <div class="comparison-legend-title">
+        <span *ngFor="let item of comparisonLegendInput.legendTitle" class="{{item.class}}">{{item.text}}</span>
+    </div>
+    <ul *ngIf="comparisonLegendInput.legendValues" class="comparison-legend-key">
+        <li *ngFor="let legend of comparisonLegendInput.legendValues">
+            <div class="comparison-legend-circle" [style.backgroundColor]="legend.color"></div>
+            {{legend.title}}
+        </li>
+    </ul>
+</div>

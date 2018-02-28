@@ -1,0 +1,11 @@
+<div class="side_scroll" (mousemove)="movingMouse($event)">
+  <div class="side_scroll-left" (click)="left($event)" [ngClass]="{'disabled': currentScroll <= 0}"><i class="fa fa-angle-left"></i></div>
+  <div class="side_scroll-box" (mousedown)="scrollX($event)" (mouseup)="scrollX($event)">
+    <div class="side_scroll-container score-transition2" [style.right]="rightText">
+      <ng-content></ng-content>
+    </div>
+  </div>
+  <div class="side_scroll-overlayright"></div>
+  <div class="side_scroll-overlayleft"></div>
+  <div class="side_scroll-right" (click)="right($event)" [ngClass]="{'disabled': maxScroll === true}"><i class="fa fa-angle-right"></i></div>
+</div>

@@ -1,0 +1,42 @@
+<!--for calendar-picker-->
+<div class="calendar-picker" *ngIf="chosenParam && weeklyApi" (window:resize)="onWindowLoadOrResize($event)">
+
+  <div class="calendar-picker-carousel" *ngIf="windowWidth >= 768">
+    <div class="calendar-picker-circles left" (click)="left()"><i class="fa fa-angle-left"></i></div>
+    <div class="calendar-picker-dates">
+      <span *ngFor="let dates of weeklyDates">
+        <div class="calendar-picker-dates-select" *ngIf="dates.clickable" [class.active]="dates.active == true" [class.dynamic-background]="dates.active == true" [class.hover]="dates.clickable == true && dates.active == false" (click)="setActive(dates)">
+          <span>{{dates.month}}.</span>
+          <span class="calendar-picker-dates-select-day">{{dates.day}}<sup>{{dates.ordinal}}</sup></span>
+          <span>{{dates.weekDay}}.</span>
+        </div>
+        <div class="calendar-picker-dates-select" *ngIf="!dates.clickable" [class.nonactive]="dates.clickable == false">
+          <span>{{dates.month}}.</span>
+          <span class="calendar-picker-dates-select-day">{{dates.day}}<sup>{{dates.ordinal}}</sup></span>
+          <span>{{dates.weekDay}}.</span>
+        </div>
+      </span>
+    </div>
+    <div class="calendar-picker-circles right" (click)="right()"><i class="fa fa-angle-right"></i></div>
+  </div>
+
+  <div class="calendar-picker-carousel" *ngIf="windowWidth < 768">
+    <div class="calendar-picker-circles left" (click)="leftDay()"><i class="fa fa-angle-left"></i></div>
+    <div class="calendar-picker-dates">
+      <span *ngFor="let dates of weeklyDates">
+        <div class="calendar-picker-dates-select" *ngIf="dates.clickable" [class.active]="dates.active == true" [class.hover]="dates.clickable == true && dates.active == false" [class.dynamic-color-hover]="dates.clickable == true && dates.active == false" (click)="setActive(dates)">
+          <span>{{dates.weekDay}}. {{dates.month}} {{dates.day}}<sup>{{dates.ordinal}}</sup></span>
+        </div>
+        <div class="calendar-picker-dates-select" *ngIf="!dates.clickable" [class.nonactive]="dates.clickable == false">
+          <span>{{dates.weekDay}}. {{dates.month}} {{dates.day}}<sup>{{dates.ordinal}}</sup></span>
+        </div>
+      </span>
+    </div>
+    <div class="calendar-picker-circles right" (click)="rightDay()"><i class="fa fa-angle-right"></i></div>
+  </div>
+
+
+  <!-- <div class="calendar-selection"><i class="fa fa-calendar"></i></div> -->
+  <datepicker *ngIf="chosenParam" (changed)="datePicker($event)" [(ngModel)]="chosenParam.date" [chosenParam]="chosenParam"></datepicker>
+</div>
+<!--for calendar-picker-->

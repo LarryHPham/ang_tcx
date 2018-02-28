@@ -1,0 +1,113 @@
+.pane{
+  padding: 5px 15px;
+  color: @black;
+  overflow: hidden;
+  position: relative;
+  .shader {
+    display:none;
+    @media @mobile {
+      display:block;
+      box-shadow: inset -13px 0 5px -11px rgb(128, 128, 128);
+      height: 100%;
+      position: absolute;
+      width: 10px;
+      right:0;
+      top: 0;
+      z-index: 1;
+    }
+  }
+  .side-scroller{
+    background-color: transparent;
+  }
+  @media @mobile {
+    padding: 5px 10px;
+  }
+}
+.side-scroller {
+  width: 100%;
+  height: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  background-color: @highlightGrey;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  & ::-webkit-scrollbar {
+    height: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+  }
+  @media @tablet {
+    overflow-x: hidden;
+  }
+
+}
+.nav-tabs{
+  background-color: @highlightGrey;
+  height: 60px;
+  width: 100%;
+  display: block;
+  @media @mobile {
+    .flexAlignItems(center);
+    .flexDisplay;
+  }
+  @media @tablet {
+    .flexAlignItems(center);
+    .flexDisplay;
+  }
+  color:@fontIconGrey;
+  .shader {
+    display:none;
+    @media @mobile {
+      display:block;
+      box-shadow: inset -13px 0 5px -11px rgba(0, 0, 0, .5);
+      height: 60px;
+      position: absolute;
+      width: 10px;
+      right:0;
+      z-index: 1;
+      //fix for ie and firefox
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none), (min--moz-device-pixel-ratio:0) {
+        //margin-top:-30px;
+      }
+    }
+  }
+  li{
+    height: 100%;
+    min-width: 100px;
+    background: @highlightGrey;
+    .flexAlignItems(center);
+    .flexDisplay;
+    .flexJustify(center);
+    text-align: center;
+    //padding: 0 12px;
+    margin: 0 10px;
+    position: relative;
+    font-size: 14px;
+    @media @mobile {
+      display: inline-block;
+    }
+    @media @tablet {
+      padding: 0;
+      width: inherit;
+    }
+    span {
+      @media @mobile {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        width: 100%;
+        left:0;
+      }
+    }
+    i{
+      display: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    &.active{
+      border-bottom: 5px solid @activeBlue;
+      color: @black;
+      font-weight: 800;
+    }
+  }
+}

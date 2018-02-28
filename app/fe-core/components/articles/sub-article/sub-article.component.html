@@ -1,0 +1,31 @@
+<span *ngFor="let subData of randomArticles; let even=even; let odd=odd; let last=last; let i=index;">
+    <div *ngIf="even && i < 8" class="sub-container large col-xs-6" style="float: left;">
+        <a [routerLink]="subData.articleUrl">
+            <img class="sub-container-image" src="{{subData.images}}"
+                 onerror="this.src='/app/public/no-image.svg'" alt="Sub Article Image"/>
+            <div class="sub-container-content">
+                {{subData.title}}
+            </div>
+        </a>
+        <div *ngIf="i != 6" class="sub-container-hr"></div>
+    </div>
+    <div *ngIf="odd && i < 8" class="sub-container large col-xs-6" style="float: right;">
+        <a [routerLink]="subData.articleUrl">
+            <img class="sub-container-image" src="{{subData.images}}"
+                 onerror="this.src='/app/public/no-image.svg'" alt="Sub Article Image"/>
+            <div class="sub-container-content">
+                {{subData.title}}
+            </div>
+        </a>
+        <div *ngIf="i != 7" class="sub-container-hr"></div>
+    </div>
+    <div *ngIf="i < 6" class="sub-container small col-xs-12">
+        <a [routerLink]="subData.articleUrl">
+            <img class="sub-container-image" src="{{subData.images}}"
+                 onerror="this.src='/app/public/no-image.svg'" alt="Sub Article Image"/>
+            <div class="sub-container-content">
+                {{subData.title}}
+            </div>
+        </a>
+    </div>
+</span>

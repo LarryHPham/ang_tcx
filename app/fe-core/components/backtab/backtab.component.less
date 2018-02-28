@@ -1,0 +1,80 @@
+@backTabHeight: 50px;
+.back-tab{
+  background: url('/app/public/header_texture.png') @black;
+  position: relative;
+  height: @backTabHeight;
+  &-link{
+    display: block;
+    cursor: pointer;
+    color: @white;
+    line-height: @backTabHeight;
+    &:hover{
+      text-decoration: none;
+      color: @white;
+      .back-tab-arrow{
+        color: @white;
+        i {
+          color: @masterBrandColor;
+          background-color: @white;
+        }
+        &:after{
+          border-top: 25px solid transparent;
+          border-bottom: 25px solid transparent;
+          border-left: 15px solid @white;
+        }
+      }
+    }
+    .back-tab-arrow {
+      color: @white;
+      i {
+        display: block;
+        float: left;
+        width: 62px;
+        height: @backTabHeight;
+        line-height: @backTabHeight;
+        background-color: @masterBrandColor;
+        text-align: center;
+        font-size: 30px;
+      }
+      &:after{
+        display: block;
+        float: left;
+        content: "";
+        width: 15px;
+        border-top: 25px solid transparent;
+        border-bottom: 25px solid transparent;
+        border-left: 15px solid @masterBrandColor;
+      }
+    }
+  }
+  &:hover {
+    .border {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      -webkit-box-shadow: inset 0px 0px 0px 1px @masterBrandColor;
+      -moz-box-shadow: inset 0px 0px 0px 1px @masterBrandColor;
+      box-shadow: inset 0px 0px 0px 1px @masterBrandColor;
+    }
+    .back-tab-link{
+      color: @white;
+      .back-tab-arrow{
+        i {
+          color: @masterBrandColor;
+          background-color: @white;
+        }
+        &:after{
+          border-left: 15px solid @white;
+        }
+      }
+
+    }
+  }
+  &-heading{
+    .globalDefaultModFont(19px, 400, @white);
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,129 @@
+<div id="deep-dive-block-main" class="deep-dive-block" (window:scroll)="onScroll($event)">
+  <!-- BREAKING NEWS -->
+  <!-- ARTICLE STACK TYPE 1 -->
+  <div *ngIf="trendingStack && trendingStack.length > 3" class="deep-dive-module">
+    <section-name-component [secName]="secName[0]"></section-name-component>
+    <article-stack-1-module [stackTop]="[trendingStack[0]]" [stackRow]="trendingStack.slice(1,7)"></article-stack-1-module>
+  </div>
+
+  <!-- RANDOM VIDEO -->
+  <!-- VIDEO STACK -->
+
+  <div *ngIf="videoDataBatch1" class="deep-dive-module">
+    <section-name-component [secName]="secName[1]"></section-name-component>
+    <deep-dive-video-module [videoData]="videoDataBatch1"></deep-dive-video-module>
+  </div>
+
+  <!-- WIDGET -->
+  <div *ngIf="trendingStack && videoDataBatch1" class="responsive-widget">
+    <responsive-widget [category]="category" [subCategory]="scope"></responsive-widget>
+  </div>
+
+    <!--WEATHER SLIDER-->
+    <div *ngIf="sideScrollData" class="deep-dive-module">
+        <side-scroll-schedules [sideScrollData]="sideScrollData" [scopeList]="scopeList" (count)="clickcount($event)" [scrollLength]="scrollLength" [topScope]="topScope" [pageScope]="category" [scope]="changeScope" (changeScope)="scopeType($event)" (changeLocation)="locType($event)"></side-scroll-schedules>
+    </div>
+
+  <!-- SPORTS -->
+  <!-- SIX PACKS -->
+  <div *ngIf="recDataSports" class="deep-dive-module">
+    <section-name-component [secName]="secName[2]"></section-name-component>
+    <deep-dive-recommendation [recData]="recDataSports"></deep-dive-recommendation>
+  </div>
+  <!-- BUSINESS -->
+  <!-- ARTICLE STACK TYPE 1 -->
+  <div *ngIf="businessStack" class="deep-dive-module">
+    <section-name-component [secName]="secName[3]"></section-name-component>
+    <article-stack-1-module [stackTop]="[businessStack[0]]" [stackRow]="businessStack.slice(1,7)"></article-stack-1-module>
+  </div>
+  <!-- WIDGET -->
+  <div *ngIf="recDataSports && businessStack" class="responsive-widget">
+    <responsive-widget [category]="category" [subCategory]="scope"></responsive-widget>
+  </div>
+  <!-- POLITICS -->
+  <!-- ARTICLE STACK TYPE 2 -->
+  <div *ngIf="politicsStack" class="deep-dive-module">
+    <section-name-component [secName]="secName[4]"></section-name-component>
+    <article-stack-2-module [articleStack2DataTop]="[politicsStack[0]]" [articleStack2DataBatch]="politicsStack.slice(1,5)"></article-stack-2-module>
+  </div>
+  <!-- ENTERTAINMENT -->
+  <!-- SIX PACKS -->
+  <div *ngIf="recDataEntertain" class="deep-dive-module">
+    <section-name-component [secName]="secName[5]"></section-name-component>
+    <deep-dive-recommendation [recData]="recDataEntertain"></deep-dive-recommendation>
+  </div>
+  <!-- WIDGET -->
+  <div *ngIf="politicsStack && recDataEntertain" class="responsive-widget">
+    <responsive-widget [category]="category" [subCategory]="scope"></responsive-widget>
+  </div>
+  <!-- FOOD -->
+  <!-- ARTICLE STACK TYPE 1 -->
+  <div *ngIf="foodStack" class="deep-dive-module">
+    <section-name-component [secName]="secName[6]"></section-name-component>
+    <article-stack-1-module [stackTop]="[foodStack[0]]" [stackRow]="foodStack.slice(1,7)"></article-stack-1-module>
+  </div>
+  <!-- RANDOM VIDEO -->
+  <!-- VIDEO STACK -->
+  <div *ngIf="videoDataBatch2" class="deep-dive-module">
+    <section-name-component [secName]="secName[7]"></section-name-component>
+    <deep-dive-video-module [videoData]="videoDataBatch2"></deep-dive-video-module>
+  </div>
+  <!-- WIDGET -->
+  <div *ngIf="foodStack && videoDataBatch2" class="responsive-widget">
+    <responsive-widget [category]="category" [subCategory]="scope"></responsive-widget>
+  </div>
+  <!-- HEALTH -->
+  <!-- SIX PACKS -->
+  <!-- <div *ngIf="recDataHealth" class="deep-dive-module">
+    <section-name-component [secName]="secName[8]"></section-name-component>
+    <deep-dive-recommendation [recData]="recDataHealth"></deep-dive-recommendation>
+  </div> -->
+  <!-- LIFESTYLE -->
+  <!-- ARTICLE STACK TYPE 1 -->
+  <div *ngIf="lifestyleStack" class="deep-dive-module">
+    <section-name-component [secName]="secName[8]"></section-name-component>
+    <article-stack-1-module [stackTop]="[lifestyleStack[0]]" [stackRow]="lifestyleStack.slice(1,7)"></article-stack-1-module>
+  </div>
+  <!-- REAL ESTATE -->
+  <!-- ARTICLE STACK TYPE 2 -->
+  <div *ngIf="estateStack" class="deep-dive-module">
+    <section-name-component [secName]="secName[9]"></section-name-component>
+    <article-stack-2-module [articleStack2DataTop]="[estateStack[0]]" [articleStack2DataBatch]="estateStack.slice(1,7)"></article-stack-2-module>
+  </div>
+  <!-- WIDGET -->
+  <div *ngIf="lifestyleStack && estateStack" class="responsive-widget">
+    <responsive-widget [category]="category" [subCategory]="scope"></responsive-widget>
+  </div>
+  <!-- TRAVEL -->
+  <!-- SIX PACKS -->
+  <div *ngIf="recDataTravel" class="deep-dive-module">
+    <section-name-component [secName]="secName[10]"></section-name-component>
+    <deep-dive-recommendation [recData]="recDataTravel"></deep-dive-recommendation>
+  </div>
+  <!-- WEATHER -->
+  <!-- ARTICLE STACK TYPE 1 -->
+  <!-- <div *ngIf="weatherStack" class="deep-dive-module">
+    <section-name-component [secName]="secName[12]"></section-name-component>
+    <article-stack-1-module [stackTop]="[weatherStack[0]]" [stackRow]="weatherStack.slice(1,7)"></article-stack-1-module>
+  </div> -->
+  <!-- RANDOM VIDEO -->
+  <!-- VIDEO STACK -->
+  <div *ngIf="videoDataBatch3 && blockIndex > 4" class="deep-dive-module">
+    <section-name-component [secName]="secName[11]"></section-name-component>
+    <deep-dive-video-module [videoData]="videoDataBatch3"></deep-dive-video-module>
+  </div>
+  <!-- WIDGET -->
+  <div *ngIf="videoDataBatch3 && recDataTravel" class="responsive-widget">
+    <responsive-widget [category]="category" [subCategory]="scope"></responsive-widget>
+  </div>
+  <!-- AUTOMOTIVE -->
+  <!-- SIX PACKS -->
+  <div *ngIf="recDataAuto" class="deep-dive-module">
+    <section-name-component [secName]="secName[12]"></section-name-component>
+    <deep-dive-recommendation [recData]="recDataAuto"></deep-dive-recommendation>
+  </div>
+  <!-- WIDGET -->
+  <!-- <div *ngIf="recDataAuto && videoDataBatch3" class="responsive-widget">
+    <responsive-widget [category]="category" [subCategory]="scope"></responsive-widget>
+  </div> -->
+</div>

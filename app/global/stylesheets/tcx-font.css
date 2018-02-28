@@ -1,0 +1,472 @@
+@font-face {
+  font-family: "tcx";
+  src:url("/app/public/fonts/tcx.eot");
+  src:url("/app/public/fonts/tcx.eot?#iefix") format("embedded-opentype"),
+  url("/app/public/fonts/tcx.woff") format("woff"),
+  url("/app/public/fonts/tcx.ttf") format("truetype"),
+  url("/app/public/fonts/tcx.svg#tcx") format("svg");
+}
+
+
+[class^="fa-"]:before,
+[class*=" fa-"]:before {
+  font-family: "tcx" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-icon]:before {
+  font-family: "tcx" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 hrl;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /*transform: translate(0, 0);*/
+}
+
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: .75em;
+  vertical-align: -15%;
+}
+
+.fa-2x {
+  font-size: 2em
+}
+
+.fa-3x {
+  font-size: 3em
+}
+
+.fa-4x {
+  font-size: 4em
+}
+
+.fa-5x {
+  font-size: 5em
+}
+
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center
+}
+
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none
+}
+
+.fa-ul>li {
+  position: relative
+}
+
+.fa-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: .14285714em;
+  text-align: center
+}
+
+.fa-li.fa-lg {
+  left: -1.85714286em
+}
+
+.fa-border {
+  padding: .2em .25em .15em;
+  border: solid .08em #eee;
+  border-radius: .1em
+}
+
+.pull-right {
+  float: right
+}
+
+.pull-left {
+  float: left
+}
+
+.fa.pull-left {
+  margin-right: .3em
+}
+
+.fa.pull-right {
+  margin-left: .3em
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8)
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg)
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg)
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg)
+  }
+
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg)
+  }
+}
+
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg)
+}
+
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg)
+}
+
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg)
+}
+
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1)
+}
+
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1)
+}
+
+:root .fa-rotate-90,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-flip-horizontal,:root .fa-flip-vertical {
+  filter: none
+}
+
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle
+}
+
+.fa-stack-1x,.fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center
+}
+
+.fa-stack-1x {
+  line-height: inherit
+}
+
+.fa-stack-2x {
+  font-size: 2em
+}
+
+.fa-inverse {
+  color: #fff
+}
+
+
+/* Begin Aliases DO NOT DELETE */
+.fa-sort-up:before {
+  content: "\77";
+}
+.fa-sort-down:before {
+  content: "\78";
+}
+.fa-area-chart:before {
+  content: "\44";
+}
+.fa-remove:before {
+  content: "\38";
+}
+/* END Aliases */
+
+
+
+
+
+.fa-tdl-football:before {
+  content: "\68";
+}
+.fa-fontawesome-webfont-3:before {
+  content: "\70";
+}
+.fa-clock:before {
+  content: "\71";
+}
+.fa-phone:before {
+  content: "\75";
+}
+.fa-phone-square:before {
+  content: "\76";
+}
+.fa-list-ul:before {
+  content: "\78";
+}
+.fa-pinterest-p:before {
+  content: "\43";
+}
+.fa-linkedin:before {
+  content: "\44";
+}
+.fa-file:before {
+  content: "\49";
+}
+.fa-file-image-o:before {
+  content: "\4a";
+}
+.fa-newspaper-o:before {
+  content: "\4e";
+}
+.fa-share-alt:before {
+  content: "\66";
+}
+.fa-cutlery:before {
+  content: "\6a";
+}
+.fa-briefcase-case-two:before {
+  content: "\64";
+}
+.fa-pin-map:before {
+  content: "\6d";
+}
+.fa-list-bullet:before {
+  content: "\77";
+}
+.fa-call-phone:before {
+  content: "\41";
+}
+.fa-futbol-o:before {
+  content: "\42";
+}
+.fa-diamond:before {
+  content: "\4b";
+}
+.fa-heartbeat:before {
+  content: "\4c";
+}
+.fa-copyright:before {
+  content: "\4f";
+}
+.fa-university:before {
+  content: "\5a";
+}
+.fa-caret-left:before {
+  content: "\30";
+}
+.fa-caret-down:before {
+  content: "\31";
+}
+.fa-caret-up:before {
+  content: "\32";
+}
+.fa-arrow-right:before {
+  content: "\33";
+}
+.fa-angle-double-right:before {
+  content: "\34";
+}
+.fa-angle-double-left:before {
+  content: "\35";
+}
+.fa-angle-left:before {
+  content: "\36";
+}
+.fa-angle-right:before {
+  content: "\37";
+}
+.fa-angle-down:before {
+  content: "\38";
+}
+.fa-angle-up:before {
+  content: "\39";
+}
+.fa-bars:before {
+  content: "\21";
+}
+.fa-calendar:before {
+  content: "\22";
+}
+.fa-circle:before {
+  content: "\23";
+}
+.fa-cog:before {
+  content: "\24";
+}
+.fa-film:before {
+  content: "\25";
+}
+.fa-home:before {
+  content: "\26";
+}
+.fa-heart:before {
+  content: "\27";
+}
+.fa-play:before {
+  content: "\28";
+}
+.fa-sort:before {
+  content: "\29";
+}
+.fa-square:before {
+  content: "\2a";
+}
+.fa-search:before {
+  content: "\2b";
+}
+.fa-calendar-times-o:before {
+  content: "\65";
+}
+.fa-calendar-o:before {
+  content: "\67";
+}
+.fa-cloud:before {
+  content: "\69";
+}
+.fa-folder-open:before {
+  content: "\6c";
+}
+.fa-twitter:before {
+  content: "\6e";
+}
+.fa-spinner:before {
+  content: "\73";
+}
+.fa-th-large:before {
+  content: "\79";
+}
+.fa-folder-open-o:before {
+  content: "\62";
+}
+.fa-plane:before {
+  content: "\46";
+}
+.fa-times:before {
+  content: "\47";
+}
+.fa-reply:before {
+  content: "\63";
+}
+.fa-arrows-alt:before {
+  content: "\6b";
+}
+.fa-news:before {
+  content: "\6f";
+}
+.fa-facebook:before {
+  content: "\74";
+}
+.fa-auto-shape:before {
+  content: "\61";
+}
+.fa-g-plus:before {
+  content: "\45";
+}
+.fa-dribble:before {
+  content: "\48";
+}
+.fa-play-circle:before {
+  content: "\50";
+}
+.fa-arrow-up:before {
+  content: "\51";
+}
+.fa-arrow-down:before {
+  content: "\52";
+}
+.fa-arrow-left:before {
+  content: "\53";
+}
+.fa-sliders:before {
+  content: "\54";
+}
+.fa-heart-o:before {
+  content: "\56";
+}
+.fa-google-plus:before {
+  content: "\58";
+}
+.fa-expand:before {
+  content: "\59";
+}
+.fa-comments-o:before {
+  content: "\2d";
+}
+.fa-strikeouts:before {
+  content: "\7a";
+}
+.fa-mail-forward:before {
+  content: "\4d";
+}
+.fa-search-icon-01:before {
+  content: "\72";
+}
+.fa-external-link-square:before {
+  content: "\57";
+}
+.fa-swipe-icon:before {
+  content: "\3a";
+}
+.fa-arrow-right-thin:before {
+  content: "\55";
+}
+.fa-icon-box-scores:before {
+  content: "\2c";
+}
+.fa-icon-food:before {
+  content: "\2e";
+}
+.fa-invest-kit-icon:before {
+  content: "\2f";
+}
+.fa-icon-nhl:before {
+  content: "\3b";
+}

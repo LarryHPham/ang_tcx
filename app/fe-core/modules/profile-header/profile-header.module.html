@@ -1,0 +1,43 @@
+<section *ngIf="profileHeaderData" class="module-container ph">
+  <div class="ph-banner-image" [style.background-image]="backgroundImage">
+    <div class="ph-hdr">
+        <div class="ph-hdr-date">Last Updated: {{displayDate}}</div>
+        <h1 class="ph-hdr-title" [innerHtml]="profileTitle"></h1>
+        <div class="ph-hdr-datapts">
+          <span *ngFor="let data of profileHeaderData.topDataPoints let isLast = last">
+            <span *ngIf="!data.value || data.value != 'N/A' || !data.routerLink" class="ph-hdr-datapts-label">{{data.label}}:</span>
+            <span *ngIf="!data.value || !data.routerLink" class="ph-hdr-datapts-value">{{data.value | naValue}}</span> <!--TODO Needs naValue pipe-->
+            <a *ngIf="data.value && data.routerLink" class="ph-hdr-datapts-value" [routerLink]="data.routerLink">{{data.value | naValue}}</a> <!--TODO Needs naValue pipe-->
+            <span *ngIf="!isLast" class="ph-hdr-datapts-sep">|</span>
+          </span>
+        </div> <!--ph-hdr-datapts-->
+
+        <div class="ph-hdr-ptr"></div>
+    </div> <!--ph-hdr-->
+
+    <div class="ph-content">
+      <div class="ph-content-image">
+        <circle-image [data]="imageConfig"></circle-image>
+      </div>
+      <div class="ph-content-wrapper">
+        <div class="ph-content-title">
+          <circle-image [data]="logoConfig"></circle-image>
+          <span class="ph-content-title-text">{{contentTitle}}</span>
+        </div>
+        <div class="ph-content-desc">
+          <scrollable-content>
+             <p class="ph-content-desc-text" [innerHtml]="profileHeaderData.description"></p>
+          </scrollable-content>
+        </div> <!--pg-content-desc-->
+      </div> <!--ph-content-wrapper-->
+    </div> <!--ph-content-->
+  </div> <!--ph-banner-image-->
+
+  <div class="ph-datapts">
+      <div *ngFor="let data of profileHeaderData.bottomDataPoints" class="ph-datapts-pt">
+        <div class="ph-datapts-label">{{data.label}}</div>
+        <div class="ph-datapts-value">{{data.value | naValue}}</div>
+        <div class="ph-datapts-label" *ngIf="data.labelCont">{{data.labelCont}}</div>
+      </div>
+  </div> <!--ph-datapts-->
+</section> <!--module-container-->

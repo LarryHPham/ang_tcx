@@ -1,0 +1,295 @@
+slider-carousel{
+    display:block;
+    overflow: hidden;
+}
+.scc{
+  width:100%;
+  height:auto;
+  position: relative;
+  .fa {
+    color: @white;
+    padding-right: 6px;
+    top: 2px;
+    position: relative;
+    &.fa-circle {
+      color: @masterBrandColorLink;
+    }
+  }
+  .image-48-rank {
+    display: block;
+    line-height: 2.5;
+    @media @mobile {
+      display: none;
+      font-size: 16px;
+    }
+  }
+  &-slide-background-image{
+    position: absolute;
+    top:0;
+    right:0;
+    width: 100%;
+    opacity: .5;
+    filter:alpha(opacity=50);
+    @media @mobile {
+      left: 0;
+      bottom: 0;
+      margin: 0 auto auto auto;
+      min-height: 100%;
+      width: auto;
+    }
+  }
+  &-placeholder{
+    width: 100%;
+    height: auto;
+    background-color: @black;
+    module-footer{
+      position: relative;
+      .list-footer{
+        float:left;
+        position: relative;
+        .list-footer-btn{
+          background: @masterBrandColor;
+          color: @white;
+          @media @tablet {
+            &:hover {
+              background: @textEmphasisGrey;
+              color: @white;
+            }
+          }
+        }
+      }
+    }
+  }//.scc-placeholder ends
+  &-details{
+    .flexDisplay;
+    .flexDirection(row);
+    .flexAlignItems(center);
+    width: 75%;
+    height: auto;
+    margin:auto;
+    padding-top: 0px;
+    min-height: 250px;
+    position: relative;
+    @media @mobile {
+      width: ~"calc( 100% - 40px)";
+      display: block;
+      padding-top: 15px;
+      padding-bottom:30px;
+    }
+    @media @tablet {
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+       top:45px;
+      }
+    }
+    &-mainImg{
+      //width: 38%;
+      max-width: 225px;
+      .flexDisplay;
+      .flexDirection(column);
+      .flexAlignItems(center);
+      @media @mobile {
+        width:100%;
+        margin: 60px auto 20px auto;
+        .image-150 {
+          width:125px;
+          height:125px;
+          .imageShadow(5px, @masterLargeImageShadow);
+        }
+      }
+      @media @desktop-xl {
+        width:35%;
+      }
+    }//.scc-details-mainImg ends
+    &-desc {
+      width: ~"calc( 100% - 150px)";
+      padding-left: 25px;
+      min-height: 150px;
+      @media @mobile {
+        width: 100%;
+        padding: 0;
+        min-height: 0px;
+      }
+    }
+
+    &-type1 { //for most modules
+      &-subhdr {
+        .globalDefaultModFont(10px, 400, @white);
+        text-transform: uppercase;
+        line-height: 1.2em;
+        @media @mobile {
+          position: absolute;
+          top: 15px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      &-hdr {
+        .globalDefaultModFont(20px, 800, @white);
+        margin-top: 12px;
+        @media @mobile {
+          margin-top: 0;
+          position: absolute;
+          top: 40px;
+          width: 100%;
+          text-align: center;
+        }
+
+        a {
+          @media @tablet {
+            &:hover {
+              color: @masterBrandColorLink;
+            }
+          }
+        } //a
+      } //&-hdr
+
+      &-desc{
+        max-height:182px;
+        .flexAlignItems(flex-start);
+        .globalDefaultModFont(14px, 400, @white);
+        overflow-y: visible;
+        line-height: 1.2em;
+        margin-top: 15px;
+        @media @mobile {
+          width:100% !important;
+          height: auto !important;
+          text-align: left;
+          margin-top: 10px;
+        }
+
+        & p { //TODO: remove when not used by list-of-lists
+          line-height: 16px;
+          margin:0;
+          i.fa{
+            padding-top:2px;
+            color: @masterBrandColor;
+          }
+          &.font-10{
+            font-size: 10px;
+          }
+          &.font-12{
+            font-size: 12px;
+          }
+          &.font-14{
+            font-size: 14px;
+          }
+          &.font-22{
+            font-size: 22px;
+          }
+          &.lh-12{
+            line-height: 12px;
+          }
+          &.lh-16{
+            line-height: 16px;
+          }
+          &.lh-18{
+            line-height: 18px;
+          }
+          &.lh-22{
+            line-height: 22px;
+          }
+          &.lh-25{
+            line-height: 25px;
+          }
+          &.lh-30{
+            line-height: 30px;
+          }
+          &.lh-32{
+            line-height: 32px;
+          }
+          &.fw-400{
+            font-weight: 400;
+          }
+          &.fw-700{
+            font-weight: 800;
+          }
+          &.fw-800{
+            font-weight: 800;
+          }
+          &.titlecase{
+            text-transform: uppercase;
+          }
+          b{
+            font-weight: 800;
+          }
+        }
+      }//.scc-details-desc ends
+
+      &-date {
+        .globalDefaultModFont(10px, 400, @white);
+        margin-top: 15px;
+        text-transform: none;
+      }
+    } //&-type-1
+
+    &-type2 { //for most list modules
+      &-hdr {
+        .globalDefaultModFont(20px, 800, @white);
+        @media @mobile {
+          margin-top: 0;
+          position: absolute;
+          top: 15px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      &-page-hdr {
+        .globalDefaultModFont(24px, 800, @white);
+        @media @mobile {
+          .globalDefaultModFont(20px, 800, @white);
+          position: absolute;
+          top: 15px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      &-desc {
+        .globalDefaultModFont(14px, 400, @white);
+        line-height: 1.2em;
+        margin-top: 4px;
+        @media @mobile {
+          margin-top: 0;
+          position: absolute;
+          top: 43px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      &-date {
+        .globalDefaultModFont(10px, 400, @white);
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      &-value {
+        .globalDefaultModFont(20px, 800, @white);
+        margin-top: 15px;
+        @media @mobile {
+          text-align: center;
+        }
+      }
+
+      &-lbl {
+        .globalDefaultModFont(16px, 400, @white);
+        margin-top: 5px;
+        @media @mobile {
+          margin-top: 10px;
+          text-align: center;
+        }
+        @media (max-width: 768px) {
+          font-size:14px;
+        }
+      }
+
+      &-error {
+        .globalDefaultModFont(22px, 800, @white);
+        line-height: 26px;
+      }
+    } //&-type-2
+
+  }//.scc-details ends
+}//.scc ends

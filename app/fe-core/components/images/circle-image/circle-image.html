@@ -1,0 +1,7 @@
+<div *ngIf="data.mainImage" class='image-round {{data.imageClass}}'>
+  <hover-image [imageData]="data.mainImage" class="image-round-main {{data.mainImage.imageClass}}"></hover-image>
+  <hover-image *ngFor="let sub of data.subImages"
+    [imageData]="sub"
+    [textOnly]="!sub.imageUrl"
+    class="image-round-sub {{sub.imageClass}}"></hover-image>
+</div>

@@ -1,0 +1,37 @@
+<div
+  *ngIf="gameArticle"
+  class="game-article-container">
+  <div
+    *ngFor="let article of gameArticle"
+    class="game-article">
+    <div class="game-article-title">
+      <i class="news fa fa-newspaper-o"></i>
+      <span class="story">Stories About This Game:</span>
+    </div>
+
+    <a href="{{article.urlRouteArray}}">
+      <div class="game-article-image embed-responsive embed-responsive-16by9" [ngStyle]="{'background-image': 'url(' + article.imageConfig.imageUrl + ')'}">
+      </div>
+
+      <div class="game-article-image-caption">
+        <span class="game-article-keyword">
+          {{article.keyword}}
+        </span>
+        <span class="game-article-date">
+          {{article.date}}
+        </span>
+      </div>
+
+      <div class="game-article-headlineBox">
+        <div class="game-article-headline">
+          {{article.title}}
+        </div>
+        <div class="game-article-link">
+          <a href="">
+            Read the Report <i class="fa fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>

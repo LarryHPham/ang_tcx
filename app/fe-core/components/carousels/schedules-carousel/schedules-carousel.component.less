@@ -1,0 +1,115 @@
+.schedules-display{
+  width:100%;
+  height:285px;
+  color:@white;
+  padding: 20px 0;
+
+  background: -webkit-linear-gradient(0deg, @gradientBlue 0%, @gradientRed 100%);
+  background: -moz-linear-gradient(0deg, @gradientBlue 0%, @gradientRed 100%);
+  background: -o-linear-gradient(0deg, @gradientBlue 0%, @gradientRed 100%);
+  background: -ms-linear-gradient(0deg, @gradientBlue 0%, @gradientRed 100%);
+  background: linear-gradient(90deg, @gradientBlue 0%, @gradientRed 100%);
+
+  &-next{
+    width:100%;
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+    & > span:first-child{
+        font-weight: 400;
+    }
+  }
+
+  &-detail{
+    width:100%;
+    height:auto;
+    font-size: 16px;
+    text-align: center;
+    line-height: 22px;
+    padding: 10px 0;
+    & > i {
+      font-size:14px;
+      position: relative;
+      top: 1px;
+      margin-right: 5px;
+    }
+  }
+
+  &-competitors{
+    width:100%;
+    height:200px;
+    padding-top:5px;
+    position: relative;
+  }
+
+  &-versus{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    border: 1px solid @white;
+    background-color: rgba(0,0,0,1);
+    color:@white;
+    font-size: 18px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top:40px;
+    left:46.3%;
+  }
+}
+.competitors-circle{
+  width:100%;
+  height:auto;
+  padding:0 10px;//push circle to center since has box shadow of 10px on all sides
+}
+.pipe-seperator{
+  margin:0 5px;
+}
+
+.competitors{
+  width:50%;
+  height:auto;
+  &-left{
+    padding-left: 34px;
+    float:left;
+  }
+  &-right{
+    padding-right: 34px;
+    float:right;
+  }
+  &-info{
+    width:145px;
+    height:auto;
+    margin:0 auto;
+  }
+  &-info2{
+    width:100%;
+    height:auto;
+  }
+  &-stats{
+    color:@white;
+    text-align: center;
+    margin-top:15px;
+    & > span{
+      width:100%;
+      text-align: center;
+    }
+    &-team {
+      // display:inline-block;
+      font-size: 20px;
+      line-height: 1.1em;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    &-details {
+      display:inline-block;
+      font-size: 12px;
+      white-space: nowrap;
+      & > i{
+        position: relative;
+        top: 2px;
+        margin-right: 5px;
+      }
+    }
+  }
+}

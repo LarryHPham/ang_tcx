@@ -1,0 +1,22 @@
+<div class="video-stack" *ngFor="let item of videoData;">
+  <div class="video-stack-block">
+    <a class="video-stack-thumbnail" [routerLink]='item.video_url'>
+      <div class="embed-responsive embed-responsive-16by9">
+        <div class="video-stack-video embed-responsive-item" [ngStyle]="{'background-image': 'url(' + item.video_thumbnail + ')'}">
+          <div class="greyout">
+            <div class="playCircle">
+              <i class="fa fa-play"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+    <div class="video-stack-info">
+      <div class="video-title-top">
+        <a class="video-title-top-key masterHover" [routerLink]="item.keyUrl" [innerHTML]="item.keyword | safeHtml"></a>
+        <span class="video-title-top-date" [innerHTML]="item.time_stamp | safeHtml"></span>
+      </div>
+      <a class="video-title-mid" [innerHTML]="item.title | safeHtml" [routerLink]='item.video_url'></a>
+    </div>
+  </div>
+</div>

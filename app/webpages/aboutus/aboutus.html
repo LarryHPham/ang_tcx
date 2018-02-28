@@ -1,0 +1,9 @@
+<section verticalWidgetScroll class="condition-page">
+  <div class="condition-page-container2a col-sm-12 col-xl-9">
+    <information-component *ngIf="aboutUsData" [socialMedia]="socialMedia" [infoData]="aboutUsData"></information-component>
+    <div class="responsive-widget"><responsive-widget [category]="'trending'" [subCategory]="''"></responsive-widget></div>
+  </div>
+  <div class="condition-page-container2b col-xl-3" id="verticalSideScroller">
+    <vertical-widget [category]="'trending'" [subCategory]="''"></vertical-widget>
+  </div>
+  </section>

@@ -1,0 +1,33 @@
+<div *ngFor="let item of stackTopData;">
+  <div class="stacktop-title">
+    <div class="stacktop-title-date">
+      <span><a class="stacktop-title-keyword" [routerLink]="item.keyUrl" [innerHTML]="item.keyword | safeHtml"></a></span>
+      <span class="font-weight-normal" [innerHTML]="item.timeStamp | safeHtml"></span>
+    </div>
+  </div>
+  <a *ngIf="!item.extUrl" class="stacktop" [routerLink]="item.articleUrl">
+    <div class="stacktop-title-headline" [innerHTML]="item.title | safeHtml"></div>
+    <div *ngIf="item.publisher" class="stacktop-titleinfo">
+      <span class="stacktop-titleinfo-provider">
+        <span class='font-weight-normal'[innerHTML]="item.publisher | safeHtml"></span>
+      </span>
+    </div>
+    <div class="stacktop-image">
+      <rectangle-image [data]="item.imageConfig" [imgResize]="imgResize"></rectangle-image>
+    </div>
+    <div class="stacktop-desc" [innerHTML]="item.teaser | safeHtml"></div>
+  </a>
+  <a *ngIf="item.extUrl" class="stacktop" href="{{item.articleUrl}}" target="_blank">
+    <div class="stacktop-title-headline" [innerHTML]="item.title | safeHtml"></div>
+    <div *ngIf="item.publisher" class="stacktop-titleinfo">
+      <span class="stacktop-titleinfo-provider">
+        <span class='font-weight-normal'[innerHTML]="item.publisher | safeHtml"></span>
+      </span>
+    </div>
+    <div class="stacktop-image">
+      <rectangle-image [data]="item.imageConfig" [imgResize]="imgResize"></rectangle-image>
+    </div>
+    <div class="stacktop-desc" [innerHTML]="item.teaser | safeHtml"></div>
+  </a>
+  <div *ngIf="item.image_source == 'flickr' && item.citationInfo" class="stacktop-citation"><citation-component [citationInfo]="item.citationInfo"></citation-component></div>
+</div>

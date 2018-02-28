@@ -1,0 +1,65 @@
+<section *ngIf="totalImageCount > 0" class="images-media" [class.module-container]="isProfilePage"
+         [class.images-media-module]="isProfilePage && arraySize > 1"
+         [class.images-media-module-small]="isProfilePage && arraySize == 1"
+         (window:resize)="onResize($event)">
+    <module-header *ngIf="isProfilePage" [modHeadData]="modHeadData"></module-header>
+    <div class="carousel col-xs-12">
+        <loading-component *ngIf="!imageData"></loading-component>
+        <div *ngIf="imageData" class="embed-responsive embed-responsive-16by9">
+            <a class='expand-button' (click)="modalExpand($event)">
+                <i class='fa {{expandIcon}}'></i>
+            </a>
+            <span class="container-img embed-responsive-item">
+                 <img src="{{backgroundImage}}">
+                <circle-button *ngIf="arraySize > 1" class="container-img-navigation" (scrollLeft)="left($event)" (scrollRight)="right($event)"></circle-button>
+            </span>
+            <div class="grey-bar col-xs-12" *ngIf="arraySize > 1 || imageCredit">
+                <span *ngIf="arraySize > 1" class='grey-bar-counter'>
+                    <i class='fa fa-file-image-o'></i>
+                    {{imagesTitle}} <span class='grey-bar-counter-bold'>{{displayCounter}}</span>&nbsp;of&nbsp;
+                    <span class='grey-bar-counter-bold'>{{totalImageCount}}</span>
+                </span>
+                <!--<span class="grey-bar-title">{{description}}</span>-->
+                <span *ngIf="imageCredit" class="grey-bar-credit"><span [ngStyle]="{color: '#ccc'}">Provided By:</span>
+                    <span *ngIf="imageCredit" class="grey-bar-credit-bold">{{imageCredit}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="carousel-modal" (keyup)="close($event)" (swipeleft)="right($event)" (swiperight)="left($event)" [ngClass]="{'carousel-modal-open': expand == true}">
+    <div class="carousel-modal-exit" (click)="modalExpand($event)"></div>
+    <div class="carousel-modal-container img-fluid">
+
+        <circle-button *ngIf="arraySize > 1" class="hide-768" [addSwipeIcon]=true (scrollLeft)="left($event)"
+                       (scrollRight)="right($event)"></circle-button>
+
+        <div class="image-modal">
+            <img src="{{backgroundImage}}">
+        </div>
+
+    </div>
+    <div class="carousel-modal-grey-bar">
+                <span *ngIf="arraySize > 1" class='carousel-modal-grey-bar-counter'>
+                    <span class='carousel-modal-grey-bar-counter-bold'>{{displayCounter}}</span>&nbsp;of&nbsp;
+                    <span class='carousel-modal-grey-bar-counter-bold'>{{totalImageCount}}</span>
+                </span>
+        <!--<span class="grey-bar-title">{{description}}</span>-->
+        <span *ngIf="imageCredit" class="carousel-modal-grey-bar-credit"><span [ngStyle]="{color: '#ccc'}"><span *ngIf="imageCredit && arraySize > 1">&nbsp; &nbsp;|&nbsp; &nbsp;</span>Provided By:</span>
+                    <span *ngIf="imageCredit" class="carousel-modal-grey-bar-credit-bold">{{imageCredit}}</span>
+                </span>
+    </div>
+ <!--   <div class="carousel-modal-grey-bar hide-320">
+                <span *ngIf="arraySize > 1" class='carousel-modal-grey-bar-counter'>
+                    <span class='carousel-modal-grey-bar-counter-bold'>{{displayCounter}}</span>&nbsp;of&nbsp;
+                    <span class='carousel-modal-grey-bar-counter-bold'>{{totalImageCount}}</span>
+                </span>
+        &lt;!&ndash;<span class="grey-bar-title">{{description}}</span>&ndash;&gt;
+        <span *ngIf="imageCredit" class="carousel-modal-grey-bar-credit"><span [ngStyle]="{color: '#ccc'}">&nbsp; &nbsp;|&nbsp; &nbsp;Provided By:</span>
+                    <span *ngIf="imageCredit" class="carousel-modal-grey-bar-credit-bold">{{imageCredit}}</span>
+                </span>
+    </div>-->
+    <circle-button *ngIf="arraySize > 1" class="hide-320" (scrollLeft)="left($event)"
+                   (scrollRight)="right($event)"></circle-button>
+</div>

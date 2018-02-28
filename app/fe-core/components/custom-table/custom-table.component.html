@@ -1,0 +1,56 @@
+<table *ngIf="model" class="custom-table">
+  <div class="shader" id="shader"></div>
+  <thead>
+    <tr>
+      <th  class="{{model.columns[0].columnClass}}-hdr">
+        <custom-table-header
+          [headerData]="model.columns[0]"
+          [headerIndex]="0"
+          (sortSwitched)="setSortColumn($event)">
+        </custom-table-header>
+      </th>
+      <div class="spacer"></div>
+      <th *ngFor="let hdr of model.columns | slice:1; let i = index" class="{{hdr.columnClass}}-hdr">
+        <custom-table-header
+          [headerData]="hdr"
+          [headerIndex]="i+1"
+          (sortSwitched)="setSortColumn($event)">
+        </custom-table-header>
+      </th>
+    </tr>
+  </thead>
+  <tbody class="{{bodyClass}}" *ngFor="let item of model.rows; let isEven = even; let rowIndex = index; let isLast = last; ">
+    <tr class="custom-table-row"
+      [class.custom-table-row-selected]="model.isRowSelected(item, rowIndex)"
+      [class.custom-table-row-even]="isEven"
+      [class.custom-table-row-odd]="!isEven">
+      <th class="{{model.columns[0].columnClass}}-column">
+        <div class="{{model.columns[0].columnClass}} {{bodyClass}}-cell">
+          <table-cell [data]="{model: model, item: item, hdr: model.columns[0]}" [index]="0"></table-cell>
+        </div>
+      </th>
+      <td  *ngFor="let hdr of model.columns | slice:1; let i = index" class="{{hdr.columnClass}}-column">
+        <div class="{{hdr.columnClass}} {{bodyClass}}-cell">
+          <table-cell [data]="{model: model, item: item, hdr: hdr}" [index]="i+1"></table-cell>
+        </div>
+      </td>
+    </tr>
+
+    <responsive-widget style="display:table-row;" class="table-widget" colspan=50 *ngIf="!lastStanding && ((isLast && (model.rows.length - 1) < 20) || (isLast && rowIndex <= 5) || (!isLast && model.rows.length > 20 && !((rowIndex + 1) % 10)))" embedPlace="widgetForPage"></responsive-widget>
+
+    <responsive-widget style="display:table-row;" class="table-widget-{{isLast}}" colspan=50 *ngIf="lastStanding && ((!((rowIndex + 1) % 10) && model.rows.length > 10) || (!((rowIndex + 1) % 5) && model.rows.length <= 10 && (!isLast && rowIndex != 10)))" embedPlace="widgetForPage"></responsive-widget>
+
+    <!-- <responsive-widget style="display:table-row;" class="table-widget-{{isLast}}" colspan=50 *ngIf="lastStanding && (!((rowIndex + 1) % 10) && model.rows.length > 10)" embedPlace="widgetForPage"></responsive-widget> -->
+  </tbody>
+
+  <tfoot *ngIf="model.footer" class="custom-table-footer {{bodyClass}}">
+    <tr>
+      <td *ngFor="let hdr of model.columns" [innerHtml]="model.footer[hdr.key]" class="{{bodyClass}}-cell"></td>
+    </tr>
+  </tfoot>
+</table>
+<template [ngIf]="model">
+   <div *ngIf="model.rows.length <= 0" class="no-data-table">
+     <no-data-box [data]="error.data" [icon]="error.icon"></no-data-box>
+   </div>
+</template>

@@ -1,0 +1,22 @@
+<no-data-box *ngIf="!searchArticlesData" [icon]="error.icon" [data]="error.message"></no-data-box>
+<div *ngIf="searchArticlesData" class="s-module">
+    <div class="s-module_page-num">
+         <div class="s-module_page-num_view"> Now Viewing <b>{{startCount}} - {{EndCount}}</b> of {{articleTotalCount}} articles <span class="s-module_page-num_view_match">matching {{userInput}}</span></div>
+         <div class="s-module_page-num_right container-fluid">
+             <div class="s-module_page-num_right_arrow" id="topLeftBtn" [ngClass]="leftisactive?'arrow-button_active-left': 'arrow-button_transparent'" (click)="previousPage($event)"><i class="fa fa-angle-left"></i></div>
+             <div class="s-module_page-num_right_txt"> Page {{pageNum}} of {{totalPages}} </div>
+             <div class="s-module_page-num_right_arrow-r" id="topRightBtn" [ngClass]="rightisactive? 'arrow-button_active-right': 'arrow-button_transparent'" (click)="nextPage($event)"><i class="fa fa-angle-right"></i></div>
+         </div>
+    </div>
+    <div class="com-list">
+    <search-results-component *ngFor="let item of searchArticlesData; let i = index" [singleArticleData]="item"></search-results-component>
+    </div>
+        <div class="s-module_page-num">
+        <div class="s-module_page-num_view"> Now Viewing <b>{{startCount}} - {{EndCount}}</b> of {{articleTotalCount}} articles <span class="s-module_page-num_view_match">matching {{userInput}}</span></div>
+        <div class="s-module_page-num_right">
+            <div class="s-module_page-num_right_arrow" id="BottomLeftBtn" [ngClass]="leftisactive? 'arrow-button_active-left': 'arrow-button_transparent'" (click)="previousPage($event)"><i class="fa fa-angle-left"></i></div>
+            <div class="s-module_page-num_right_txt"> Page {{pageNum}} of {{totalPages}} </div>
+            <div class="s-module_page-num_right_arrow-r" id="BottomRightBtn" [ngClass]="rightisactive? 'arrow-button_active-right': 'arrow-button_transparent'" (click)="nextPage($event)"><i class="fa fa-angle-right"></i></div>
+        </div>
+    </div>
+</div>

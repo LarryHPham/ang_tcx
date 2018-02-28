@@ -1,0 +1,183 @@
+.pagDisabled{
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.pagination {
+  &-container {
+    margin-top:-1px;
+    border-top: 1px solid @highlightGrey;
+    border-bottom: 1px solid @highlightGrey;
+    width: 100%;
+    min-width: 400px;
+    padding: 5px 0;
+    background-color: @white;
+    font-family: @globalFont;
+    position: relative;
+    //Add/Remove default behavior to buttons
+    button {
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+      &.disable{
+        pointer-events:none;
+        opacity:0.25;
+      }
+    }
+  }
+
+  &-row {
+    .flexDisplay;
+    .flexDirection(row);
+    .flexJustify(space-between);
+    text-align: center;
+    font-size: 14px;
+    position: relative;
+    padding: 0 15px;
+  }
+
+  &-button {
+    &-doubleangle{
+      font-size: 18px;
+      border:none;
+      background-color: transparent;
+      line-height: 20px;
+      position: relative;
+      top:4px;
+      padding:0;
+      display: inline-block;
+      &:hover{
+        color: @masterBrandColor;
+      }
+    }
+    &-angle {
+      width:20px;
+      height:20px;
+      line-height: 20px;
+      text-align: center;
+      position: relative;
+      font-size: 16px;
+      border: none;
+      border-radius: 50%;
+      background-color: @bulletGrey;
+      margin: 0px 2px;
+      display: inline-block;
+      vertical-align: middle;
+      color: @white;
+      padding: 0px;
+
+      &:hover {
+        color: @white;
+        background-color: @masterBrandColor;
+      }
+      i{
+        position: absolute;
+        top:1.5px
+      }
+      .fa-angle-right {
+        right:1px;
+      }
+      .fa-angle-left {
+        left:1px;
+      }
+    }
+
+    &-circle {
+      min-width: 28px;
+      height: 28px;
+      line-height: 25px;
+      padding: 0;
+      border-radius: 50%;
+      background-color: @white;
+      color: @black;
+      margin: 0px 2px;
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 12px;
+      border: 1px solid @highlightGrey;
+      //Class is being overwritten by button default
+      font-family: @globalFont;
+
+      &:hover {
+        background-color: @black;
+        color: @white;
+      }
+
+      &.active {
+        border: 1px solid @masterBrandColor;
+        background-color: @masterBrandColor;
+        color: @white;
+      }
+      &.desktop{
+        display:inline-block;
+        @media @mobile{
+          display:none;
+        }
+      }
+      &.mobile{
+        display:none;
+        @media @mobile{
+          display:inline-block;
+        }
+      }
+    }
+
+    &-ellipsis {
+      letter-spacing: 2px;
+      width: 26px;
+      display: inline-block;
+      font-size: 16px;
+    }
+
+  }
+
+  &-view-all{
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      width: 115px;
+      height: 25px;
+      line-height: 25px;
+      border: 1px solid @masterBrandColor;
+      .borderRadiusPrefix(5px);
+      font-size: 12px;
+      text-align: center;
+      display: block;
+
+      &-icon{
+        width: 23px;
+        height: 11px;
+        display: inline-block;
+        margin-left: 5px;
+        background-image: url('/app/public/icons/Infinity_Icon.png');
+      }
+  }
+
+  &-centernav {
+    &.desktop {
+      display: block;
+      @media @mobile {
+        display: none;
+      }
+    }
+    &.mobile {
+      display: none;
+      @media @mobile {
+        display: block;
+      }
+    }
+  } //centernav
+
+
+}
+@media @mobile {
+  .pagination{
+      &-row{
+        height: 25px;
+      }
+      &-container{
+        min-width: 320px;
+      }
+  }
+}

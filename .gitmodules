@@ -1,0 +1,3 @@
+[submodule "app/fe-core"]
+	path = app/fe-core
+	url = https://github.com/passit/SNT-framework-core-frontend-2.0.git

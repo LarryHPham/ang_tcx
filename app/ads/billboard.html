@@ -1,0 +1,34 @@
+<html>
+<head>
+    <style type="text/css">
+        #ifr_pfwidget_sports_ai_article, .div_pfwidget {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+    <script type="text/javascript">
+        function receiveSize(e) {
+            var target = parent.postMessage ? parent : (parent.document.postMessage ? parent.document : undefined);
+            var proto = window.location.protocol;
+            var x = proto + "//devapi.synapsys.us";
+            var y = proto + "//w1.synapsys.us";
+            setTimeout(function () {
+                if (e.origin === x || e.origin === y) {
+                    if (typeof target != "undefined") {
+                        var height = e.data.replace(' billboard', 'px');
+                        target.postMessage({'billboard': height}, "*");
+                    }
+                }
+            }, 0)
+        }
+        if (window.addEventListener) {
+            addEventListener("message", receiveSize, false);
+        } else {
+            attachEvent("onmessage", receiveSize);
+        }
+    </script>
+</head>
+<body style="padding:0; margin:0; overflow:hidden;">
+<script type="text/javascript" src="//content.synapsys.us/embeds/tcx/ai_billboard/tcx.js"></script>
+</body>
+</html>

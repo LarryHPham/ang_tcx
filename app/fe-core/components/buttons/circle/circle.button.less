@@ -1,0 +1,71 @@
+@hoverColor: @masterBrandColor;
+.circles{
+  background-color: @masterButtonBackground;
+  border: 2px solid @white;
+  border-radius: 50%;
+  color: @white;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: 400;
+  height: 50px;
+  width: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 1;
+  .flexDisplay;
+  .flexAlignItems(center);
+  .flexJustify(center);
+  .no-select;
+  &-right {
+    right: 8px;
+  }
+
+  &-left {
+    left: 8px;
+  }
+}
+@media @tablet {
+  .circles {
+    background: none;
+    border: none;
+    .fa {
+      font-size: 60px;
+      &:hover {
+        color: @masterBrandColor;
+      }
+    }
+  }
+} //@tablet
+@media @mobile{
+  .modal-container-img-navigation{
+    .circles-right{
+      right: 0px;
+    }
+  }
+  .circles{
+    width:20px;
+    font-size: 20px;
+    border-radius: 0;
+    top:45%;
+
+    &-right {
+      right:0;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      i{
+        position: relative;
+        top:2px;
+      }
+    }
+    &-left {
+      left:0;
+      border-top-right-radius: 15px;
+      border-bottom-right-radius: 15px;
+      i{
+        position: relative;
+        top:2px;
+      }
+    }
+  }
+}

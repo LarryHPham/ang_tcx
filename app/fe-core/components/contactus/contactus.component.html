@@ -1,0 +1,104 @@
+
+<section class="contactus">
+  <backtab-component></backtab-component>
+  <title-component
+    *ngIf="contactusInput"
+    [titleData]="contactusInput.titleData">
+  </title-component>
+  <div class="contactus-container col-xs-12">
+      <div class="contactus-required"><span class="text-master">*</span> All fields are required</div>
+      <form *ngIf="active" (ngSubmit)="formSubmit(contactForm.value)" [formGroup]="contactForm">
+
+          <!-- Full Name Text Input -->
+          <div class="row contactus-margin">
+              <div class="contactus-labels col-xs-12 col-sm-12 col-md-3">
+                  <label for="contactusName" class="contactus-label">
+                      Full Name
+                  </label>
+              </div>
+              <div class="contactus-fields col-xs-12 col-sm-12 col-md-9">
+                  <input
+                    name="name"
+                    placeholder="John Smith"
+                    id="contactusName"
+                    class="contactus-textinput col-xs-12"
+                    [ngClass]="{'has-error': !nameControl.valid && nameControl.touched}"
+                    formControlName="name"/>
+              </div>
+              <div
+                *ngIf="!nameControl.valid && nameControl.touched"
+                class="error-message col-xs-12">
+                * Field Required
+              </div>
+          </div>
+
+          <!-- Email Text Input -->
+          <div class="row contactus-margin">
+              <div class="contactus-labels col-xs-12 col-sm-12 col-md-3">
+                  <label for="contactusEmail" class="contactus-label">
+                      Email Address
+                  </label>
+              </div>
+              <div class="contactus-fields col-xs-12 col-sm-12 col-md-9">
+                  <input
+                    type="email"
+                    placeholder="name@domain-name.com"
+                    id="contactusEmail"
+                    class="contactus-textinput col-xs-12"
+                    [ngClass]="{'has-error': !emailControl.valid && emailControl.touched}"
+                    formControlName="email" />
+              </div>
+              <div
+                *ngIf="!emailControl.valid && emailControl.touched"
+                class="error-message col-xs-12">
+                * Field Required
+              </div>
+          </div>
+
+          <!-- Subject Checkboxes -->
+          <div class="row contactus-margin">
+              <div class="contactus-question col-xs-12 col-sm-12 col-md-3">
+                  <label class="contactus-label">
+                      My question is regarding:
+                  </label>
+              </div>
+              <div class="contactus-fields col-xs-12 col-sm-12 col-md-9">
+                  <div *ngFor="let item of contactusInput.subjects" class="checkbox contactus-margin-small">
+                      <label>
+                          <input
+                            formControlName="{{item.id}}"
+                            class="contactus-checkbox"
+                            type="checkbox"
+                            value="{{item.value}}"
+                            name="Type">
+                          <span class="contactus-checkbox-value">{{item.value}}</span>
+                      </label>
+                  </div>
+              </div>
+          </div>
+
+          <!-- Message Text area -->
+          <div class="row contactus-margin-large col-xs-12 col-sm-12 col-md-9 pull-right">
+            <textarea
+              placeholder="Detailed description of your question here..."
+              class="contactus-textarea col-xs-12"
+              [ngClass]="{'has-error': !descriptionControl.valid && descriptionControl.touched}"
+              formControlName="description">
+            </textarea>
+            <div
+              *ngIf="!descriptionControl.valid && descriptionControl.touched"
+              class="error-message col-xs-12">
+              * Field Required
+            </div>
+          </div>
+
+          <div class="contactus-buttons col-xs-12">
+              <div class="contactus-buttons-reset" (click)="reset()">RESET</div>
+              <button type="submit" class="contactus-buttons-submit" [disabled]="!contactForm.valid">
+                  Submit <i class="fa fa-angle-right"></i>
+              </button>
+          </div>
+
+      </form>
+  </div>
+</section>

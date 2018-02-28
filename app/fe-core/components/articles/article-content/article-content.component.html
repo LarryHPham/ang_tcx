@@ -1,0 +1,40 @@
+<div class="content-container col-xs-12"
+     *ngFor="let content of articleData?.article; let i=index; let last=last; let odd=odd;">
+    <complex-inner-html *ngIf="i==0" class="content-first" [textItems]="content"></complex-inner-html>
+    <profile-data-component *ngIf="odd && articleType == 'playerRoster'" [articleType]="articleType"
+                            [articleData]="articleData" [index]="i" [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==1 && articleType == 'game_module'" [articleType]="articleType"
+                            [articleData]="articleData" [index]="i" [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==2 && articleType == 'playerComparison'" [articleType]="articleType"
+                            [articleSubType]="articleSubType" [articleData]="articleData"
+                            [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==2 && articleType == 'teamRecord' && articleSubType == 'about'" [index]="'1'"
+                            [articleSubType]="articleSubType" [articleType]="articleType"
+                            [articleData]="articleData" [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==2 && articleType == 'teamRecord' && articleSubType == 'history'" [index]="'1'"
+                            [articleSubType]="articleSubType" [articleType]="articleType"
+                            [articleData]="articleData" [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==4 && articleType == 'teamRecord' && articleSubType == 'last'" [index]="'1'"
+                            [articleSubType]="articleSubType" [articleType]="articleType"
+                            [articleData]="articleData" [imageLinks]="imageLinks"></profile-data-component>
+    <complex-inner-html
+            *ngIf="i!=0 && !content.player_comparison_module && !content.team_record_module && !content.player_roster_module && !content.game_module"
+            class="content" [textItems]="content"></complex-inner-html>
+    <profile-data-component *ngIf="i==4 && articleType == 'teamRecord' && articleSubType == 'about'" [index]="'2'"
+                            [articleSubType]="articleSubType" [articleType]="articleType"
+                            [articleData]="articleData" [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==3 && articleType == 'teamRecord' && articleSubType == 'history'" [index]="'2'"
+                            [articleSubType]="articleSubType" [articleType]="articleType"
+                            [articleData]="articleData" [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==4 && articleType == 'game_module' && content.game_module"
+                            [articleType]="articleType"
+                            [articleData]="articleData" [index]="i" [imageLinks]="imageLinks"></profile-data-component>
+    <profile-data-component *ngIf="i==6 && articleType == 'teamRecord' && articleSubType == 'last'" [index]="'2'"
+                            [articleSubType]="articleSubType" [articleType]="articleType"
+                            [articleData]="articleData" [imageLinks]="imageLinks"></profile-data-component>
+    <!-- <div *ngIf="last" class="comparison-hr large"></div> -->
+    <billboard-component *ngIf="last" [teamId]="teamId" [scope]="scope" [partnerId]="partnerId"
+                         class="large"></billboard-component>
+    <billboard-component *ngIf="last" [teamId]="teamId" [scope]="scope" [partnerId]="partnerId"
+                         class="small"></billboard-component>
+</div>

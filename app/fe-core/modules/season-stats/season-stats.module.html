@@ -1,0 +1,18 @@
+<section *ngIf="carouselDataArray" class="module-container season-stats-mod">
+    <module-header [modHeadData]="moduleHeaderData"></module-header>
+
+    <slider-carousel *ngIf="carouselDataArray" [carouselData]="carouselDataArray"></slider-carousel>
+
+    <tabs *ngIf="data" (tabSelected)="tabSelected($event)">
+      <tab *ngFor="let tab of data.tabs; let i = index" [tabTitle]="tab.tabTitle" [active]="i == 0">
+        <comparison-legend [comparisonLegendInput]="tab.comparisonLegendData"></comparison-legend>
+        <div class="comparison-module-bars">
+          <comparison-bar *ngFor="let item of tab.tabData; let i = index" [comparisonBarInput]="item" [index]="i"></comparison-bar>
+        </div>
+        <div *ngIf="!tab.tabData" class="comparison-module-no-data">
+            <no-data-box [data]="noDataMessage" [icon]="'fa fa-remove'"></no-data-box>
+        </div>
+      </tab>
+    </tabs>
+    <div class="season-stats-footer"><module-footer [footerData]="footerData"></module-footer></div>
+</section>

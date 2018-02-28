@@ -1,0 +1,44 @@
+<section *ngIf="data && !data.hasError" class="module-container daily-update">
+  <module-header [modHeadData]="headerInfo"></module-header>
+    <div class="daily-update-hero" [style.background-image]="backgroundImage">
+      <h3 class="daily-update-hero-title">{{profileName | possessive}} Daily Update</h3>
+    </div>
+    <!--<div class="container-fluid">-->
+      <div class="row stat-wrapper">
+        <div class="stat-wrapper-table">
+          <h3 class="stat-wrapper-table-title"><span class="fs-18">{{profileName | possessive}}</span><br />
+          <span class="text-heavy">Current Season</span> Stats</h3>
+          <p class="stat-wrapper-table-subtitle">Last Updated: {{data.lastUpdateDate}}</p>
+          <div class="datapoints">
+            <p *ngFor="let item of data.seasonStats" class="datapoints-item">
+              <span class="pull-left"><i class="fa {{item.icon}}"></i>{{item.name}}</span>
+              <span class="pull-right"><span class="text-heavy">{{item.value}}</span></span>
+            </p>
+          </div>
+        </div>
+        <div *ngIf="data.chart" class="stat-wrapper-charts" [ngStyle]="data.wrapperStyle">
+          <div class="stat-wrapper-charts-key">
+            <h4 class="pull-left chart-title">Previous {{comparisonCount}} {{comparisonCount == 1 ? 'Game' : 'Games'}}:</h4>
+            <div id="foragainst">
+              <span class="stat-wrapper-charts-key-item stat-wrapper-charts-key-secondary">{{data.chart.dataSeries[1].name}}</span>
+              <span class="stat-wrapper-charts-key-item stat-wrapper-charts-key-primary">{{data.chart.dataSeries[0].name}}</span>
+            </div>
+          </div>
+          <bar-chart *ngIf="chartOptions" [options]="chartOptions"></bar-chart>
+        </div>
+      </div>
+    <!--</div>-->
+    <!-- Temporarily Hide Daily Updates on player profiles-->
+    <div class="article-teaser" *ngIf="data.postGameArticle && data.postGameArticle.text && data.postGameArticle.text.length > 0 && data.postGameArticle.text[0] != null">
+      <circle-image class="pull-left" *ngIf="imageConfig" [data]="imageConfig"></circle-image>
+      <div class="article-teaser-text pull-right">
+        <h4 class="article-teaser-text-title">
+          <a *ngIf="data.postGameArticle.url && data.type != 'Player'" [routerLink]="data.postGameArticle.url">{{profileName | possessive}} Most Recent Game</a>
+          <span *ngIf="data.type == 'Player'">{{data.postGameArticle.headline}}</span>
+        </h4>
+        <p *ngIf="data.postGameArticle.pubDate" class="article-teaser-text-subtitle"><i class="fa fa-calendar-o"></i> {{data.postGameArticle.pubDate}}</p>
+      </div>
+      <p *ngIf="data.postGameArticle.text.length > 0" class="article-teaser-text-body pull-xs-right" [innerHtml]="data.postGameArticle.text[0] | safeHtml"></p>
+      <p *ngIf="data.postGameArticle.url" class="article-teaser-text-cta"><a  class="article-teaser-text-cta-link" [routerLink]="data.postGameArticle.url">Continue Reading <i class="fa fa-angle-right"></i></a></p>
+    </div>
+</section>

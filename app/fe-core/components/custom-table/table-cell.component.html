@@ -1,0 +1,15 @@
+<div *ngIf="index==0" class="highlight-box"></div>
+<a *ngIf="cellLocal.routerLink" [routerLink]="cellLocal.routerLink" class="table-cell-image">
+  <circle-image *ngIf="cellLocal.image" [data]="cellLocal.image"></circle-image>
+  <span [innerHtml]="cellLocal.display | safeHtml"></span>
+</a>
+
+<div class="bottomStats" *ngIf="cellLocal.bottomStat || cellLocal.bottomStat2" [innerHtml]="cellLocal.bottomStat + ' ' + cellLocal.bottomStat2 | safeHtml"></div>
+
+<span *ngIf="!cellLocal.routerLink && cellLocal.image" class="table-cell-image">
+  <circle-image *ngIf="cellLocal.image" [data]="cellLocal.image"></circle-image>
+  <span [innerHtml]="cellLocal.display | safeHtml"></span>
+</span>
+
+<span *ngIf="cellLocal.displayAsRawText && !cellLocal.routerLink && !cellLocal.image">{{cellLocal.display}}</span>
+<span *ngIf="!cellLocal.displayAsRawText && !cellLocal.routerLink && !cellLocal.image" [innerHtml]="cellLocal.display | safeHtml"></span>

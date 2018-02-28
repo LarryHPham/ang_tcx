@@ -1,0 +1,90 @@
+//Module pages, about-the-site pages, and individual modules
+.page-container,
+.page-module-container,
+.module-container {
+  box-shadow: @modBoxShadow;
+  background-color: @white;
+}
+
+.page-container {
+  margin-top: 20px;
+  // margin-bottom: 0px;
+}
+
+//Individual modules
+.module-container {
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+//Profile and module pages
+.page-module-container{
+  margin-top: 20px;
+  // margin-bottom: 0px;
+  .module-container{
+    margin-bottom: 0px;
+  }
+}
+
+.profile-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.page {
+  width: 100%;
+  min-height: 665px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  font-family: @globalFont;
+}
+.widget-page-wrapper {
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  > .col-xs-8 {
+    width: 100%;
+  }
+
+  > .col-xs-4 {
+    display: none;
+  }
+}
+.direcotyr-container{
+  padding: 0 10px 0 10px;
+  background-color: @white;
+  box-shadow: @modBoxShadow;
+  overflow: hidden;
+  margin: 0px auto;
+  width: 100%;
+}
+@media @tablet{
+  .directory-container {
+    padding: 0 15px 0 15px;
+  }
+}
+@media @desktop-m{
+  .widget-page-wrapper {
+    > .col-xs-8 {
+      width: ~"calc(100% - 345px)";
+      margin-left: 15px;
+    }
+    > .col-xs-4 {
+      display: block;
+      width: 300px;
+      margin-top: 20px;
+      margin-left: 15px;
+      margin-bottom: 20px;
+    }
+  }
+}
+// @media @desktop-xl{
+//   .widget-page-wrapper {
+//     > .col-xs-8 {
+//       max-width: 900px;
+//     }
+//   }
+// }

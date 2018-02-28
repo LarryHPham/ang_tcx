@@ -1,0 +1,134 @@
+responsive-widget{width: 100%}
+.removeAd{
+  display:none;
+}
+@media @desktop-l {
+  .widgetForPage {
+  display:none;
+  }
+  .widgetForModule {
+  display:none;
+  }
+}
+
+.module-container .widgetForPage {
+  display:none;
+}
+transactions-page .module-container .widgetForPage {
+  display:block !important;
+  width:100%;
+  @media @mobile {
+    height: 250px;
+  }
+  .widgetWrapper {
+    @media @mobile {
+      position: relative;
+      background: white;
+    }
+    @media @tablet {
+      position: relative;
+      background: white;
+    }
+  }
+}
+.widgetForPage {
+  width:100%;
+  height:270px;
+  z-index:5;
+  @media @desktop-m {
+    display: none;
+  }
+  .widgetWrapper{
+    width:100%;
+    position:absolute;
+    left:0;
+  }
+}
+
+// standings-page div .standings-tab-section:nth-child(even) .widgetForPage{
+//   display: none;
+// }
+
+.widgetForModule {
+  width:100%;
+  z-index:5;
+  height: 270px;
+  .widgetWrapper {
+    width: 100%;
+    padding: 0 0 20px;
+    height: 270px;
+    position: absolute;
+    left:0;
+  }
+}
+// @media @tablet and (max-width: 1024px) {
+//   .widgetForPage .widgetWrapper {
+//       background-color: transparent;
+//       height: 270px;
+//   }
+//   .pane .widgetForPage .widgetWrapper {
+//     //margin: 0 -15px;
+//   }
+//   .tab-inset .widgetForPage .widgetWrapper {
+//     margin: 0;
+//   }
+//   table .widgetForPage {
+//     height: 270px;
+//   }
+// }
+// @media @mobile {
+//   table .widgetForPage {
+//     padding: 10px 0;
+//     height:270px;
+//     position: unset;
+//     .widgetWrapper {
+//   //    width: 100vw;
+//     }
+//   }
+// }
+
+.widgetWrapper {
+  width: 100%;
+  height: 250px;
+  background-color: transparent;
+  padding: 0;
+  position:relative;
+  // .adSquareSmall {
+  //   width:300px;
+  //   height:250px;
+  //   text-align: center;
+  //   margin: 0 auto;
+  // }
+  .adSquare {
+    width:100%;
+    height:250px;
+    text-align: center;
+    margin: 0;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+@media @mobile {
+  .deep-dive .widgetWrapper{
+    width: 100%;
+    left: 0;
+  }
+}
+
+@media @tablet  {
+  .widgetForPage {
+    height: 270px;
+  }
+  .deep-dive .widgetWrapper{
+    width: 610px;
+    left: ~"calc(50% - 320px)";
+  }
+}
+
+
+._640only {
+  @media @tablet {display:none;}
+}
+._1024only {
+  @media (min-width: 999px), @mobile {display:none;}
+}

@@ -1,0 +1,41 @@
+.art-hdr {
+  .share {
+    font-size: 16px;
+    position: relative;
+    top: 15px;
+  }
+  .st_sharethis_large {
+    cursor: pointer;
+    span {
+      font-size:16px;
+      vertical-align:top;
+      margin-left: 0;
+      margin-right: -5px;
+      display: inline-block;
+      @media @mobile{
+        font-size: 14px;
+        //display:none;
+      }
+    }
+    span:first-child {
+      display: none;
+    }
+  }
+  .shareOptions {
+
+  }
+  .globalDefaultModFont(18px, 400, #5ab53f);
+  .flexDisplay;
+  .flexAlignItems(center);
+}
+@media @mobile {
+  .art-hdr {
+    margin-top: 15px;
+    padding-bottom: 15px;
+  }
+  .st_sharethis_large {
+    span {
+      //display:none;
+    }
+  }
+}

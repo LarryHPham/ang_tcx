@@ -1,0 +1,31 @@
+<div class="mvp-container">
+  <slider-carousel *ngIf="carouselDataArray" [carouselData]="carouselDataArray" [footerStyle]="carouselFooter"></slider-carousel>
+  <tabs *ngIf="tabs" (tabSelected)='tabSelected($event)'>
+    <tab *ngFor="let tab of tabs; let i = index" [active]="tab.tabDisplayTitle == selectedTabTitle" [tabTitle]="tab.tabDisplayTitle">
+      <!--<div class="mvp-container-list" style="margin: -5px -15px 0 -15px">--> <!-- due to tab having a default value of padding 10px for tab purposes so we just reverse it with margin -->
+      <div class="mvp-list-title">
+        <h4 class="mvp-page-heading">
+          <span class="text-heavy">{{displayTabTitle}}: </span>{{displayPositionAbbrv}}
+        </h4>
+        <span class="list-filter-heading">
+          <i class="fa fa-cog"></i> List Filters
+        </span>
+        <div class="sort-title">
+          <span class="sort-title-text">Position: </span>
+          <dropdown
+            *ngIf="sortOptions"
+            [isModule]="'true'"
+            [list]="sortOptions"
+            [selectedKey]="dropdownSelectedKey"
+            (selectionChanged)="dropdownChanged($event)">
+          </dropdown>
+        </div>
+      </div>
+      <div class="mvp-container-list">
+          <detailed-list-item *ngIf="detailedDataArray" [detailedItemData]='detailedDataArray'></detailed-list-item>
+          <no-data-box *ngIf="!detailedDataArray && tab.isLoaded && tab.errorData" [data]="tab.errorData.data" [icon]="tab.errorData.icon"></no-data-box>
+          <loading-component *ngIf="!detailedDataArray && !tab.isLoaded"></loading-component>
+      </div>
+    </tab>
+  </tabs>
+</div>

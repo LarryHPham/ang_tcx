@@ -1,0 +1,55 @@
+<div *ngIf="tabs" class="standings">
+  <div class="standings-car">
+    <slider-carousel *ngIf="carouselData" [carouselData]="carouselData" (indexNum)="indexNum($event)" [indexInput]="selectedIndex"></slider-carousel>
+  </div>
+
+  <tabs (tabSelected)="tabSelected($event)" [class.hidden-tabs]="scope != 'nfl'">
+    <tab *ngFor="let tab of tabs" [tabTitle]="tab.title" [active]="tab.isActive">
+      <loading-component *ngIf="!tab.isLoaded && !tab.hasError"></loading-component>
+      <div *ngIf="tab.isLoaded && tab.sections" class="inner-pane">
+        <div class="filters" [class.filters-type2]="scope != 'nfl'">
+          <span class="list-filter-heading" [class.heading-hidden]="scope != 'nfl'">
+            <i class="fa fa-cog"></i> List Filters
+          </span>
+          <div class="sort-title conferences">
+            <span class="sort-title-text">Conference: </span>
+            <dropdown
+              class="sort-title-conf"
+              *ngIf="sortConference"
+              [isModule]="'true'"
+              [list]="sortConference"
+              [selectedKey]="sortConferenceSelected"
+              (selectionChanged)="conferenceChanged($event)">
+            </dropdown>
+            <dropdown
+              class="sort-title-div"
+              *ngIf="sortDivision"
+              [isModule]="'true'"
+              [list]="sortDivision"
+              [selectedKey]="sortDivisionSelected"
+              (selectionChanged)="divisionChanged($event)">
+            </dropdown>
+          </div>
+          <div class="sort-title">
+            <span class="sort-title-text">Season: </span>
+            <dropdown
+              class="sort-title-season"
+              *ngIf="sortSeason"
+              [isModule]="'true'"
+              [list]="sortSeason"
+              [selectedKey]="sortSeasonSelected"
+              (selectionChanged)="seasonChanged($event)"></dropdown>
+          </div>
+        </div>
+        <div *ngFor="let section of tab.sections; let i = index;" class="standings-tab-section">
+          <h2 class="tab-name {{'no-'+i}} capString" *ngIf="section.conference && section.division" [innerHtml]="'<b>' + section.conference + ': ' + section.division.replace(section.conference, '').toLowerCase() + ' </b> Standings'"></h2>
+          <custom-table [model]="section.tableData" (sortChanged)="updateCarousel($event)" [lastStanding]="false"></custom-table>
+        </div>
+      </div>
+      <div *ngIf="!tab.sections && tab.isLoaded" class="standings-no-data">
+          <no-data-box [data]="noDataMessage" [icon]="'fa fa-remove'"></no-data-box>
+      </div>
+    </tab>
+  </tabs>
+
+</div>

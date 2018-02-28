@@ -1,0 +1,38 @@
+<!--ngFor loop here and add background color class within dli-container-->
+<div *ngFor="let details of detailedItemData; let i = odd; let rowIndex = index; let isLast = last" >
+  <div class="dli-container" [ngClass]="{'even': i == false}">
+    <div class="dli-container-left">
+      <circle-image [data]="details.imageConfig"></circle-image>
+    </div>
+    <div class="dli-container-right">
+      <!--put in right box styles-->
+      <div class="dataBox">
+        <div class="dataBox-info" *ngFor="let data of details.dataPoints" [ngClass]="data.style">
+          <span class="dataBox-info-text">
+            <i class="{{data.icon}}"></i>
+            <complex-inner-html class="detail-large" [textItems]="data.mainText"></complex-inner-html>
+          </span>
+          <span class="dataBox-info-text">
+            <complex-inner-html class="detail-medium" [textItems]="data.subText"></complex-inner-html>
+          </span>
+        </div>
+      </div>
+      <!--cta container-->
+      <div *ngIf="details.ctaUrl" class="cta-container">
+        <span [innerHTML]="details.ctaDesc"></span>
+        <span>
+          <!--button component goes here-->
+          <a [routerLink]="details.ctaUrl">
+            <span></span>
+            <span [innerHTML]="details.ctaText"></span>
+            <i class="fa fa-angle-right"></i>
+          </a>
+          <!--button component goes here-->
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="list-widget" *ngIf="!((rowIndex + 1) % 5) && rowIndex != 9 && !isLast">
+    <responsive-widget embedPlace="widgetForPage"></responsive-widget>
+  </div>
+</div>

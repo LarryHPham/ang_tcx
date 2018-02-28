@@ -1,0 +1,5 @@
+User-agent: SNT Crawler
+Disallow:
+
+User-agent: *
+Disallow: /

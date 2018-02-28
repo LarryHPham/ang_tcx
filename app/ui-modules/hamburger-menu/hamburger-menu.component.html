@@ -1,0 +1,22 @@
+<div  class="hamburger-component" (window:resize)="onWindowResize($event)">
+  <scrollable-content id="hamburger-scroller" [refreshVar]="refreshScroller">
+  <div class="hamburger">
+    <ul id="hamburger-list" class="hamburger-topics-list">
+      <span  *ngFor="let menuData of menuData">
+        <a *ngIf="menuData.nesterChildren == null" [routerLink]="menuData.url"><li class="hamburger-topics-list-item menucheck">{{menuData.menuTitle}}</li></a>
+
+        <li *ngIf="menuData.nesterChildren != null" class="nester-parent menucheck">
+          <a [routerLink]="menuData.url" class="nester-parent-title menucheck">{{menuData.menuTitle}}</a>
+          <img class="toggle-nest menucheck" onclick="event.stopPropagation();" (click)="toggleNest($event)" src="app/public/icon-+.svg">
+          <ul>
+            <a class="menucheck" *ngFor="let nesterChild of menuData.nesterChildren" [routerLink]="nesterChild.url">
+            <li class="nester-child menucheck" >{{nesterChild.menuTitle}}</li>
+            </a>
+          </ul>
+        </li>
+
+      </span>
+    </ul>
+  </div>
+</scrollable-content>
+</div>

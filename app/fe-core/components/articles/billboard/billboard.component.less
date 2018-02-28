@@ -1,0 +1,47 @@
+.billboard {
+  width: 522px;
+  height: 401px;
+  font-family: @globalFont;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border: 1px solid @strokeGrey;
+  @media (min-width: 750px) {
+    display: none;
+  }
+  @media @mobile {
+    display: none;
+  }
+}
+
+.billboard-320x761 {
+  width: 322px;
+  height: 763px;
+  font-family: @globalFont;
+  margin: 20px auto;
+  border: 1px solid @strokeGrey;
+  @media (min-width: 749px) and (max-width: 999px) {
+    display: none;
+  }
+  @media (min-width: 640px) {
+    display: none;
+  }
+  @media (max-width: 320px) {
+    margin-left: -12px;
+  }
+}
+
+.billboard-720x460 {
+  @media (min-width: 750px) {
+    width: 722px;
+    height: 462px;
+    font-family: @globalFont;
+    margin: 20px auto;
+    border: 1px solid @strokeGrey;
+  }
+  @media (max-width: 749px) {
+    display: none;
+  }
+  @media @mobile {
+    display: none;
+  }
+}

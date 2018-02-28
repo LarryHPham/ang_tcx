@@ -1,0 +1,82 @@
+.page-title {
+  @defaultPageHdrHeight: 135px;
+  width: 100%;
+  height: auto;
+  min-height: @defaultPageHdrHeight;
+  line-height: @defaultPageHdrHeight;
+  background: @white;
+  @media @mobile {
+    padding: 15px 10px;
+  }
+  @media @tablet {
+    padding: 15px;
+  }
+  @media @desktop-m {
+    padding: 15px 15px 20px 15px;
+  }
+  .flexDisplay;
+  &-titleImage {
+    .roundImageMain(96px);
+     margin: 0 15px 0 0;
+  }
+  .titleText {
+    width: 80%;
+    //margin: 15px 15px 15px 0;
+    height:auto;
+    .smallTxt1 {
+      .globalDefaultModFont(10px, 400, @bulletGrey);
+      margin-bottom: 15px;
+    }
+    .smallTxt2 {
+      .globalDefaultModFont(12px, 400, @black);
+      height: 14px;
+      i{
+        margin-right: 4px;
+        color: @masterBrandColor;
+      }
+    }
+    .mainTitle {
+      //.globalDefaultModFont(28px, 800, @black);
+      //line-height: 28px;
+        margin: 10px 0 0 0;
+    }
+    .subTitle {
+      .globalDefaultModFont(26px, 400, @black);
+      line-height: 26px;
+    }
+  }
+}
+
+.title-original-link{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: @black !important;
+  font-size: 1em;
+}
+
+@media @mobile {
+  .page-title {
+    min-height: 0px;
+    &-titleImage {
+      display: none;
+    }
+    .titleText {
+      width: 100%;
+    }
+    .mainTitle {
+      .globalDefaultModFont(22px, 800, @black);
+    }
+  }
+}
+@media @tablet {
+  .page-title {
+    min-height: auto;
+    &-titleImage {
+      display: inline-block;
+    }
+    .mainTitle {
+      .globalDefaultModFont(28px, 800, @black);
+    }
+  }
+}

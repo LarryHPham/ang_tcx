@@ -1,0 +1,9 @@
+node_modules
+dist
+.idea
+*.swp
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+coverage/
+.vscode/settings.json
+.DS_Store

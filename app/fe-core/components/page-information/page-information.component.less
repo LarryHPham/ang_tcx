@@ -1,0 +1,92 @@
+.tos-space{
+  padding-left: 20px;
+  li{list-style-type: disc};
+  &-2{
+    padding-left: 20px;
+    li{list-style-type: circle}
+  }
+}
+.condition-page{
+  min-width: 320px;
+  .flexDisplay;
+  &-widget{
+    margin: 0 auto;
+  }
+  &-container2b{
+    display: none;
+    @media @desktop-l{
+      display: block;
+      position: relative;
+      width: 300px;
+      height: 600px;
+      margin-top: 20px;
+    }
+  }
+}
+.terms-of-service{
+  padding: 0 10px;
+  @media @tablet{padding: 0 20px}
+}
+.info{
+  &-contain{
+    padding: 20px 10px 1px;
+    @media @tablet{padding: 20px 20px 1px}
+  }//.info-contain ends
+  &-title{
+    &-share ul{
+      margin-bottom: 0;
+      .flexDisplay;
+      .st_sharethis_large{
+        .stButton{
+          margin: 0;
+          display: none!important;
+        }
+        margin-right: 10px;
+        cursor: pointer;
+        color: @altShareGreen;
+      }
+      a{
+        margin-right: 10px;
+        li{
+          .fa{font-size: 16px}
+          .fa-facebook{color: @facebook}
+          .fa-twitter{color: @twitter}
+          .fa-g-plus{color: @googlePlus}
+          .fa-linkedin{color: @linkedin}
+        }
+      }
+    }
+    &-main{
+      margin-bottom: 10px;
+      line-height: 1.2em;
+      .globalDefaultModFont(22px, 800, @black);
+      @media @tablet{font-size: 40px}
+      @media @desktop-m{font-size: 50px}
+      @media @desktop-m{font-size: 58px}
+    }
+    &-update{
+      margin-bottom: 10px;
+      .globalDefaultModFont(12px, 400, @black);
+    }
+  }//.info-title ends
+  &-paragraph{
+    &-par{
+      margin-bottom: 1em;
+    }
+    &-sub{
+      margin-bottom: 18px;
+      @media @tablet{margin-bottom: 18px}
+      &-title{
+        margin-bottom: 3px;
+        .globalDefaultModFont(18px, 800, @black);
+      }
+      &-info{
+        line-height: 1.2em;
+        margin-bottom: 18px;
+        .globalDefaultModFont(14px, 400, @black);
+        @media @tablet{margin-bottom: 18px}
+      }
+      &-info:last-child{margin-bottom: 0}
+    }
+  }//.info-paragraph ends
+}

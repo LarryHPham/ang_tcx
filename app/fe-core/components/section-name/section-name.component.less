@@ -1,0 +1,26 @@
+.section{
+  &-more{text-align: right}
+  &-name{
+    margin: 0 auto;
+    border-bottom: 1px solid @strokeGrey;
+    line-height: 1em;
+    margin-bottom: 10px;
+    .globalDefaultModFont(24px, 400, @black);
+    .flexDisplay;
+    .flexJustify(space-between);
+    .flexAlignItems(flex-start);
+    &-title{
+      .flexDisplay;
+      p{line-height: 24px;margin-bottom: 10px}
+    }
+    &-link{font-size: 14px}
+    i {
+      margin-right: 10px;
+      font-size: 28px;
+      color: @bulletGrey;
+    }
+    @media @mobile{
+      width: ~"calc(100% - 20px)";
+    }
+  }
+}

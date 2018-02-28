@@ -1,0 +1,136 @@
+list-of-lists-item{
+    &:nth-child(odd){
+      .loli-container {
+        background-color: @backgroundGrey;
+      }
+    }
+
+    .loli {
+      &-title {
+        margin: 0;
+        // margin: 0 0 15px 0;
+        // min-height: 52px;
+
+        .globalDefaultModFont(18px, 400, @black);
+        line-height: 28px;
+      }
+
+      &-container {
+        width:100%;
+        min-height:155px;
+        border-bottom: 1px solid @strokeGrey;
+        .clearfix;
+        padding: 15px 15px;
+
+        &-left{
+          float:left;
+          width: 136px;
+          padding-top: 2px;
+        }
+
+        &-right{
+          float:right;
+          width: ~"calc(100% - 136px)";
+          height: 125px;
+          .clearfix;
+          position: relative;
+
+          .loli-sub-item{
+            float: left;
+            margin-left: 10px;
+          }
+
+          .dataBox{
+            width:100%;
+            height:auto;
+            color:@black;
+
+            .data-hover{//hover states
+              text-decoration: none;
+              color: @black;
+              &:hover{
+                text-decoration: none;
+                color:@masterBrandColor;
+                cursor: pointer;
+              }
+            }
+          }
+
+          .cta-container {
+            padding: 5px 5px 5px 12px;
+            overflow: hidden;
+            background: @white;
+            border: 1px solid @highlightGrey;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 45px;
+
+            &-text {
+              display: inline-block;
+              margin-top: 11px;
+              .globalDefaultModFont(14px, 400, @black);
+            }
+
+            &-button {
+              float: right;
+              .mod-page-btn(35px, 160px, 25px, 14px, 400);
+              .flexJustify(inherit);
+              >i {
+                margin-left: 4px;
+              }
+            }
+            .loli-icon {
+              line-height: 25px;
+              padding-top: 0px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media @mobile {
+    #container-loli {
+        padding: 0;
+        background-color: inherit;
+        border: none;
+        width:160px;
+      }
+        #container-loli-text {
+          display: none;
+        }
+        #container-loli-button {
+          float: left;
+          clear: right;
+          &:hover {
+            background-color: @touchDownLoyalBlue;
+          }
+          &:active {
+            background-color: @black;
+          }
+        }
+        .dataBox {
+          h2 {
+            line-height: 1;
+            font-size: 16px;
+          }
+        }
+        .mod-info {
+          display: none;
+        }
+        .atborder {
+          border-top: 1px solid @strokeGrey;
+        }
+      }
+
+
+
+      .image-38-rank { //fix for a rank above 3 number characters.
+        min-width:38px;
+        width: auto;
+      }
+      .image-121 > .image-round-sub-text {
+        border-radius:19px;
+      }

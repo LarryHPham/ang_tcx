@@ -1,0 +1,58 @@
+<div *ngIf="!league" class="schedule">
+    <div class="schedule-next {{defaultGradient}} col-xs-12 row" [ngStyle]="gradient">
+        <div *ngFor="let away of awayData" class="col-xs-5">
+            <div class="schedule-next-team schedule-next-team-left col-xs-9">
+                <a *ngIf="away.url" [routerLink]="away.url">
+                    <div class="schedule-next-team-left-url">
+                        <span class="schedule-next-team-name">
+                          <span class="schedule-next-team-name-firstName">
+                            {{away.awayLocation}}
+                          </span>
+                          <span class="schedule-next-team-name-bold"> {{away.awayName}}</span></span>
+                    </div>
+                </a>
+                <div *ngIf="!away.url" class="schedule-next-team-left">
+                        <span class="schedule-next-team-name">
+                          <span class="schedule-next-team-name-firstName">
+                            {{away.awayLocation}}
+                          </span>
+                          <span class="schedule-next-team-name-bold"> {{away.awayName}}</span>
+                        </span>
+                </div>
+                <div class="schedule-next-team-record">Record: <span class="schedule-next-team-record-bold">{{away.awayWins}} - {{away.awayLosses}}</span>
+                </div>
+            </div>
+            <circle-image *ngIf="away.awayLogo" class="schedule-next-circle schedule-next-circle-left push-xs-10"
+                          [data]="away.awayLogo"></circle-image>
+        </div>
+        <div class="schedule-next-vs col-xs-2">
+            vs.
+        </div>
+        <div *ngFor="let home of homeData" class="col-xs-5">
+            <circle-image *ngIf="home.homeLogo" class="schedule-next-circle schedule-next-circle-right pull-xs-10"
+                          [data]="home.homeLogo"></circle-image>
+            <div class="schedule-next-team schedule-next-team-right col-xs-9">
+                <a *ngIf="home.url" [routerLink]="home.url">
+                    <div class="schedule-next-team-right-url">
+                        <span class="schedule-next-team-name">
+                          <span class="schedule-next-team-name-firstName">
+                            {{home.homeLocation}}
+                          </span>
+                          <span class="schedule-next-team-name-bold"> {{home.homeName}}</span>
+                        </span>
+                    </div>
+                </a>
+                <div *ngIf="!home.url" class="schedule-next-team-right">
+                        <span class="schedule-next-team-name">
+                          <span class="schedule-next-team-name-firstName">
+                            {{home.homeLocation}}
+                          </span>
+                          <span class="schedule-next-team-name-bold"> {{home.homeName}}</span>
+                        </span>
+                </div>
+                <div class="schedule-next-team-record">Record: <span class="schedule-next-team-record-bold">{{home.homeWins}} - {{home.homeLosses}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.tweet{
+  height: 535px;
+  @media @mobile {
+    height: 370px;
+  }
+  &-embedded{
+    text-align: center;
+    @media @tablet {
+      padding: 15px 20px;
+    }
+  }
+}
+#twitter-widget-0 {
+  border: 1px solid @backgroundGrey !important;
+  border-radius: 6px 6px 0 0 !important;
+  width: 100%;
+  max-width: 580px!important;
+  height: 460px!important;
+  @media @mobile {
+    height: 325px!important;
+  }
+}
+
+@media @mobile {
+  .tweet {
+    .module-header h3 {
+      font-size: 18px;
+    }
+  }
+} //@media @mobile

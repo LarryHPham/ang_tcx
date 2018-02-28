@@ -1,0 +1,9 @@
+<div class="billboard" *ngIf="teamId">
+    <iframe *ngIf="safeBillBoardUrl" [src]="safeBillBoardUrl" style="display: block; height: 399px; width: 520px; margin: 0px; border: 0px; overflow: hidden; position: relative; z-index: 0;" scrolling="no"></iframe>
+</div>
+<div class="billboard-320x761" *ngIf="teamId">
+    <iframe *ngIf="safeBillBoardUrl" [src]="safeBillBoardUrl" style="display: block; height: 761px; width: 320px; margin: 0px; border: 0px; overflow: hidden; position: relative; z-index: 0;" scrolling="no"></iframe>
+</div>
+<div class="billboard-720x460" *ngIf="teamId">
+    <iframe *ngIf="safeBillBoardUrl" [src]="safeBillBoardUrl" style="display: block; height: 460px; width: 720px; margin: 0px; border: 0px; overflow: hidden; position: relative; z-index: 0;" scrolling="no"></iframe>
+</div>

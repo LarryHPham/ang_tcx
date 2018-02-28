@@ -1,0 +1,63 @@
+// NOTICE:
+// MODIFY THIS FILE MAY CHANGE STYLING IN VIDEO STACK COMPONENT AND ARTICLE BLOCK COMPONENT (BEING USED FOR RECCOMENDATION MODULE)
+// TO MAKE CHANGES, PLEASE MODIFY INSIDE VIDEO MODULE OR RECCOMENDATION MODULE OR ARTICLE STACK STYLE 2 INSTEAD
+
+.video-stack {
+  position: relative;
+  &-video {
+    background-color: @strokeGrey;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    .greyout {
+      position: relative;
+      width:100%;
+      height:100%;
+      background-color: rgba(0,0,0,0.3);
+      .playCircle {
+        position:absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+        background-color: rgba(30, 185, 227, 0.9);
+        border-radius:50%;
+        height: 70px;
+        width: 70px;
+        padding: 20px 22px;
+        .fa-play {
+          &:before {font-size: 30px}
+        }
+        .globalDefaultModFont(20px, 400, @white);
+      }
+    }
+  }
+  &-thumbnail{
+    cursor: pointer;
+  }
+  .video-title {
+    &-top {
+      // position: absolute;
+      display: block;
+      line-height: 1em;
+      text-transform: uppercase;
+      z-index: 1;
+      .globalDefaultModFont(10px, 800, @black);
+      &-key {margin-right: 5px; z-index: 1}
+      &-date {color: @bulletGrey; font-weight: 400; white-space: nowrap; margin-right: 20px}
+    }
+  }
+  .video-title-mid {
+    margin-top: 5px;
+    display: block;
+    line-height: 1.2em;
+    word-wrap: break-word;
+    .globalDefaultFont(14px, 400);
+  }
+  @media @desktop-m{
+    .video-title-mid:hover{
+      color: @masterBrandColor;
+    }
+  }
+}

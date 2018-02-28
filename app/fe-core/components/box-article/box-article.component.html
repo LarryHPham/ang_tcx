@@ -1,0 +1,16 @@
+<div class="box_articles row">
+  <div class="box_articles-item col-xs-12 col-md-6 col-lg-6" *ngFor="let data of boxArticleData;">
+    <a [routerLink]="data.url" class="col-xs-12">
+      <div
+        class="box_articles-image embed-responsive embed-responsive-16by9"
+        [ngStyle]="{'background-image': 'url(' + data.imageConfig.imageUrl + ')'}">
+        <!-- <rectangle-image [data]="data.imageConfig"></rectangle-image> (from old TDL) -->
+      </div>
+      <div class="box_articles-text col-xs-12">
+        <span [innerHTML]="data.keyword | safeHtml"></span>
+        <span [innerHTML]="data.date | safeHtml"></span>
+      </div>
+      <div class="box_articles-description" [innerHTML]="data.teaser | safeHtml"></div>
+    </a>
+  </div>
+</div>

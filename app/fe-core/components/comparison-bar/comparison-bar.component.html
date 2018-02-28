@@ -1,0 +1,53 @@
+<div *ngIf="displayData" class="comparison-bar-container {{statsHighCheck}}" [ngClass]="{'background-even': index % 2 === 0}">
+    <label class="comparison-bar-title">
+        {{displayData.title}}
+    </label>
+    <span *ngIf="displayData.qualifierLabel" class="comparison-bar-qualifier">*<span [innerHtml]="displayData.qualifierLabel"></span></span>
+    <div #masterBar class="comparison-bar-capsule" *ngIf="displayData.data.length >= 1">
+        <div class="comparison-bar-capsule-stroke stroke-top"
+            [style.width]="displayData.data[0].width + '%'"
+            [style.backgroundColor]="displayData.data[0].color">
+            <label #labelOne class="comparison-bar-capsule-label"
+                [style.color]="displayData.data[0].color" [style.fontWeight]="displayData.data[0].fontWeight">
+                {{displayData.data[0].value | naValue}}
+            </label>
+        </div>
+        <div *ngIf="displayData.data.length >= 2" class="comparison-bar-capsule-stroke"
+            [style.width]="displayData.data[1].width + '%'"
+            [style.backgroundColor]="displayData.data[1].color" id="setMinWidth">
+            <label #labelTwo class="comparison-bar-capsule-label"
+                [style.color]="displayData.data[1].color" [style.fontWeight]="displayData.data[1].fontWeight">
+                {{displayData.data[1].value | naValue}}
+            </label>
+        </div>
+        <label class="comparison-bar-capsule-label label-top" (mouseover)="isSelected(displayData)" (mouseout)='mouseOff(displayData)' [class.active]="displayData.active">
+            <div class="infobox-values">
+              <div class="infobox-display">
+                <span class="infobox-value1">{{displayData.maxValue}}</span>
+                <!-- When Hover Over, it will display an information drop box, the icon is optional -->
+                <div *ngIf="displayData.info" class="infobox-icons">
+                  <i class="fa {{displayData.info}}"></i>
+                  <i [class.active]="displayData.active" class="fa fa-sort-up"></i>
+                </div>
+              </div>
+              <!-- Information Drop Box Next to Lead Stats if there's display data info when hovered over icon-->
+              <ul class="infobox-box" [class.active]="displayData.active">
+                <li class="infobox-list" *ngFor="let displayData of displayData.infoBoxDetails">
+                  <a class="infobox-list-item" [routerLink]="displayData.routerLinkPlayer">
+                    <div class="infobox-list-image">
+                        <circle-image [data]="displayData.infoBoxImage"></circle-image>
+                    </div>
+                    <div class="infobox-list-details infobox-list-playerName">
+                      {{displayData.playerName}}
+                    </div>
+                    <div class="infobox-list-view"><i class="fa fa-angle-right"></i></div>
+                  </a>
+                  <a class="infobox-list-team" [routerLink]="displayData.routerLinkTeam">
+                    <span class='infobox-list-team-label'>Team: </span>{{displayData.teamName}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </label>
+    </div>
+</div>

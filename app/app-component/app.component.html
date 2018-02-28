@@ -1,0 +1,7 @@
+<header-component *ngIf="!isCrawler" [partnerID]="partnerID" [partnerScript] ="partnerScript"></header-component>
+<div class="container-fluid vertical">
+  <div class="container-fluid">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<footer-component *ngIf="!isCrawler"></footer-component>

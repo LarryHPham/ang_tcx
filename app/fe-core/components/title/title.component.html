@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="page-title">
+                <circle-image [data]="titleImage"></circle-image>
+                <div class="titleText">
+                    <div class="smallTxt1">{{titleData.text1}}</div>
+                    <div class="smallTxt2"><i class="{{titleData.icon}}"></i>{{titleData.text2}}</div>
+                    <h1 class="mainTitle">{{titleData.text3}}</h1>
+                    <div class="subTitle">{{titleData.text4}}</div>
+                </div>
+            </div>
+            <a *ngIf="titleData.originalLink" href="{{titleData.originalLink}}" class="title-original-link">See Original</a>
+        </div>
+    </div>
+</div>

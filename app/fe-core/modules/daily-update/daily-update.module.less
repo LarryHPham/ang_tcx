@@ -1,0 +1,286 @@
+.fs-18{
+  font-size:18px;
+}
+
+/* Mixin */
+.vertical-align{
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.daily-update{
+
+  .loading-container {
+    min-height: 600px;
+  }
+
+  &-hero{
+    display:block;
+    width: 100%;
+    min-height: 198px;
+    position: relative;
+    background: url("/app/public/drk-linen.png") top center no-repeat;
+    background-size: cover;
+    @media @mobile {
+      min-height: 180px;
+    }
+
+    &:before{
+      content: "";
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      left: 0;
+      right: 0;
+      top: 0;
+      position: absolute;
+    }
+
+    &-title{
+      display: block;
+      width: 100%;
+      min-height: 78px;
+      margin: auto;
+      font-weight: 400;
+      text-align: center;
+      .vertical-align;
+      background: @touchDownLoyalImageHover;
+      color: @white;
+      font-size: 30px;
+      padding: 22px;
+      @media @mobile {
+        font-size:22px;
+        padding: 27px 20px;
+      }
+    }
+
+  }
+  .stat-wrapper{
+    .clearfix;
+    @media @tablet {
+      border-bottom: 1px solid @strokeGrey;
+    }
+    &-table{
+      display: block;
+      width: 280px;
+      float: left;
+      padding: 1px 15px 0px 15px;
+      border-right: 1px solid @strokeGrey;
+      margin-right: -1px;
+      @media @mobile {
+        width: 100%;
+        clear: both;
+        border-right-width: 0px;
+        padding: 0px 10px 0px 10px;
+      }
+      &-title{
+        margin: 7px 0 0 0;
+        .globalDefaultFont(20px, 400);
+        line-height: 24px;
+        b{
+          font-weight: 800;
+        }
+      }
+      &-subtitle{
+        margin: 0;
+        .globalDefaultModFont(10px, 400, @bulletGrey);
+        line-height: 16px;
+        padding-bottom:8px;
+        border-bottom: 1px solid @strokeGrey;
+      }
+      .datapoints{
+        &-item{
+          .clearfix;
+          padding: 0 10px 0 8px;
+          font-size: 12px;
+          line-height: 27px;
+          margin: 0;
+          .fa{
+            margin-right: 8px;
+            font-size: 12px;
+            line-height: 27px;
+          }
+          b{
+            font-weight: 800;
+          }
+        }
+      }
+      @media @mobile {
+        .datapoints:last-child {
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
+    &-charts{
+      display: block;
+      width: ~"calc(100% - 280px)";
+      float: left;
+      border-left: 1px solid @strokeGrey;
+      @media @mobile {
+        width: 100%;
+        padding: 0 10px;
+        clear: both;
+        border-left-width: 0px;
+        bar-chart{
+          border-bottom: 1px solid @strokeGrey;
+        }
+      }
+      bar-chart{
+        display: block;
+        width: 100%;
+        padding: 4px 9px 7px 9px;
+      }
+      &-key{
+        line-height:14px;
+        .clearfix;
+        padding: 10px 15px 10px 10px;
+        border-bottom: 1px solid @strokeGrey;
+        display: flex;
+        @media @mobile {
+          padding: 10px 10px 10px 10px;
+        }
+        .chart-title{
+          margin: 0;
+          width: 166px;
+          .globalDefaultModFont(14px, 400, @textEmphasisGrey);
+          @media @mobile {
+            font-size: 12px;
+          }
+        }
+        &-item{
+          .globalDefaultModFont(10px, 800, @textEmphasisGrey);
+          // @media @mobile {
+          //   font-size: 12px;
+          // }
+          &:before {
+            content: "";
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+            position: relative;
+            bottom: 1px;
+            border-radius: 2px;
+            vertical-align: middle;
+          }
+        }
+        #foragainst {
+          width: 100%;
+          margin-top: 2px;
+        }
+        &-primary{
+          float: right;
+          margin-right: 10px;
+          &:before{
+            background-color: @bulletGrey;
+          }
+        }
+        &-secondary{
+          float: right;
+          &:before{
+      //      margin-left: 20px;
+            background-color: @masterBrandColor;
+          }
+        }
+
+      }
+    }
+  }
+  .article-teaser{
+    .clearfix;
+
+    circle-image{
+      padding: 20px;
+      @media @mobile {
+        padding: 15px 10px 10px 10px;
+      }
+      .image-round {
+        width: 125px;
+        height: 125px;
+        @media @mobile {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+    &-text{
+      display: block;
+      width: ~"calc(100% - 170px)";
+      padding: 20px 20px 0 0;
+      @media @mobile {
+        width: ~"calc(100% - 130px)";
+      }
+      &-body {
+        width: ~"calc(100% - 180px)";
+        margin: 0px 10px 0px 0px;
+        @media @mobile {
+          width:100%;
+          padding: 0 15px 0;
+          margin: 0 0 0 0;
+        }
+      }
+      &-title{
+        .globalDefaultFont(18px, 800);
+        margin: 0 0 6px 0;
+        text-transform: titlecase;
+        a:hover{
+          color: @masterBrandColor;
+        }
+      }
+      &-subtitle{
+        .globalDefaultModFont(12px, 400, @bulletGrey);
+        line-height: 20px;
+        margin: 0 0 6px 0;
+      }
+      &-body{
+
+        .globalDefaultFont(14px, 400);
+        line-height: 16px;
+        a{
+          .globalDefaultModFont(14px, 800, @masterBrandColor);
+        }
+      }
+      &-cta {
+        margin: 10px 10px 0 0;
+        padding-bottom: 10px;
+        width: ~"calc(100% - 180px)";
+        text-align: left;
+        float: right;
+        @media @mobile {
+          float: left;
+          padding-bottom: 16px;
+        }
+        &-link {
+          .globalDefaultModFont(12px, 800, @masterBrandColor);
+          line-height: 20px;
+          padding-right: 16px;
+          @media @mobile {
+            width: 100%;
+            padding: 0 0 15px 15px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+          }
+          &:hover{
+            text-decoration: underline;
+          }
+          .fa {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+  }
+}
+@media @mobile {
+  g.highcharts-series.highcharts-series-0 > rect {
+    width: 27;
+  }
+  g.highcharts-series.highcharts-series-1 > rect {
+    width: 27;
+  }
+
+}

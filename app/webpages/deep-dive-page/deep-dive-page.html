@@ -1,0 +1,33 @@
+<section verticalWidgetScroll class="deep-dive-page container-fluid" >
+  <div *ngIf="carouselData == null" class="no-carousel-margin"></div>
+  <section *ngIf="errorPage">
+      <div class="loading-container">
+          <span class="loading-text">The page you are trying to reach is unavailable. You will be redirected to your previous page shortly.</span>
+      </div>
+  </section>
+  <!-- Place Top Carousel Here in deep-dive-container-1, it should always take full width -->
+  <section *ngIf="carouselData" class="deep-dive-container1" id="rectangleCarousel">
+     <news-box [carData]="carouselData" [videoData]="carouselVideo" [graphData]="carouselGraph"></news-box>
+   </section><!-- deep-dive-container1 ends -->
+   <!-- Place modules and deep dive blocks in deep-dive-container 2 -->
+   <section class="deep-dive-container2">
+     <div class="deep-dive-container2a col-sm-12 col-xl-9">
+       <div *ngIf="sectionName && deepDiveType != 'all'">
+         <section-name-component [topNav]="tcxVars.showSFTopNav" [secName]="sectionName" [scope]="changeScopeVar" [topScope]="topScope" [pageScope]="category" [scopeList]="scopeList"></section-name-component>
+       </div>
+       <div *ngIf="sideScrollData && tcxVars.showEventSlider && deepDiveType != 'all'" class="deep-dive-module">
+         <side-scroll-schedules [topNav]="tcxVars.showSFTopNav" [sideScrollData]="sideScrollData" [scopeList]="scopeList" (count)="scrollCheck($event)" [scrollLength]="scrollLength" [topScope]="topScope" [pageScope]="category" [scope]="changeScopeVar" (changeScope)="changeScope($event)" (changeLocation)="changeLocation($event)"></side-scroll-schedules>
+       </div>
+       <deep-dive-block-main *ngIf="deepDiveType == 'all'" [geoLocation]="geoLocation" [sideScrollData]="sideScrollData" [scopeList]="scopeList" [scrollLength]="scrollLength" [changeScope]="changeScopeVar" [topScope]="topScope" [pageScope]="category" (emitcount)="scrollCheck($event)" (emitscope)="changeScope($event)" (emitLocation)="changeLocation($event)"></deep-dive-block-main>
+       <deep-dive-section-front *ngIf="deepDiveType !== 'all'"
+                                [deepDiveType]="deepDiveType" [scope]="scope"
+                                [category]="category"
+                                [geoLocation]="geoLocation">
+       </deep-dive-section-front>
+    </div>
+    <!-- Ads should place inside deep-dive-container-2b -->
+    <div class="deep-dive-container2b col-xl-3" id="verticalSideScroller">
+        <vertical-widget [category]="category" [subCategory]="scope"></vertical-widget>
+    </div>
+  </section><!-- deep-dive-container2 ends -->
+</section>

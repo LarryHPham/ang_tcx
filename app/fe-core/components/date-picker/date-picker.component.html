@@ -1,0 +1,43 @@
+
+<div class="calendar-picker-selection">
+  <i class="fa fa-calendar"></i>
+  <input type="text"
+     (click)="openDatepicker()"
+     [value]="viewValue"
+     [hidden]="isStatic"
+     readonly="true"
+     onfocus="this.blur();"
+     class="ng-datepicker-input">
+</div>
+
+<div class="ng-datepicker" *ngIf="isStatic || isOpened" [ngClass]="{ static: isStatic }">
+  <div class="dp-ptr"></div>
+  <div class="controls">
+    <div class="left">
+      <i class="fa fa-backward prev-year-btn" (click)="prevYear()"></i>
+      <i class="fa fa-angle-left prev-month-btn" (click)="prevMonth()"></i>
+    </div>
+    <span class="date" [innerHTML]="dateValue">
+      <!-- {{ dateValue }} -->
+    </span>
+    <div class="right">
+      <i class="fa fa-angle-right next-month-btn" (click)="nextMonth()"></i>
+      <i class="fa fa-forward next-year-btn" (click)="nextYear()"></i>
+    </div>
+  </div>
+  <div class="day-names">
+    <span *ngFor="let dn of dayNames">
+      <span>{{ dn }}</span>
+    </span>
+  </div>
+  <div class="calendar">
+    <span *ngFor="let d of days; let i = index;">
+      <span
+        class="day"
+        [ngClass]="{'disabled': !d.enabled, 'selected': isSelected(d), 'today': d.today}"
+        (click)="selectDate($event, d)">
+        {{ d.day }}
+      </span>
+    </span>
+  </div>
+</div>

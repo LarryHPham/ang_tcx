@@ -1,0 +1,41 @@
+<div class="score-board-headtitle">SCORE</div>
+<div class="score-board">
+  <div class="score-board-total">
+    <div>
+      {{scoreBoard.awayScore | statHyphenValue}}
+    </div>
+    <div class="score-board-total-name">
+      AWAY
+    </div>
+  </div>
+  <div class="score-board-data">
+    <div class="score-board-title">FINAL SCORE</div>
+    <div class="box-table">
+      <div *ngIf="scoreBoard.scoreArray.length > 9" class="box-table-arrows box-table-arrows-left" (click)="left()"><i class="fa fa-angle-left"></i></div>
+      <div *ngIf="scoreBoard.scoreArray.length > 9" class="box-table-arrows box-table-arrows-right" (click)="right()"><i class="fa fa-angle-right"></i></div>
+      <div class="box-table-labels">
+        <span></span>
+        <span>{{scoreBoard.awayLastName}}</span>
+        <span>{{scoreBoard.homeLastName}}</span>
+      </div>
+      <div class="box-table-display">
+        <div class="box-table-max score-transition" [style.left]="scrollScore | safeStyle">
+          <div class="box-table-container" *ngFor="let score of scoreBoard.scoreArray">
+            <!-- inning number -->
+            <span>{{score.inning}}</span>
+            <span>{{score.scores.away | statHyphenValue}}</span> <!-- away score number -->
+            <span>{{score.scores.home | statHyphenValue}}</span> <!-- home score number -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="score-board-total">
+    <div>
+      {{scoreBoard.homeScore | statHyphenValue}}
+    </div>
+    <div class="score-board-total-name">
+      HOME
+    </div>
+  </div>
+</div>

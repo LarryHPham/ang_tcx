@@ -1,0 +1,39 @@
+<div class="comparison-tile-container">
+    <div class="row">
+        <div class="col-xs-6 comparison-tile-dropdown">
+            <dropdown
+                [list]="dropdownList1"
+                [isModule]="'true'"
+                [selectedKey]="comparisonTileInput.dropdownOneKey"
+                [icon]="'fa-caret-down'"
+                (selectionChanged)="dropdownOneSwitched($event)"></dropdown>
+        </div>
+        <div class="col-xs-6 comparison-tile-dropdown">
+            <dropdown
+                [list]="dropdownList2"
+                [isModule]="'true'"
+                [selectedKey]="comparisonTileInput.dropdownTwoKey"
+                [icon]="'fa-caret-down'"
+                (selectionChanged)="dropdownTwoSwitched($event)"></dropdown>
+        </div>
+    </div>
+    <div class="comparison-tile-image">
+        <circle-image [data]="comparisonTileInput.imageConfig"></circle-image>
+    </div>
+    <div class="comparison-tile-label">
+        <span *ngIf="comparisonTileInput.titleUrl" class="comparison-tile-label-line-one">
+            <a [routerLink]="comparisonTileInput.titleUrl" [innerHtml]="comparisonTileInput.title | safeHtml"></a>
+        </span>
+        <span *ngIf="!comparisonTileInput.titleUrl" class="comparison-tile-label-line-one">{{comparisonTileInput.title}}</span>
+        <span class="comparison-tile-label-line-two">
+            <complex-inner-html [textItems]="comparisonTileInput.description"></complex-inner-html>
+        </span>
+    </div>
+
+    <div class="row comparison-tile-stats">
+        <div *ngFor="let item of comparisonTileInput.data">
+           <span class="comparison-tile-stats-line-one" [innerHtml]="item.data | safeHtml"></span>
+            <span class="comparison-tile-stats-line-two">{{item.key}}</span>
+        </div>
+    </div>
+</div>

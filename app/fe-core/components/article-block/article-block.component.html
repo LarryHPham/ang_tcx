@@ -1,0 +1,27 @@
+<section class="articleBlock row">
+  <div class="video-stack {{bootstrapGrid}}" *ngFor="let item of articleBlockData;">
+    <div class="video-stack-block">
+
+      <div class="video-stack-thumbnail">
+        <div class="stacktop-image">
+          <rectangle-image [data]="item.imageConfig" [imgResize]="imgResize"></rectangle-image>
+        </div>
+      </div>
+      <div class="video-title-top">
+        <a class="video-title-top-key" [routerLink]="item.keyUrl" [innerHTML]="item.keyword | safeHtml"></a>
+        <span class="video-title-top-date" [innerHTML]="item.timeStamp | safeHtml"></span>
+        <a *ngIf="!item.extUrl" class="video-stack-info" [routerLink]='item.articleUrl'>
+          <div class="video-stack-info-title">
+            <span class="video-title-mid" [innerHTML]="item.title | safeHtml"></span>
+          </div>
+        </a>
+        <a *ngIf="item.extUrl" class="video-stack-info" href='{{item.articleUrl}}' target="_blank">
+          <div class="video-stack-info-title">
+            <span class="video-title-mid" [innerHTML]="item.title | safeHtml"></span>
+          </div>
+        </a>
+        <div *ngIf="item.image_source == 'flickr' && item.citationInfo"><citation-component [citationInfo]="item.citationInfo"></citation-component></div>
+      </div>
+    </div>
+  </div>
+</section>

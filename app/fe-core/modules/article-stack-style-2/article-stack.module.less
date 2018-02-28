@@ -1,0 +1,47 @@
+.articleStack2{
+  @media @tablet{
+    .video-stack-thumbnail{display: block}
+    .flexDisplay;
+    .flexDirection(row-reverse);
+  }
+  .articleBlock .video-stack .video-title-top{
+    @media @mobile{margin: 5px 0 0 10px}
+  }
+}//articleStack2 ENDS
+.articleStackTop2{
+  .articleBlock .video-stack .video-title-top{
+    @media @mobile{margin: 5px 0 0 10px}
+  }
+  @media @mobile{
+    .video-stack{margin-bottom: 15px}
+  }
+  @media @tablet{
+    padding-left: 15px;
+  }
+}//articleStackTop2 ENDS
+.articleStackBatch2{
+  .video-stack:nth-child(n+5){display: none}
+  @media @mobile{
+    .video-stack:nth-child(-n+3){margin-bottom: 15px}
+    .stacktop-image{margin-bottom: 5px}
+    .video-title-top{margin-left: 10px}
+  }
+  @media @tablet{
+    .video-stack-block{
+      border-bottom: 1px solid @strokeGrey;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      .flexDisplay;
+    }
+    .video-title-top{width:70%}
+    .articleBlock{
+      .video-stack .video-title-top{margin-top: 0}
+      margin-bottom: -15px;
+    }
+    .video-stack-info{margin-top: 10px}
+    .video-stack-thumbnail, .img-fluid{width: 82px; margin-right: 10px}
+  }
+  @media @desktop-l{
+    .video-stack-thumbnail, .img-fluid{width: 91px}
+  }
+}//articleStackBatch2 ENDS

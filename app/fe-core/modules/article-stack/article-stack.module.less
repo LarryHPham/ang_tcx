@@ -1,0 +1,13 @@
+.article-stack-container {
+  min-width: 320px;
+  margin: 0 auto;
+  width: 100%;
+  .flexDisplay;
+  .flexDirection(column);
+  &-subs{margin-bottom: 15px}
+  &-main{width: 100%}
+}
+
+@media @desktop-m {
+  .article-stack-container {.flexDirection(row);}
+}//desktop-m ends

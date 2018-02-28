@@ -1,0 +1,29 @@
+<div class="user-search-input"> <i class="fa fa-list-ul" aria-hidden="true"></i> <div class="user-search-input_res">Results for <b>{{userInput}}</b></div></div>
+<div class="s-filter container-fluid">
+    <span class="filter-left">
+        <i class="fa fa-sliders"></i>
+       <span><p>Applied Filters & Sorts:</p></span>
+    </span>
+    <span class="filter-right">
+   <span class="s-filter_fil-hline"> Filter: </span>
+   <dropdown
+     selectedKey={{defaultSelectedKey}}
+     ddtitle='Select A Keyword'
+     [list]="keywords"
+     [icon]="icon"
+     (selectionChanged)="keywordClick($event)">
+   </dropdown>
+   <span class="s-filter_fil-hline"> Sorting: </span>
+   <dropdown
+     selectedKey={{defaultSortKey}}
+     dropdownhdr="Most Recent"
+     ddtitle='Sort/Filter By'
+     [list]="sortingFilter"
+     [icon]="icon"
+     (selectionChanged)="sortingClick($event)">
+   </dropdown>
+
+</span>
+
+
+</div>

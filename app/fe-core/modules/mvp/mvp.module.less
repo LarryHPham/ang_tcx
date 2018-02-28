@@ -1,0 +1,19 @@
+.module-container {
+  .mvp-container {
+    .nav-tabs {
+      @media @mobile {
+        width: 10%;
+      }
+    }
+    .pane {
+      padding: 0;
+    }
+    &-list{
+      max-height: 310px;
+      overflow: hidden;
+      @media @mobile {
+        max-height: 330px;
+      }
+    }
+  } //.mvp-container
+} //.module-container

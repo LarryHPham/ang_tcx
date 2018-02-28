@@ -1,0 +1,40 @@
+<!-- <slider-carousel
+  *ngIf="carouselDataArray && carouselDataArray[currentIndex]"
+  [carouselData]="carouselDataArray[currentIndex]"></slider-carousel>
+<tabs
+  *ngIf="dataArray"
+  (tabSelected)='selectedTab($event)'>
+  <tab
+    *ngFor="let data of dataArray; let i = index"
+    [active]="i == 0"
+    [tabTitle]="data.tabTitle">
+    <div class="draft-list-title"> -->
+
+      <!-- <h4><b>{{data.tabTitle}}:</b> Draft History</h4> -->
+
+      <!-- <span class="list-filter-heading">
+        <i class="fa fa-cog"></i> List Filters
+      </span>
+      <div class="sort-title">
+        <span class="sort-title-text">Sort By: </span>
+      <dropdown
+        [list]="sortOptions"
+        [selectedKey]=""
+        (selectionChanged)="dropdownChanged($event)"></dropdown>
+    </div>
+    </div>
+    <div class="draft-container">
+      <detailed-list-item
+        *ngIf="data.detailedDataArray && data.detailedDataArray[currentIndex]"
+        [detailedItemData]="data.detailedDataArray[currentIndex]"></detailed-list-item>
+    </div>
+    <loading-component *ngIf="!data.isLoaded"></loading-component>
+    <div *ngIf="!data.detailedDataArray && data.isLoaded && data.errorMessage" class="draft-no-data">
+      <no-data-box [data]="data.errorMessage" [icon]="'fa fa-remove'"></no-data-box>
+    </div>
+    <pagination-footer
+      *ngIf="data.paginationDetails"
+      [paginationParameters]="data.paginationDetails"
+      (newIndex)="newIndex($event)"></pagination-footer>
+  </tab>
+</tabs> -->

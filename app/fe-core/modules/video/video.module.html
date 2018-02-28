@@ -1,0 +1,12 @@
+<section  class="videos-module" *ngIf="isProfilePage">
+  <module-header [modHeadData]="modHeadData"></module-header>
+  <loading-component *ngIf="!videoData"></loading-component>
+  <!--Playable video component on the same page-->
+  <div class="videos-module_carousel">
+    <iframe width="100%" height="100%" [src]="embedUrl" frameborder="0" scrolling = "no" allowfullscreen></iframe>
+  </div>
+  <!--List that navigate to the video routes-->
+  <div class="videos-module_list">
+    <profile-video-stack-component *ngIf="videoData" [page]="1" [videoData]="videoData" [isProfilePage]="isProfilePage"></profile-video-stack-component>
+  </div>
+</section>

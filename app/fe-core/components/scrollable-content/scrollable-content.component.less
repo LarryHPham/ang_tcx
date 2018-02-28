@@ -1,0 +1,76 @@
+scrollable-content {
+  // the importants are to override any component specific styling that may be in use on top of this component's default style
+  .hide-scroll {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  .scrollable-item.hide-scroll::after {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+}
+.scrollable-item {
+  position: relative;
+  overflow: hidden;
+  height:100%;
+  &-wrapper {
+    width: 100%;
+    height: 100%;
+    padding-right: 50px;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    box-sizing: content-box;
+    -ms-overflow-style: none; //remove scrollbar
+  }
+  .scrollable-item-wrapper::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+  }
+
+  &-content {
+    margin: 0;
+  }
+
+  &-scroller {
+    z-index: 5;
+    cursor: pointer;
+    position: absolute;
+    width: 8px;
+    margin-right: 1px;
+    border-radius: 5px;
+    background: @masterBrandColor;
+    top: 6px;
+    right: 6px;
+    -webkit-transition: top .08s;
+    -moz-transition: top .08s;
+    -ms-transition: top .08s;
+    -o-transition: top .08s;
+    transition: top .08s;
+
+    &-box {
+      position: absolute;
+      content: '';
+      top: 5px;
+      right: 6px;
+      height: 90%;
+      width: 10px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+    }
+  }
+
+  /* scrollbar */
+  &.showScroll::after {
+    position: absolute;
+    content: '';
+    top: 5px;
+    right: 6px;
+    height: ~"calc(100% - 10px)";
+    width: 9px;
+    background: @strokeGrey;
+    border-radius: 5px;
+  }
+}

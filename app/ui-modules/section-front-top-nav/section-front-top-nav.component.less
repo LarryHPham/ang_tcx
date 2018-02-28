@@ -1,0 +1,53 @@
+.section-front-top-nav {
+  width: auto;
+  height: 30px;
+  margin-bottom: 10px;
+  @media @mobile {
+    width: 100%;
+    .page-scope-sports{
+      .ss_title-1:last-child{width: ~'calc(12.5% - 4px)'}//ALL
+      .ss_title-1:nth-child(5), .ss_title-1:nth-child(3){width: ~'calc(14% - 4px)'}//NFL
+      .ss_title-1:nth-child(4), .ss_title-1:nth-child(2){width: ~'calc(22% - 4px)'}//NCAAF
+      .ss_title-1:first-child{width: ~'calc(15% - 4px)'}//MLB
+    }
+    .page-scope-entertainment{
+      .ss_title-1{width: ~'calc(25% - 4px)'}//ALL
+    }
+  }
+  .ss_title{
+    &-1{
+      background-color: @white;
+      border-radius: 3px;
+      display: inline-block;
+      height: 100%;
+      line-height: 28px;
+      width: auto;
+      text-align: center;
+      .globalDefaultModFont(13px, 400, @black);
+      float:right;
+      padding: 0 6px;
+      border: 1px solid @black;
+      margin-left: 5px;
+      overflow: hidden;
+    }
+    &-1:hover {
+      @media @tablet{
+        background-color: @black;
+        color: @white;
+        cursor: pointer;
+        font-weight: 800;
+      }
+    }
+  }
+  .ss-title-active {
+    background-color: @black;
+    color: @white;
+    font-weight: 800;
+  }
+  .ss_title-1:last-of-type {
+    @media @mobile {
+      margin-left: 0;
+    }
+  }
+
+}

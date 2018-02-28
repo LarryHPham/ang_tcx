@@ -1,0 +1,147 @@
+.footer{
+  height: auto;
+  min-width: 320px;
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  &-logo{
+    height: 33px;
+    max-width: 80px;
+  }
+  &-separator{
+    margin: 0 5px;
+  }
+
+  &-main{
+    background-color: @textEmphasisGrey;
+    border-top: 3px solid @masterBrandColor;
+    height: auto;
+    .globalDefaultModFont(10px, 400, @white);
+    .flexAlignItems(center);
+    .flexDisplay;
+    .flexDirection(column);
+    @media @mobile{
+      height: 148px;
+      padding: 30px 20px;
+    }
+    @media @tablet{
+      height: 105px;
+      padding: 43px 20px;
+      .flexDirection(column-reverse);
+      .flexJustify(center);
+    }
+    ul{
+      .flexDisplay;
+      .flexWrap(wrap);
+      .flexJustify(center);
+      .flexAlignItems(baseline);
+      li{
+        line-height: 1em;
+        .flexDisplay;
+        i{
+          padding: 0 10px;
+        }
+        span{
+          color: @strokeGrey;
+        }
+        @media @desktop-m{
+          &:hover{
+            a{
+              color: @masterBrandColor;
+            }
+          }
+        }
+        &:last-child{
+          span{
+            visibility: hidden;
+          }
+        }
+      }//li ends
+    }// ul ends
+    hr{
+      width: 70%;
+    }
+  }// footer-main ends
+  &-top{
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    @media @mobile{
+      height: 40%;
+    }
+    &-right{
+      font-size: 14px;
+      .flexDisplay;
+      .flexJustify(flex-end);
+      .flexAlignItems(center);
+      ul{
+        height: 100%;
+        margin-bottom: 0;
+        .flexAlignItems(center);
+        .flexJustify(flex-end);
+      }
+    }
+    @media @tablet{
+      margin-bottom: 0;
+    }
+    &-left{
+      a{
+        display: inline-block;
+      }
+      @media @desktop-l{
+        .flexDisplay;
+      }
+    }
+  }
+  &-bottom{
+    .globalDefaultFont(12px, 400);
+    ul{
+      margin-bottom: 0;
+      @media @tablet{
+        margin-top: 15px;
+      }
+    }
+    &-cit{
+      color: @strokeGrey;
+      text-align: center;
+    }
+    &-citation{
+      margin-bottom: 0;
+      line-height: 2em;
+      font-size: 10px;
+      i{
+        font-size: 9px;
+      }
+    }
+  }
+  &-text1{
+    a{
+      .globalDefaultFont(12px, 800);
+      margin-bottom:12px;
+      @media @desktop-l{
+        font-size: 14px;
+      }
+    }
+  }//footer-text1 ends
+  &-line3{
+    width: 70%;
+  }
+  @media @mobile {
+    #mlb-teams-dropdown {
+      display:none;
+    }
+  }
+}//footer ENDS
+
+#share-google, #share-twitter, #share-facebook{
+  @media @desktop-m{
+    &:hover, &:active{
+      .fa{
+        color: @masterBrandColor;
+      }
+    }
+  }
+}
+#set-width70{
+  width: 70%;
+}

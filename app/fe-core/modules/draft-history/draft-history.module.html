@@ -1,0 +1,5 @@
+<section class="module-container draft-history">
+  <module-header [modHeadData]="modHeadData"></module-header>
+  <draft-history *ngIf="profileData" [profileData]="profileData" [type]="'module'"></draft-history>
+  <module-footer [footerData]='footerData'></module-footer>
+</section>

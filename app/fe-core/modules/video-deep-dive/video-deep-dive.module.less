@@ -1,0 +1,91 @@
+.videoStackTop{
+  @media @mobile{
+    .video-stack-info{padding-left: 10px}
+  }
+}//videoStackTop Ends
+.videoStackBatch{
+  display: block;
+  .video-stack:nth-child(n+5){display: none}//fallback
+}//videoStackBatch Ends
+@media @mobile{
+  .videoStackTop{
+    display: block;
+    margin-bottom: 15px;
+    .video-stack{
+      &-thumbnail{margin-bottom: 20px}
+    }
+    .video-title-top{
+      bottom: 20px;
+    }
+    .video-stack-info{padding-left: 10px; margin-top: 5px}
+  }
+  .videoStackBatch{
+    margin-bottom: -15px;
+    .video-stack{
+      margin-bottom: 15px;
+      &-thumbnail{margin-bottom: 20px}
+    }
+    .video-title-top{
+      bottom: 20px;
+    }
+    .video-stack-info{padding-left: 10px; margin-top: 5px}
+  }//videoStackBatch Ends
+}//@media @mobile Ends
+
+@media @tablet{
+  .videoStackTop{
+    .video-stack{
+      &-thumbnail{margin-bottom: 20px}
+    }
+    .video-title-top{bottom: 20px; margin-top: 5px}
+  }
+  .videoStackBatch{
+    padding-left: 15px;
+    margin-bottom: -15px;
+    .video-stack{
+      &-block{
+        .flexDisplay;
+        border-bottom: 1px solid @strokeGrey;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+      }
+      &-thumbnail{width: 82px}
+      &-info{
+        padding-left: 10px;
+        width: ~"calc(100% - 82px)";
+      }
+      &-video{
+        .greyout .playCircle{
+          height: 30px;
+          width: 30px;
+          padding: 4px 9px;
+          .fa-play {
+            &:before {font-size: 14px;}
+          }
+        }
+      }
+    }//.video-stack ends
+    .video-title{
+      &-top{margin-top: -2px; line-height: 1em}
+      &-mid{margin-top: 5px!important}
+    }
+  }//videoStackBatch Ends
+}//@media @tablet Ends
+
+@media @desktop-m{
+  .videoStackTop, .videoStackBatch{
+    .video-stack-thumbnail:hover ~ .video-stack-info .video-title-mid, .video-title-mid:hover{color: @masterBrandColor!important}
+  }
+}
+
+@media @desktop-l{
+  .videoStackBatch{
+    .video-stack{
+      &-thumbnail{width: 91px}
+      &-info{width: ~"calc(100% - 91px)"}
+      .video-title{
+        &-top{left: 101px}
+      }
+    }
+  }
+}//@media @desktop-l Ends

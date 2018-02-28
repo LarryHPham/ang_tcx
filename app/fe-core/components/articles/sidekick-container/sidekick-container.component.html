@@ -1,0 +1,12 @@
+<div (window:resize)="onResize($event)">
+    <div *ngIf="!isSmall" class="sidekick-container sidekick-ai">
+      <iframe *ngIf="isProSport" frameborder="0" scrolling="no" allowtransparency="true" src="/app/fe-core/ads/responsive-NFL.html"
+                [ngStyle]="{'display': 'block', 'height': '250px','width': '640px','margin': '0px','border': '0px','overflow': 'hidden','z-index': '0'}"></iframe>
+      <iframe *ngIf="!isProSport" frameborder="0" scrolling="no" allowtransparency="true" src="/app/fe-core/ads/responsive-NCAAF.html"
+                [ngStyle]="{'display': 'block', 'height': '250px','width': '640px','margin': '0px','border': '0px','overflow': 'hidden','z-index': '0'}"></iframe>
+    </div>
+    <div *ngIf="isSmall" class="sidekick-container ">
+        <iframe frameborder="0" scrolling="no" allowtransparency="true" src="/app/fe-core/ads/widget2.html"
+                [ngStyle]="{'display': 'block', 'height': '250px','width': '300px','margin-top': '15px','border': '0px','overflow': 'hidden','z-index': '0'}"></iframe>
+    </div>
+</div>

@@ -1,0 +1,355 @@
+.schedule_box{
+  min-width: 225px;
+  max-width: 225px;
+  height:185px;
+  margin-right: 5px;
+  border: 1px solid @highlightGrey;
+  border-radius: 3px;
+  background-color: @white;
+  color: @black;
+  float:left;
+  font-family: @globalFont;
+  .image-70 {
+    margin-left: auto;
+    margin-right: auto;
+    .image-round-hover div p:first-child {
+      font-size: 15px;
+      line-height: 20px;
+      margin-top: -3px;
+    }
+    .image-round-hover div {
+      @media @tablet{
+        color: @white;
+        font-size: 12px;
+      }
+    }
+  }
+  &-date{
+    width:100%;
+    height:20px;
+    .globalDefaultModFont(9px, 800, @black);
+    line-height: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    & > i{
+      font-size: 8px;
+    }
+  }
+  .innings {
+    float: left;
+    padding-left:10px;
+    &-text{
+      font-weight: 800;
+      text-align: left;
+      sup {
+        font-size: 60%;
+      }
+    }
+  }
+  .liveText{
+    float:right;
+    padding-right: 10px;
+    color: @activeGreen;
+    i {
+      font-size: 8px;
+    }
+  }
+  &-versus{
+    width:100%;
+    height: 155px;
+    position: relative;
+    padding: 0 0 10px;
+    border-top:1px solid @highlightGrey;
+    .flexDisplay;
+    .flexDirection(row);
+    .flexJustify(space-between);
+    .flexWrap(nowrap);
+  }
+  &-team{
+    width:50%;
+    height:80%;
+    overflow: hidden;
+    &:first-child{
+      border-right: 1px solid @highlightGrey;
+    }
+    &:hover{
+      @media @tablet{
+        color:@masterBrandColor;
+        .image-round-hover div{
+          .flexDisplay;
+        }
+        .schedule_box-text{
+          color:@masterBrandColor;
+        }
+      }
+    }
+  }
+  &-image{
+    width: 70px;
+    height: 70px;
+    border:1px solid @highlightGrey;
+    border-radius: 50%;
+    margin: 5px auto 0;
+  }
+  &-text{
+    display: inline-block;
+    margin-top:10px;
+    .globalDefaultModFont(14px, 800, @black);
+    text-align: center;
+    &:hover{
+      @media @tablet{
+        color:@masterBrandColor;
+        cursor: pointer;
+      }
+    }
+  }
+  &-regText{
+    display: inline-block;
+    margin-top:10px;
+    .globalDefaultModFont(14px, 800, @black);
+    text-align: center;
+  }
+  &-linkbox{
+    width: 157px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto 5px;
+    background-color: @white;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid @highlightGrey;
+    border-radius: 3px;
+    .globalDefaultModFont(12px, 800, @black);
+    &:hover{
+      @media @tablet{
+        color:@white;
+        background-color: @masterBrandColor;
+        border: 1px solid @masterBrandColor;
+        & > .schedule_box-versus{
+          background-color: black;
+        }
+      }
+    }
+    &-live {
+      width: 104px;
+      height: 20px;
+      line-height: 20px;
+      position: absolute;
+      bottom: 0;
+      left:0;
+      right:0;
+      margin: 0 auto 10px;
+      background-color: @activeGreen;
+      line-height: 18px;
+      text-align:center;
+      border:1px solid @activeGreen;
+      border-radius: 3px;
+      .globalDefaultModFont(8px, 800, @white);
+      &:hover{
+        @media @tablet{
+          color:@white;
+          background-color: @black;
+          border-color: @black;
+        }
+      }
+      i{
+        vertical-align: 0px;
+        font-size: 6px;
+        padding-right:2px;
+      }
+    }
+  }
+}
+.schedule-live {
+  border: 1px solid @activeGreen!important;
+}
+
+.schedule-tag{
+  min-width: 155px;//on safari it breaks
+}
+@media @mobile {
+  .schedule_box{
+    min-width:225px;
+    max-width:225px;
+    height:185px;
+    &-date{
+      height:30px;
+      font-size: 12px;
+      line-height: 30px;
+    }
+    &-versus{
+      height:155px;
+      padding:0 0 10px;
+    }
+    &-image{
+      width:70px;
+      height:70px;
+      margin:17px auto 0;
+    }
+    &-linkbox{
+      width: 157px;
+      height:25px;
+      margin:0 auto 10px;
+      line-height: 23px;
+      text-align:center;
+      border:1px solid @highlightGrey;
+      &-live{
+        font-size: 9px;//exceptional to fit
+        i{
+          font-size: 8px;
+        }
+      }
+    }
+  }
+
+  .schedule-tag{
+    min-width: 205px;//on safari it breaks
+  }
+}
+@media @tablet {
+  .schedule_box{
+    min-width:225px;
+    max-width:225px;
+    height:185px;
+    &-date{
+      height:30px;
+      font-size: 12px;
+      line-height: 30px;
+    }
+    &-versus{
+      height:155px;
+      padding:0 0 10px;
+    }
+    &-image{
+      width:70px;
+      height:70px;
+      margin:17px auto 0;
+    }
+    &-linkbox{
+      width: 157px;
+      height:25px;
+      margin:0 auto 10px;
+      line-height: 23px;
+      text-align:center;
+      border:1px solid @highlightGrey;
+      &-live{
+        font-size: 9px;//exceptional to fit
+        i{
+          font-size: 8px;
+        }
+      }
+    }
+  }
+
+  .schedule-tag{
+    min-width: 205px;//on safari it breaks
+  }
+}
+
+.schedule_box.weather{
+  padding: 7px 10px;
+  .weather-date {
+    font-size: 12px;
+	  text-align: right;
+  }
+  .condition-image {
+    margin-top: 10px;
+    width:80px;
+  }
+  .condition {
+    margin-top: 5px;
+    font-size: 18px;
+	  text-align: center;
+  }
+  .temp {
+    margin-top: 5px;
+    font-size: 28px;
+	  font-weight: 800;
+  }
+  .small-temp {
+    color: @bulletGrey;
+    font-size: 22px;
+  }
+}
+
+.schedule_box.eos{
+  padding: 7px 10px;
+  background-color: rgba(242, 242, 242, .5);
+  .icon {
+    margin-top: 33px;
+    width:89px;
+  }
+  .mainMessage {
+    margin-top: 10px;
+    font-size: 18px;
+    color: @black;
+    font-weight: 400;
+	  text-align: center;
+  }
+  .subMessage {
+    margin-top: 5px;
+    font-size: 10px;
+    color: @bulletGrey;
+	  font-weight: 400;
+  }
+}
+
+.schedule_box.business{
+  padding: 14px 10px 7px 10px;
+
+  .company-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    font-size: 14px;
+	  font-weight: 900;
+  }
+  .exchange {
+    margin-top: 2px;
+    font-size: 12px;
+	  text-align: center;
+  }
+  .stock-value {
+    margin-top: 5px;
+    .current-value {
+      font-size: 14px;
+  	  font-weight: 900;
+    }
+    .value-change {
+      font-size: 12px;
+      vertical-align: 1px;
+    }
+    .value-change.positive {
+      color: #269800;
+    }
+    .value-change.negative {
+      color: #ff3131;
+    }
+  }
+  .view-profile {
+    margin-top: 15px;
+    padding-top: 6px;
+    border: 1px solid @highlightGrey;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 800;
+    width: 157px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media @desktop-m{
+    .view-profile:hover {
+      @media @tablet{
+        color: @white;
+        background-color: @masterBrandColor;
+        border: 1px solid @masterBrandColor;
+        cursor: pointer;
+      }
+    }
+  }
+}

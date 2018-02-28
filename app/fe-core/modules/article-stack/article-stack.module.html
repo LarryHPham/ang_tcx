@@ -1,0 +1,8 @@
+<div *ngIf="stackTop" class="article-stack-container">
+  <section class="article-stack-container-main col-sm-12 col-lg-8">
+    <article-stacktop-component [stackTopData]="stackTop"></article-stacktop-component>
+  </section>
+  <section class="article-stack-container-subs col-sm-12 col-lg-4">
+    <stack-rows-component [stackRowData]="stackRow"></stack-rows-component>
+  </section>
+</div>

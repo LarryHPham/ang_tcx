@@ -1,0 +1,10 @@
+<div class="img-fluid">
+  <a *ngIf="data.urlRouteArray !== null && !data.extUrl" [routerLink]="data.urlRouteArray" class="embed-responsive {{data.imageClass}}">
+    <img class="embed-responsive-item" [src]='data.imageUrl' [alt]='data.imageDesc' onerror="this.src='/app/public/placeholder_XL.png';" />
+    <!-- <div><p class="rec-hover" [innerHtml]="data.hoverText"></p></div> -->
+  </a>
+  <a *ngIf="data.urlRouteArray !== null && data.extUrl" href="{{data.urlRouteArray}}" class="embed-responsive {{data.imageClass}}" target="_blank">
+    <img class="embed-responsive-item" [src]='data.imageUrl' [alt]='data.imageDesc' onerror="this.src='/app/public/placeholder_XL.png';" />
+    <!-- <div><p class="rec-hover" [innerHtml]="data.hoverText"></p></div> -->
+  </a>
+</div>

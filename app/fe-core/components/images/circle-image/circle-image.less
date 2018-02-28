@@ -1,0 +1,252 @@
+.roundImageMain(@diameter) {
+  width: @diameter;
+  height: @diameter;
+}
+
+.roundImageSub(@diameter) {
+  width: @diameter;
+  height: @diameter;
+}
+
+.roundText(@widthHeight, @shadowSize, @shadowColor@bgColor, @fontSize) {
+  box-shadow: 0 0 0 @shadowSize @shadowColor;
+  width: @widthHeight;
+  height: @widthHeight;
+  background-color: @bgColor;
+  font-size: @fontSize;
+}
+.imageShadow(@shadowSize, @shadowColor) {
+  img {
+    box-shadow: 0 0 0 @shadowSize @shadowColor;
+    .borderRadiusPrefix(50%);
+  }
+}
+.imageHover(@hoverColor) {
+  @media @desktop-m{    
+    .image-round-hover div {
+      background-color: @hoverColor;
+    }
+  }
+}
+.image-round {
+  position: relative;
+  border-radius: 50%;
+  &-main img {
+    background-color: @white;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    object-position: 50% 0%;
+    -o-object-position: 50% 0%;
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    transform: translateX(-50%);
+    .borderRadiusPrefix(50%);
+    .backgroundClipPBoxPrefixes;
+  }
+  &-sub {
+    display: inline-block;
+    position: absolute;
+    border-radius: 50%;
+    img {
+      background-color: @white;
+      height: 100%;
+      width: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      object-position: 50% 0%;
+      -o-object-position: 50% 0%;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &-text {
+      .flexDisplay;
+      .flexDirection(column);
+      .flexJustify(center);
+      text-align: center;
+      vertical-align: center;
+      .borderRadiusPrefix(50%);
+      .backgroundClipPBoxPrefixes;
+    }
+  }
+  &-hover {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    @media @tablet {
+      &:hover {
+        div {
+          .flexDisplay;
+        }
+      }
+    }
+    div {
+      .flexDirection(column);
+      .flexJustify(center);
+      .borderRadiusPrefix(50%);
+      .backgroundClipPBoxPrefixes;
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: @masterImageHover;
+      text-align: center;
+      .globalDefaultModFont(18px, 800, @white);
+      p {
+        margin: 0px;
+        line-height: 20px;
+        &:first-child {
+          .globalDefaultModFont(32px, 400, @white);
+          line-height: 36px;
+        }
+      }
+    }
+  }
+  &-upper-right {
+    top: 0;
+    right: 0;
+  }
+  &-upper-left {
+    top: 0;
+    left: 0;
+  }
+  &-lower-right {
+    bottom: 0;
+    right: 0;
+  }
+  &-lower-left {
+    bottom: 0;
+    left: 0;
+  }
+}
+.image-38-rank {
+  .roundText(38px, 1px, @masterSmallImageShadow, @white, 16px);
+}
+.image-48-rank {
+  .roundText(48px, 1px, @masterSmallImageShadow, @white, 18px);
+  @media @mobile{
+    .roundText(40px, 1px, @masterSmallImageShadow, @white, 12px);
+  }
+}
+.image-40-sub {
+  .roundImageSub(40px);
+  .border-1;
+}
+.image-50-sub {
+  .roundImageSub(50px);
+  .border-1;
+}
+.image-70-sub {
+  .roundImageSub(70px);
+}
+
+.image-30 {
+  .roundImageMain(30px);
+}
+.image-40 {
+  .roundImageMain(40px);
+}
+
+.image-43 {
+  .roundImageMain(43px);
+}
+.image-45 {
+  .roundImageMain(45px);
+}
+.image-46 {
+  .roundImageMain(46px);
+}
+.image-48 {
+  .roundImageMain(48px);
+}
+.image-50 {
+  .roundImageMain(50px);
+}
+
+.image-44 {
+  .roundImageMain(44px);
+  @media @tablet{
+    .roundImageMain(60px);
+  }
+}
+
+.image-62 {
+  .roundImageMain(62px);
+}
+
+.image-65 {
+  .roundImageMain(65px);
+}
+
+.image-68 {
+  .roundImageMain(68px);
+}
+
+.image-70 {
+  .roundImageMain(70px);
+}
+
+.image-100 {
+  .roundImageMain(100px);
+}
+
+.image-71 {
+  .roundImageMain(71px);
+}
+
+.image-121 {
+  .roundImageMain(121px);
+}
+.image-125 {
+  .roundImageMain(125px);
+}
+.image-150 {
+  .roundImageMain(150px);
+}
+.image-174 {
+  .roundImageMain(174px);
+}
+.image-180 {
+  .roundImageMain(180px);
+}
+.image-res {
+  .roundImageMain(100%);
+}
+.border-large {
+  .imageShadow(10px, @masterLargeImageShadow);
+}
+.border-med {
+  .imageShadow(5px, @masterLargeImageShadow);
+}
+.border-1 {
+  .imageShadow(1px, @masterSmallImageShadow);
+}
+.border-1 {
+  .imageShadow(1px, @masterSmallImageShadow);
+}
+.border-2 {
+  .imageShadow(2px, @masterSmallImageShadow);
+}
+
+.border-3 {
+  .imageShadow(3px, @masterSmallImageShadow);
+}
+
+.border-5 {
+  .imageShadow(5px, @masterLargeImageShadow);
+}
+
+.border-10 {
+  .imageShadow(10px, @masterLargeImageShadow);
+}
+
+.border-logo{
+  .imageShadow(1px, rgba(0, 0, 0, 0.25))
+}

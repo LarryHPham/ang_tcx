@@ -1,0 +1,106 @@
+<div class="game" *ngIf="gameInfo">
+  <div class="game-title ">
+
+    <span
+      *ngIf="!gameInfo.liveStatus"
+      [class.gameAfter]="gameInfo.gameHappened"
+      [class.gameBefore]="!gameInfo.gameHappened"
+      [innerHTML]="gameInfo.segment">
+    </span>
+
+    <div
+      *ngIf="gameInfo.liveStatus"
+      class='game-verticalContent'>
+      <span class="live-stat-1">
+        {{gameInfo.liveStat1}}
+      </span>
+      <span class="live-stat-2">
+        {{gameInfo.liveStat2}}
+      </span>
+      <span class="live-stat-3">
+        {{gameInfo.liveStat3}}
+      </span>
+      <span class="live-stat-4t">
+        {{gameInfo.liveStat4}}
+      </span>
+      <!-- {{gameInfo.verticalContent.teamInPossesion}}
+      {{gameInfo.verticalContent.timeLeft}}
+      {{gameInfo.verticalContent.liveYardLine}}
+      {{gameInfo.verticalContent.overTime}} -->
+    </div>
+  </div>
+</div>
+
+<div class="game-title game-cat row">
+  <div class="game-title-headeCategory1 col-xs-6 col-sm-6"></div>
+  <div class="game-title-headeCategory2 col-xs-6 col-sm-6 row">
+    <span *ngFor="let cat of gameInfo.dataPointCategories" class="game-title-category col-xs-4 col-sm-4">{{cat}}</span>
+  </div>
+</div>
+
+<div class="game-box row"><!--AWAY-->
+  <div class="game-box-main col-xs-6 col-sm-6">
+    <div class="game-box-main-image">
+      <circle-image [data]="awayInfo.awayImageConfig"></circle-image>
+    </div>
+    <div class="game-box-main-details">
+      <span *ngIf="awayInfo.awayLink || awayInfo.awayExternalURL" class="link">
+        <a
+          *ngIf="awayInfo.awayLink != null"
+          [routerLink]="awayInfo.awayLink"
+          class="game-box-main-details-name">{{awayInfo.awayTeamName}}</a>
+        <a
+          *ngIf="awayInfo.awayExternalURL != null"
+          href="{{awayInfo.awayExternalURL}}"
+          target="_blank"
+          class="game-box-main-details-name">{{awayInfo.awayTeamName}}</a>
+      </span>
+      <span
+        *ngIf="!awayInfo.awayLink && !awayInfo.awayExternalURL"
+        class="game-box-main-details-name">
+        {{awayInfo.awayTeamName}}
+      </span>
+      <span class="game-box-main-details-record">Away {{awayInfo.awayRecord}}</span>
+    </div>
+  </div>
+  <div class="game-box-values col-xs-6 col-sm-6 container-fluid">
+    <div class="row borders">
+      <div class="col-xs-4 col-sm-4 dataPoint"><span>{{awayInfo.dataPoint1 | statHyphenValue}}</span></div>
+      <div class="col-xs-4 col-sm-4 dataPoint"><span>{{awayInfo.dataPoint2 | statHyphenValue}}</span></div>
+      <div class="col-xs-4 col-sm-4 dataPoint"><span>{{awayInfo.dataPoint3 | statHyphenValue}}</span></div>
+    </div>
+  </div>
+</div><!--AWAY END-->
+
+<div class="game-box row"> <!--HOME-->
+    <div class="game-box-main col-xs-6 col-sm-6">
+      <div class="game-box-main-image">
+        <circle-image [data]="homeInfo.homeImageConfig"></circle-image>
+      </div>
+      <div class="game-box-main-details">
+        <span *ngIf="homeInfo.homeLink || homeInfo.homeExternalURL" class="link">
+          <a
+            *ngIf="homeInfo.homeLink != null"
+            [routerLink]="homeInfo.homeLink"
+            class="game-box-main-details-name">{{homeInfo.homeTeamName}}</a>
+          <a
+            *ngIf="homeInfo.homeExternalURL != null"
+            href="{{homeInfo.homeExternalURL}}"
+            target="_blank"
+            class="game-box-main-details-name">{{homeInfo.homeTeamName}}</a>
+        </span>
+        <span
+          *ngIf="!homeInfo.homeLink && !homeInfo.homeExternalURL"
+          class="game-box-main-details-name">{{homeInfo.homeTeamName}}
+        </span>
+        <span class="game-box-main-details-record">Home {{homeInfo.homeRecord}}</span>
+      </div>
+    </div>
+    <div class="game-box-values col-xs-6 col-sm-6 container-fluid">
+      <div class="row borders">
+        <div class="col-xs-4 col-sm-4 dataPoint"><span>{{homeInfo.dataPoint1 | statHyphenValue}}</span></div>
+        <div class="col-xs-4 col-sm-4 dataPoint"><span>{{homeInfo.dataPoint2 | statHyphenValue}}</span></div>
+        <div class="col-xs-4 col-sm-4 dataPoint"><span>{{homeInfo.dataPoint3 | statHyphenValue}}</span></div>
+      </div>
+    </div><!--HOME END-->
+</div>

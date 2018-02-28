@@ -1,0 +1,52 @@
+<schedules-carousel *ngIf="carouselData" class="schedules-carousel" [carouselData]="carouselData" (indexNum)="indexNum($event)" [indexInput]="selectedIndex"></schedules-carousel>
+<tabs (tabSelected)="tabSelected($event)" *ngIf="tabs"  (window:resize)="onWindowLoadOrResize($event)">
+  <tab *ngFor="let tab of tabs; let i = index" [active]="tab.tabData.isActive" [tabTitle]="tab.display" >
+    <div *ngIf="tab" class="schedules-container">
+      <div class="schedules-heading">
+        <div class="schedules-heading-title">
+            <p><span class="text-heavy"> {{tab.season != "NaN/NaN Season" ? tab.season : "Current Season"}}:</span> {{tab.display}}</p>
+            <!--<p [innerHTML]="data.groupName"></p>-->
+          <p><span class="schedules-heading-title-timestamp">{{tab.disclaimer}}</span></p>
+        </div>
+
+        <div class="schedules-heading-filter">
+          <div *ngIf="filter1" class="filter-box">
+            <span class="filter-box-sort">{{filter1.type}}</span>
+            <div  class="col-xs-6 filter-dropdown">
+              <dropdown *ngIf="windowWidth >= 640"
+                [isModule]="'true'"
+                [list]="filter1.data"
+                [selectedKey]="dropdownKey1"
+                [icon]="'fa-caret-down'"
+                (selectionChanged)="filterSwitch({key:$event,value:'filter1'})"></dropdown>
+              <dropdown *ngIf="windowWidth < 640"
+                [isModule]="'true'"
+                [list]="filter1.dataSml"
+                [selectedKey]="dropdownKey1"
+                [icon]="'fa-caret-down'"
+                (selectionChanged)="filterSwitch({key:$event,value:'filter1'})"></dropdown>
+            </div>
+          </div>
+          <div *ngIf="filter2" class="filter-box">
+            <span class="filter-box-sort">{{filter2.type}}</span>
+            <div class="col-xs-6 filter-dropdown">
+              <dropdown
+                [isModule]="'true'"
+                [list]="filter2.data"
+                [selectedKey]="dropdownKey2"
+                [icon]="'fa-caret-down'"
+                (selectionChanged)="filterSwitch({key:$event,value:'filter2'})"></dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="tab.tabData.sections" class="schedules-table" [ngClass]="{'schedules-table-padding': filter1 || filter2 }">
+        <div *ngFor="let section of tab.tabData.sections" class="schedules-section">
+          <h4 *ngIf="section.groupName" [innerHtml]="section.groupName"></h4>
+          <loading-component *ngIf="!section.tableData"></loading-component>
+          <custom-table [ngClass]="{'table-schedule':tab.display == 'Previous Games'}" *ngIf="section.tableData" [error]="tab.tabData.errorData" [model]="section.tableData" (sortChanged)="updateCarousel($event)"></custom-table>
+        </div>
+      </div>
+    </div>
+  </tab>
+</tabs>

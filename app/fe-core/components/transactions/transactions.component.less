@@ -1,0 +1,57 @@
+.transactions {
+  width:auto;
+  height:auto;
+  &-container{
+    width:100%;
+
+    .scrollable-item-wrapper {
+      width: 118%;
+    }
+  }
+  .no-data{
+    height: 70px;
+    margin: 5px auto;
+  }
+  &-title {
+    margin: 12px 20px 0 20px;
+  } //&-title
+
+  //carousel
+  .scc-details-type1-desc {
+    text-align: left;
+  }
+  .scc-details-type1-date {
+    text-align: left;
+  }
+
+  .no-data {
+    margin-bottom: 5px;
+    &-message {
+      @media @mobile {
+        padding-left: 25px;
+      }
+    }
+  } //no-data
+
+  //following attributes added so entire dropdown can be seen when there is no data to display
+  overflow: visible;
+
+  .side-scroller {
+    overflow: visible;
+    //  overflow-x: scroll;
+    // @media @mobile {
+    //   .nav-tabs li {
+    //     min-width: auto;
+    //   }
+    // }
+  }
+  .pane {
+    overflow: visible;
+    padding: 5px 15px 0 15px;
+  }
+  .dropdown-list {
+    z-index: 1000;
+  }
+  //END following attributes added so entire dropdown can be seen when there is no data to display
+
+} //.transactions

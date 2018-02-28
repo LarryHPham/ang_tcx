@@ -1,0 +1,22 @@
+<!-- (swipe)="onSwipe($event)" -->
+<div class="carousel_scroll" (window:resize)="onResize($event)">
+  <div *ngIf="currentImage" class="carousel_scroll-image">
+    <div class="carousel_scroll-image-box {{transition2}}"  [style.right]="imageTransition | safeStyle">
+      <div *ngIf="prevImage" class="carousel_scroll-image-box-img" [ngStyle]="{'background-image': 'url(' + prevImage + ')'}"></div>
+      <div *ngIf="currentImage" class="carousel_scroll-image-box-img" [ngStyle]="{'background-image': 'url(' + currentImage + ')'}"></div>
+      <div *ngIf="nextImage" class="carousel_scroll-image-box-img" [ngStyle]="{'background-image': 'url(' + nextImage + ')'}"></div>
+    </div>
+  </div>
+  <div class="carousel_scroll-box" (mousedown)="scrollX($event)" (mouseup)="scrollX($event)">
+    <!-- <div *ngIf="displayedItems" class="carousel_scroll-container {{transition}}" [style.right]="rightText | safeStyle"> -->
+    <div class="carousel_scroll-container {{transition}}" [style.right]="rightText | safeStyle">
+      <!-- ng content goes below -->
+      <ng-content></ng-content>
+      <!-- end of content -->
+    </div>
+  </div>
+  <div class="carousel_scroll-overlayright" *ngIf="fade"></div>
+  <div class="carousel_scroll-overlayleft" *ngIf="fade"></div>
+  <button *ngIf="buttonClass" class="{{buttonClass}} carousel_scroll-left" (click)="left($event)" [ngClass]="{'disabled': minScroll === true }"><i class="fa fa-angle-left"></i></button>
+  <button *ngIf="buttonClass" class="{{buttonClass}} carousel_scroll-right" (click)="right($event)" [ngClass]="{'disabled': maxScroll === true}"><i class="fa fa-angle-right"></i></button>
+</div>

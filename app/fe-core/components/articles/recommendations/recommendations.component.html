@@ -1,0 +1,54 @@
+<div class="recommendations" *ngIf="!isDeepDive">
+    <div class="recommendations-header">
+        <i class="fa fa-heart-o recommendations-header-icon"></i><span class="recommendations-header-text">Other Stories You Will Love</span>
+    </div>
+    <div class="recommendations-articles row">
+        <div class="recommendations-articles-blocks col-xs-12 row">
+            <div class="blocks-image col-xs-12 col-md-4" *ngFor="let data of randomHeadlines; let i=index;">
+                <div class="recommendations-articles-six article-recommend">
+                    <a [routerLink]="data.articleUrl"
+                       title="{{data.title}}">
+                        <div class="sixteenNine">
+                            <img class="recommendations-articles-six-image" src="{{data.images}}"
+                                 onerror="this.src='http://images.synapsys.us/TDL/stock_images/TDL_Stock-3.png'"/>
+                        </div>
+                        <div class="recommendations-articles-six-content">
+                            <div class="recommendations-articles-six-content-dateline">
+                                <span class="recommendations-articles-six-content-dateline-keyword"
+                                      [innerHTML]="data.keyword | safeHtml"></span>
+                                <span class="deep_recs-ai-articles-item-content-dateline-date"
+                                      [innerHTML]="data.date | safeHtml"></span>
+                            </div>
+                            <div class="recommendations-articles-six-content-headline"
+                                 [innerHTML]="data.title | safeHtml"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="deep_recs" *ngIf="isDeepDive">
+    <div class="row">
+        <a class="deep_recs-articles" *ngFor="let item of randomHeadlines; let i = even;" [class.clearfix]="i"
+           [routerLink]="item.urlRouteArray" title="{{item.title}}">
+            <div class="deep_recs-articles-item">
+                <div class="deep_recs-articles-item-image" [style.background-image]="'url(' + item.images + ')'"></div>
+                <div class="deep_recs-articles-item-content">
+                    <div class="deep_recs-articles-item-content-dateline">
+                        <span class="deep_recs-articles-item-content-dateline-keyword"
+                              [innerHTML]="item.keyword | safeHtml"></span>
+                        <span class="deep_recs-articles-item-content-dateline-date"
+                              [innerHTML]="item.date | safeHtml"></span>
+                    </div>
+                    <div class="deep_recs-articles-item-content-dateline-below">
+                        <span class="deep_recs-articles-item-content-dateline-below-date"
+                              [innerHTML]="item.date | safeHtml"></span>
+                    </div>
+                    <div class="deep_recs-articles-item-content-teaser" [innerHTML]="item.title | safeHtml"></div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

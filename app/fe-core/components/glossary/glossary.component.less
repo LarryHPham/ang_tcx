@@ -1,0 +1,31 @@
+.glossary {
+  &.pane-content {
+    margin-top: 0px !important;
+    //position:absolute;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  &-title {
+    margin: 0px 14px;
+    .globalDefaultFont(16px, 800);
+  }
+
+  &-box {
+    background-color: @backgroundGrey;
+    padding: 10px 10px;
+    margin: 10px 14px 10px 14px;
+    .globalDefaultFont(12px, 400);
+
+    .col-xs-4{
+      @media @mobile{
+        width:50%;
+      }
+    }
+
+    li {
+      line-height: 15px;
+
+    }
+  }
+}

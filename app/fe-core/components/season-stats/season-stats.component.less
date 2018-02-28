@@ -1,0 +1,112 @@
+.season-stats-mod{
+  .pane{
+    overflow: visible;
+  }
+}
+.season-stats {
+  .season-stats-tab-section {
+    padding-top: 42px;
+    h4 {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      margin-left: 10px;
+      margin-top: -42px;
+    }
+  }
+  .circles{
+    display: none;
+  }
+  padding-bottom: 5px;
+  .custom-table-compact{
+    tr:last-child{
+      .image-column, .custom-table-compact-cell{
+        font-weight: 800;
+      }
+      .image-column{
+        color: @black;
+        a:hover{
+          color: @black;
+        }
+      }
+    }
+    tr:first-child{
+      .image-column, .custom-table-compact-cell{
+        font-weight: 400;
+      }
+      .image-column{
+        a span {color: @masterBrandColor;}
+        span {color: @black;}
+        a:hover{
+          color: @black;
+        }
+      }
+    }
+  }
+  .custom-table-header {
+    margin-bottom: 5px;
+  }
+  .data-column-hdr, .data-column {
+    min-width: 50px; //since it needs to include space for padding
+    white-space: nowrap;
+  }
+
+  .date-column-hdr, .date-column {
+    width: 55px; //since it needs to include space for padding
+  }
+
+  .image-column-hdr, .image-column {
+    width: 105px;
+    text-align: center;
+    font-weight: 800 !important;
+  }
+  .image-column-hdr {
+    .custom-table-header {
+      margin-left: 5px;
+    }
+  }
+  .image-column {
+    color: @masterBrandColor;
+    white-space: normal;
+    a{
+      .flexJustify(center);
+    }
+    a:hover {
+      color: @masterBrandColor;
+      text-decoration: none;
+      .image-round-hover {
+        div {
+          .flexDisplay;
+        }
+      }
+    }
+  }
+  .pane {
+    padding: 36px 10px;
+    position: relative;
+    @media @mobile {
+      padding-right:0px;
+    }
+    h3{
+      .globalDefaultFont(18px, 800);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: normal;
+      margin-top: 12px;
+      margin-left: 10px;
+    }
+    h4 {
+      margin-bottom: 5px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid @highlightGrey;
+      .globalDefaultFont(16px, 800);
+    }
+  }
+  tbody {
+    .widgetForPage {
+      display:none;
+    }
+  }
+}

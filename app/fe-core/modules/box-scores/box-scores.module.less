@@ -1,0 +1,213 @@
+
+
+.box-scores { // BOX-SCORES CONTAINER
+  width: 100%;
+  height:auto;
+  overflow: visible;
+  margin: 0 auto;
+  @media @mobile {
+    width:100%!important;
+    game-info {
+      width:100%;
+    }
+  }
+  &-container {
+    overflow: visible;
+    .even {
+      @media @tablet {
+        .box-scores-info-padding {
+          padding: 10px 5px 10px 10px;
+        }
+      }
+    }
+    .odd {
+      @media @tablet {
+        .box-scores-info-padding {
+          padding: 10px 10px 10px 5px;
+        }
+      }
+    }
+  } //&-container
+
+  &-overlay{
+    width:100%;
+    height:50px;
+    background: linear-gradient(0deg, @white 0%, @whiteGradient 100%);
+    position: absolute;
+    bottom:0;
+    z-index:1;
+    @media @mobile {
+      display: none;
+    }
+  } //&-overlay
+
+  &-row {
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    &-container {
+      padding: 10px;
+      width:100%;
+      height:auto;
+      &.odd {
+        background: @backgroundGrey;
+      }
+      .game-info-container {
+        @media @tablet {
+          max-width: ~'calc(50% - 12px)';
+          &:nth-child(odd) {
+            padding: 0 5px 0 0;
+          }
+          &:nth-child(even) {
+            padding: 0 0 0 5px;
+          }
+        }
+      }
+    }
+  } //&-row
+
+  &-leagueNav {
+    width:100%;
+    .pageIndicator {
+      display:block;
+      width:100%;
+      padding: 10px 0;
+      text-align:center;
+      font-size: 12px;
+      color: @bulletGrey;
+      b {
+        color: @black;
+      }
+    }
+    .pagButton {
+      cursor: pointer;
+      width:50%;
+      height:35px;
+      display:block;
+      color: @white;
+      background-color:@homeRunLoyalRed;
+      text-align: center;
+      padding-top: 12px;
+      font-size: 12px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      i {
+        position: relative;
+        vertical-align: middle;
+      }
+    }
+    .rightPag {
+      background-color: @masterBrandColor;
+      float:right;
+    }
+    .rightPag:hover {
+      background-color: @black;
+    }
+    .leftPag {
+      color: @fontIconGrey;
+      background-color: @backgroundGrey;
+      float:left;
+    }
+    .leftPag:hover {
+      color:@white;
+      background-color: @black;
+    }
+    .pagButton.disabled {
+      background-color: @strokeGrey;
+      color: @bulletGrey;
+      cursor: default;
+    }
+    .pagButton.disabled:hover {
+      background-color: @strokeGrey;
+    }
+  } //&-leagueNav
+
+  &-moregames{
+    width:100%;
+    height:40px;
+  }
+  &-mult{
+    width:97%;
+    height: 100%;
+    margin:0 auto;
+    border-bottom: 1px solid @strokeGrey;
+    .flexDisplay;
+    .flexJustify(space-between);
+    &-title{
+      height:100%;
+      line-height: 40px;
+      font-size: 16px;
+      text-align: left;
+    }
+    &-games{
+      height:100%;
+    }
+    &-button{
+      width:100px;
+      height:30px;
+      background-color: @white;
+      color:@masterBrandColor;
+      font-size: 14px;
+      font-weight: 800;
+      border:1px solid @masterBrandColor;
+      padding:6px 25px;
+      margin:5px;
+      float:left;
+      &.selected{
+        background-color: @masterBrandColor;
+        color:@white;
+        cursor: default;
+      }
+      &:hover{
+        cursor:pointer;
+        background-color:@masterBrandColor;
+        color:@white;
+      }
+    }
+  }
+  .schedule-next-circle{
+    height:auto;
+    width:auto;
+    @mobile @desktop-m{
+      &-right{
+        right:230px;
+      }
+      &-left{
+        left:230px;
+      }
+    }
+  }
+  .schedule-next-vs{
+    font-weight: 800;
+  }
+  .module-container {
+    margin-bottom: 0;
+    overflow: visible;
+  }
+  .dynamic-background-hover i {
+    margin-top: 2px;
+  }
+}//end of box-scores container
+
+.box-scores-scroll{
+  width: 100%;
+  height: 400px;
+  .scrollable-item{
+    padding-right:22px;
+  }
+  .scrollable-item-wrapper{
+    max-height:555px;
+    width:102.%;
+    padding-right:2000px;
+  }
+  .scrollable-item-scroller{
+    width:5px;
+    right: 4px;
+  }
+  .scrollable-item.showScroll::after{
+    width:5px;
+    right: 5px;
+  }
+} // END .box-scores-scroll

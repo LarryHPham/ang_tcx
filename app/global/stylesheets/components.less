@@ -1,0 +1,804 @@
+/*********************/
+/* Table Of Contents */
+/*********************/
+/*
+
+For quick searching:
+
+goalsHeader
+ goalsList
+ wireframe
+
+@Documentation Components
+@Vert Mod Components
+  @Vert Header Components
+  @Vert Heading Component
+  @Vert Image Components
+    @Image Hover States
+    @Round Image Links
+    @Large Link-Images with Small Images/Divs in Corners
+  @Vert Tab Components
+  @Vert Button Components
+  @Vert Stat Boxes
+  @Vert Tile Components
+
+*/
+
+/*****************************/
+/* @Documentation Components */
+/*****************************/
+// mod-frame is a scaled down wireframe of a module for visual
+// example purposes
+.goalsHeader {
+  height: 30px;
+  line-height: 30px;
+  background-color: @docPrimaryAccentColor;
+  color: white;
+  padding-left: 4px;
+}
+.goalsList {
+  list-style-type: square;
+  margin: 10px 25px 0;
+  li {
+    line-height: 20px;
+    color: @docTetraLeftAccentColor;
+    & span {
+      color: @white;
+    }
+    & ul {
+      margin: 0 0 0 25px;
+      list-style-type: disc;
+    }
+  }
+}
+.wireframe {
+  width: 340px;
+  position: relative;
+  overflow: hidden;
+  background-color: @white;
+  .flexDisplay;
+  .flexDirection(column);
+  header {
+    width: inherit;
+    height: 30px;
+    .docDashedBorderBottom;
+  }
+  div.hero {
+    width: inherit;
+    height: 90px;
+    .docDashedBorderBottom;
+  }
+  nav {
+    width: inherit;
+    height: 40px;
+    .docDashedBorderBottom;
+  }
+  main {
+    width: inherit;
+    height: 200px;
+  }
+  footer {
+    width: inherit;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    .docDashedBorderTop;
+    .docDashedBorderBottom;
+  }
+}
+
+/************************/
+/* @Vert Mod Components */
+/************************/
+/* @Vert Header Components */
+// @docDemo mod-hdr
+.mod-hdr {
+  @defaultModHdrHeight: 45px;
+  width: 100%;
+  height: @defaultModHdrHeight;
+  line-height: @defaultModHdrHeight;
+  background-color: @black;
+  span:first-child {
+    width: 3px;
+    height: 13px;
+    display: inline-block;
+    margin-left: 10px;
+    background-color: @masterBrandColor;
+  }
+  span:last-child {
+    .globalDefaultModFont(18px, 800, @white);
+  }
+}
+
+.page-hdr {
+  @defaultPageHdrHeight: 50px;
+  width: 680px;
+  height: @defaultPageHdrHeight;
+  line-height: @defaultPageHdrHeight;
+  a {
+    .flexDisplay;
+    background-image: url(header_texture.png);
+    background-size: cover;
+    div:first-child {
+      width: 60px;
+      background-color: @masterBrandColor;
+      .flexDisplay;
+      .flexDirection(row);
+      .flexJustify(space-around);
+      i {
+        font-size: 30px;
+        color: white;
+        padding-top: 10px;
+      }
+    }
+    div:nth-child(2) {
+      width: 15px;
+      border-top: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+      border-left: 15px solid @masterBrandColor;
+    }
+    span {
+      .globalDefaultModFont(18px, 300, @white);
+      margin-left: 20px;
+      &.strong {
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+
+/**************************/
+/* @Vert Image Components */
+/**************************/
+.roundImage(@widthHeight, @shadowSize, @shadowColor) {
+  width: @widthHeight;
+  height: @widthHeight;
+  box-shadow: 0 0 0 @shadowSize @shadowColor;
+  .borderRadiusPrefix(50%);
+  .backgroundClipPBoxPrefixes;
+}
+
+.rectangleImage(@width, @height) {
+  width: @width;
+  height: @height;
+  .backgroundClipPBoxPrefixes;
+}
+
+/* @Image Hover States */
+/* Articles */
+.articleImageHoverWithTextResponsive(@hoverEleWidth, @hoverEleHeight) {
+  .flexDisplay;
+  .flexDirection(column);
+  .flexJustify(center);
+  text-align: center;
+  background-color: @masterSqrtHoverAI;
+  width: @hoverEleWidth;
+  height: @hoverEleHeight;
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  p {
+    &:first-child {
+      @defaultFirstParaFontSize: @hoverEleWidth * 1.8;
+      .globalDefaultModFont(@defaultFirstParaFontSize, 700, @white);
+      line-height: @defaultFirstParaFontSize / 2;
+      margin: 0 auto;
+      height: 38px;
+      width: 208px;
+      padding-top: 6px;
+      border: 1px solid @white;
+      border-radius: 2px;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.articleImageHoverWithText(@hoverEleWidth, @hoverEleHeight) {
+  .flexDisplay;
+  .flexDirection(column);
+  .flexJustify(center);
+  text-align: center;
+  background-color: rgba(188, 32, 39, 0.75);
+  width: @hoverEleWidth;
+  height: @hoverEleHeight;
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  p {
+    &:first-child {
+      @defaultFirstParaFontSize: @hoverEleWidth * 0.06;
+      .globalDefaultModFont(@defaultFirstParaFontSize, 700, @white);
+      line-height: @defaultFirstParaFontSize;
+      margin: 0 auto;
+      height: 38px;
+      width: 208px;
+      padding-top: 7px;
+      border: 1px solid @white;
+      border-radius: 2px;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.carouselImageTextSmall(@hoverEleWidth, @hoverEleHeight) {
+  .flexDisplay;
+  .flexDirection(column);
+  .flexJustify(center);
+  text-align: center;
+  background-color: @masterSqrtHoverAI;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left:0;
+  p {
+    &:first-child {
+      @defaultFirstParaFontSize: @hoverEleWidth * 0.13;
+      .globalDefaultModFont(@defaultFirstParaFontSize, 700, @white);
+      .flexDisplay;
+      .flexAlignItems(center);
+      .flexJustify(center);
+      line-height: @defaultFirstParaFontSize;
+      margin: 0 auto;
+      height: 35%;
+      width: 75%;
+      border: 1px solid @white;
+      border-radius: 2px;
+      background-color: @masterSqrtHoverAI;
+      font-size: 80%;
+      font-weight: 800;
+      font-family: @globalFont;
+    }
+  }
+}
+
+.articleImageHoverWithTextSmall(@hoverEleWidth, @hoverEleHeight) {
+  .flexDisplay;
+  .flexDirection(column);
+  .flexJustify(center);
+  text-align: center;
+  background-color: @masterSqrtHoverAI;
+  width: @hoverEleWidth;
+  height: @hoverEleHeight;
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  p {
+    &:first-child {
+      @defaultFirstParaFontSize: @hoverEleWidth * 0.13;
+      .globalDefaultModFont(@defaultFirstParaFontSize, 700, @white);
+      line-height: @defaultFirstParaFontSize;
+      margin: 0 auto;
+      height: 28px;
+      width: 78px;
+      padding-top: 7px;
+      border: 1px solid @white;
+      border-radius: 2px;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+.articleImageHoverWithTextMedium(@hoverEleWidth, @hoverEleHeight) {
+  .flexDisplay;
+  .flexJustify(center);
+  .flexAlignItems(center);
+  text-align: center;
+  background-color: @masterSqrtHoverAI;
+  width: @hoverEleWidth;
+  height: @hoverEleHeight;
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  p {
+    &:first-child {
+      .flexDisplay;
+      .flexJustify(center);
+      .flexAlignItems(center);
+      @defaultFirstParaFontSize: @hoverEleWidth * 0.1;
+      .globalDefaultModFont(@defaultFirstParaFontSize, 700, @white);
+      line-height: @defaultFirstParaFontSize;
+      margin: 0 auto;
+      height: 28px;
+      width: 120px;
+      border: 1px solid @white;
+      border-radius: 2px;
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+// @roundImageLinkDemo
+.smallImageHoverWithIcon(@hoverEleWidthHeight) {
+  .flexDisplay;
+  .flexDirection(column);
+  .flexJustify(space-around);
+  text-align: center;
+  background-color: @masterImageHover;
+  width: @hoverEleWidthHeight;
+  height: @hoverEleWidthHeight;
+  position: absolute;
+  .borderRadiusPrefix(50%);
+  left: -9999px;
+  top: 0;
+  i {
+    color: @white;
+    font-size: @hoverEleWidthHeight * 0.4;
+  }
+}
+.largeImageHoverWithText(@hoverEleWidthHeight) {
+  .flexDisplay;
+  .flexDirection(column);
+  .flexJustify(center);
+  text-align: center;
+  background-color: @masterImageHover;
+  width: @hoverEleWidthHeight;
+  height: @hoverEleWidthHeight;
+  position: absolute;
+  .borderRadiusPrefix(50%);
+  left: -9999px;
+  top: 0;
+  p {
+    &:first-child {
+      @defaultFirstParaFontSize: @hoverEleWidthHeight * 0.213;
+      .globalDefaultModFont(@defaultFirstParaFontSize, 700, @white);
+      line-height: @defaultFirstParaFontSize;
+      margin: 0;
+    }
+    &:last-child {
+      @defaultSecondParaFontSize: @hoverEleWidthHeight * 0.133;
+      .globalDefaultModFont(@defaultSecondParaFontSize, 400, @white);
+      line-height: @defaultSecondParaFontSize;
+      margin: 0;
+    }
+  }
+}
+// article Image Links
+.articleImageLinkWithHoverResponsive(@linkWidth, @linkHeight) {
+  display: inline-block;
+  width: @linkWidth;
+  height: @linkHeight;
+  position: absolute;
+  img {
+    .rectangleImage(@linkWidth, @linkHeight);
+  }
+  div {
+    .articleImageHoverWithTextResponsive(@linkWidth, @linkHeight);
+  }
+  &:hover {
+    div {
+      left: 0;
+    }
+  }
+}
+
+.articleImageLinkWithHover(@linkWidth, @linkHeight) {
+  display: inline-block;
+  width: @linkWidth;
+  height: @linkHeight;
+  position: absolute;
+  img {
+    .rectangleImage(@linkWidth, @linkHeight);
+  }
+  div {
+    .articleImageHoverWithText(@linkWidth, @linkHeight);
+  }
+  &:hover {
+    div {
+      left: 0;
+    }
+  }
+}
+
+.carouselImageLinkSmall(@linkWidth, @linkHeight) {
+  display: inline-block;
+  width: @linkWidth;
+  height: @linkHeight;
+  position: absolute;
+  span {
+    .rectangleImage(100%, 100%);
+  }
+  div {
+    .carouselImageTextSmall(@linkWidth, @linkHeight);
+  }
+  &:hover {
+    div {
+      left: 0;
+    }
+  }
+}
+
+.articleImageLinkWithHoverSmall(@linkWidth, @linkHeight) {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  img {
+    .rectangleImage(@linkWidth, @linkHeight);
+  }
+  div {
+    .articleImageHoverWithTextSmall(@linkWidth, @linkHeight);
+  }
+  &:hover {
+    div {
+      left: 0;
+    }
+  }
+}
+
+.articleImageLinkWithHoverMedium(@linkWidth, @linkHeight) {
+  display: inline-block;
+  width: @linkWidth;
+  height: @linkHeight;
+  position: absolute;
+  img {
+    .rectangleImage(@linkWidth, @linkHeight);
+  }
+  div {
+    .articleImageHoverWithTextMedium(@linkWidth, @linkHeight);
+  }
+  &:hover {
+    div {
+      left: 0;
+    }
+  }
+}
+
+// @Round Image Links
+.smallRoundImageLinkWithHover(@linkWidth, @shadowSize, @shadowColor) {
+  display: inline-block;
+  width: @linkWidth;
+  height: @linkWidth;
+  position: relative;
+  .borderRadiusPrefix(50%);
+  img {
+    .roundImage(@linkWidth, @shadowSize, @shadowColor);
+  }
+  div {
+    .smallImageHoverWithIcon(@linkWidth);
+  }
+  &:hover {
+    div {
+      left: 0;
+    }
+  }
+}
+
+.largeRoundImageLinkWithHover(@linkWidth, @shadowSize, @shadowColor) {
+  display: inline-block;
+  width: @linkWidth;
+  height: @linkWidth;
+  position: relative;
+  .borderRadiusPrefix(50%);
+  img {
+    .roundImage(@linkWidth, @shadowSize, @shadowColor);
+  }
+  div {
+    .largeImageHoverWithText(@linkWidth);
+  }
+  &:hover {
+    div {
+      left: 0;
+    }
+  }
+}
+
+/* @Large Link-Images with Small Images/Divs in Corners */
+// Small round links that contain an image and hover state
+// that accompany larger images
+.smallImgBR(@smallImgWidthHeightBR, @smallImgShadowSizeBR, @smallImgShadowColorBR) {
+  display: inline-block;
+  .roundImage(@smallImgWidthHeightBR, @smallImgShadowSizeBR, @smallImgShadowColorBR);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.counterBR(@smallImgWidthHeightBR, @smallImgShadowSizeBR, @smallImgShadowColorBR) {
+  display: inline-block;
+  .roundImage(@smallImgWidthHeightBR, @smallImgShadowSizeBR, @smallImgShadowColorBR);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.smallImgBL(@smallImgWidthHeightBL, @smallImgShadowSizeBL, @smallImgShadowColorBL) {
+  display: inline-block;
+  .roundImage(@smallImgWidthHeightBL, @smallImgShadowSizeBL, @smallImgShadowColorBL);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+// BR both linked
+.largeLinkedImgSmallLinkedImgBR(@liwh, @liss, @lisc, @siwh, @siss, @sisc) {
+  position: relative;
+  display: inline-block;
+  width: @liwh;
+  height: @liwh;
+  line-height: 0;
+  img:first-child {
+    .roundImage(@liwh, @liss, @lisc);
+  }
+  a:first-child {
+    cursor:pointer;
+    .largeRoundImageLinkWithHover(@liwh, @liss, @lisc);
+  }
+  div:nth-child(2){
+    .counterBR(@liwh*.25, @liss*.25, @lisc);
+    width: auto;
+    min-width: @liwh*.25;
+    border-radius: @liwh*.25;
+    line-height: @liwh*.25;
+    padding: 0px @liss;
+    font-size: 18px;
+    font-family: @globalFont;
+    text-align: center;
+    //line-height: 1.8em;
+    background-color: @white;
+    color:@black;
+  }
+  a:last-child {
+    .smallLinkImgBR(@siwh, @siss, @sisc);
+  }
+}
+
+// BR both not linked
+.largeImgSmallNotLinkedImgBR(@liwh, @liss, @lisc, @siwh, @siss, @sisc) {
+  position: relative;
+  display: inline-block;
+  width: @liwh;
+  height: @liwh;
+  line-height: 0;
+  img:first-child {
+    .roundImage(@liwh, @liss, @lisc);
+  }
+  div:nth-child(2){
+    .counterBR(@liwh*.25, @liss*.25, @lisc);
+    font-size: 1em;
+    font-family: @globalFont;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.8em;
+    background-color: @white;
+    color:@black;
+  }
+  img:last-child {
+    .smallImgBR(@siwh, @siss, @sisc);
+  }
+}
+
+// BR: large => not linked; small => linked
+.largeImgSmallLinkedImgBL(@liwh, @liss, @lisc, @siwh, @siss, @sisc) {
+  position: relative;
+  display: inline-block;
+  width: @liwh;
+  height: @liwh;
+  line-height: 0;
+  img {
+    .roundImage(@liwh, @liss, @lisc);
+  }
+  a {
+    .smallLinkImgBL(@siwh, @siss, @sisc);
+  }
+}
+
+//BL large => linked; small => not linked
+.largeLinkedImgSmallImgBL(@liwh, @liss, @lisc, @siwh, @siss, @sisc) {
+  position: relative;
+  display: inline-block;
+  width: @liwh;
+  height: @liwh;
+  line-height: 0;
+  a {
+    .largeRoundImageLinkWithHover(@liwh, @liss, @lisc);
+  }
+  img {
+    .smallImgBL(@siwh, @siss, @sisc);
+  }
+}
+
+// BL both linked
+.largeLinkedImgSmallLinkedImgBL(@liwh, @liss, @lisc, @siwh, @siss, @sisc) {
+  position: relative;
+  display: inline-block;
+  width: @liwh;
+  height: @liwh;
+  line-height: 0;
+  a:first-child {
+    .largeRoundImageLinkWithHover(@liwh, @liss, @lisc);
+  }
+  a:last-child {
+    .smallLinkImgBL(@siwh, @siss, @sisc);
+  }
+}
+
+/* @Row of Round Images */
+.rowOfSmallImages(@imageWidth, @imageLeftMargin, @rowHeight, @shadowSize, @shadowColor) {
+  .inlineFlexDisplay;
+  .flexDirection(row);
+  height: @rowHeight;
+  a {
+    .smallRoundImageLinkWithHover(@imageWidth, @shadowSize, @shadowColor);
+    margin-left: @imageLeftMargin;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+.rowOfLargeImages(@imageWidth, @imageLeftMargin, @rowHeight, @shadowSize, @shadowColor) {
+  .inlineFlexDisplay;
+  .flexDirection(row);
+  height: @rowHeight;
+  a {
+    .largeRoundImageLinkWithHover(@imageWidth, @shadowSize, @shadowColor);
+    margin-left: @imageLeftMargin;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+.columnOfImages(@heightOfImageContainer, @widthOfImageContainer, @numberOfImages) {
+  .flexDisplay;
+}
+.listOfImages(@heightOfImageList, @widthOfImageList, @numberOfImages) {
+
+}
+
+/***************************/
+/* @Vert Button Components */
+/***************************/
+
+//Button with masterIcon on left, button text in the center and a font awesome on the right
+//Option to set button height, master icon size, font size, and font weight
+.mod-page-btn(@modBtnHeight, @modBtnWidth, @masterIconSize, @modBtnFontSize, @modBtnFontWeight) {
+  height: @modBtnHeight;
+  width: @modBtnWidth;
+  border:none;
+  background-color: @masterBrandColor;
+  padding: 0 5px;
+  .borderRadiusPrefix(5px);
+  .flexDisplay;
+  .flexAlignItems(center);
+  .flexJustify(space-around);
+  .globalDefaultModFont(@modBtnFontSize, @modBtnFontWeight, @white);
+  & > span:first-child {
+    display: inline-block;
+    font-size: inherit;
+    text-rendering: auto;
+    font-family: "tdl" !important;
+    font-style: normal !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    height: @masterIconSize;
+    width: @masterIconSize/2;
+    margin-left:10px;
+    font-size: 15px;
+    padding-top:1px;
+  }
+  & > span:first-child:before {
+    content: "\61";
+  }
+  & > i {
+    color: @white;
+    font-weight: 800;
+  }
+  &:focus{
+    outline: 0;
+  }
+  &:hover {
+    background-color: @textEmphasisGrey;
+  }
+  &:active {
+    background-color: @black;
+    color: @white;
+  }
+}//.mod-page-btn ENDS
+//Button with text only, ex: home page in tile and slide carousel
+.mod-page-btn-text-only(@btnTxtOnlyBackGrnd, @btnTxtOnlyBackGrndHover, @btnTxtOnlyColor, @btnTxtOnlyFontSize, @btnTxtOnlyFontWeight){
+  @media (max-width: 640px){
+    padding: 7px 40px 12px;
+  }
+  padding: 15px 40px;
+  background-color: @btnTxtOnlyBackGrnd;
+  text-align: center;
+  .borderRadiusPrefix(3px);
+  .globalDefaultModFont(@btnTxtOnlyFontSize, @btnTxtOnlyFontWeight, @btnTxtOnlyColor);
+  &:hover {
+    background-color: darken(@masterBrandColor, 10%);
+  }
+  &:active {
+    background-color:  @btnTxtOnlyBackGrndHover;
+  }
+}//.mod-page-btn-text-only ENDS
+
+//Using in Image and Media
+.profile-carousel-container {
+  width: 100%;
+  @media @mobile {
+    height: ~"calc(60vw + 70px)";
+    width: 100%;
+  }
+}
+.feature-btn {
+  .inlineFlexDisplay;
+  .flexDirection(row);
+  .flexJustify(center);
+  .flexAlignItems(center);
+  min-width: 115px;
+  height: 30px;
+  position: absolute;
+  padding-left: 15px;
+  padding-right: 15px;
+  z-index: 1;
+  background-color: @featureBtn;
+  border: 1px solid  @featureBtn;
+  .borderRadiusPrefix(3px);
+  .globalDefaultModFont(14px, 800, @white);
+  i {
+    margin-left: 8px;
+  }
+  &:hover {
+    color: @white;
+    background-color: @masterBrandColor;
+    border-color: @masterBrandColor;
+  }
+}
+/********************/
+/* @Vert Stat Boxes */
+/********************/
+.profHdrTopStatBox(@itemWidth, @itemHeight, @itemMarginLeft) {
+  .inlineFlexDisplay;
+  .flexDirection(row);
+  li {
+    .flexDisplay;
+    .flexDirection(column);
+    .flexAlignItems(center);
+    .flexJustify(space-between);
+    width: @itemWidth;
+    height: @itemHeight;
+    margin-left: @itemMarginLeft;
+    &:first-child {
+      margin-left: 0;
+    }
+    p:first-child {
+      .globalDefaultModFont(32px, 300, @white);
+    }
+    p:last-child {
+      .globalDefaultModFont(12px, 300, @white);
+    }
+  }
+}
+
+.dailyUpdateStatBox(@itemWidth, @itemHeight) {
+  .inlineFlexDisplay;
+  .flexDirection(column);
+  background-color: @white;
+  li {
+    .flexDisplay;
+    .flexDirection(row);
+    .flexJustify(space-between);
+    width: @itemWidth;
+    height: @itemHeight;
+    div {
+      .inlineFlexDisplay;
+      .flexDirection(row);
+      .flexAlignItems(center);
+      img {
+        width: 12px;
+        height: 12px;
+      }
+      span {
+        .globalDefaultModFont(12px, 300, @black);
+        margin-left: 12px;
+      }
+    }
+    span {
+      .inlineFlexDisplay;
+      .flexDirection(column);
+      .flexJustify(center);
+      .globalDefaultModFont(12px, 800, @black);
+    }
+  }
+}

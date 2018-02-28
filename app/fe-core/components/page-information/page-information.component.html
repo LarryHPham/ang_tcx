@@ -1,0 +1,24 @@
+<section *ngIf="infoData" class="info-contain container-fluid">
+  <section class="info-title row">
+    <div class="info-title-share col-xs-12">
+      <ul>
+          <div class='st_sharethis_large' (mouseover)="locateShareThis()" data-toggle="tooltip title="><i class='fa fa-share-alt'></i></div>
+          <template [ngIf]="socialMedia">
+            <template ngFor let-item [ngForOf]="socialMedia">
+              <a href="{{item.url}}" target="{{item.target}}"><li><i class="{{item.iconClass}}"></i></li></a>
+            </template>
+          </template>
+      </ul>
+    </div>
+    <div class="info-title-main col-xs-12" [innerHtml]="infoData.title | safeHtml"></div>
+    <div class="info-title-update col-xs-12" [innerHtml]="infoData.lastUpdated | safeHtml"></div>
+  </section>
+  <section *ngIf="infoData.paragraph" class="info-paragraph">
+    <div *ngFor="let item of infoData.paragraph" class="info-paragraph-sub row">
+      <div *ngIf="item.subHeader" class="info-paragraph-sub-title col-xs-12" [innerHtml]="item.subHeader | safeHtml"></div>
+      <div *ngIf="item.info">
+        <div *ngFor="let info of item.info" class="info-paragraph-sub-info col-xs-12" [innerHtml]="info | safeHtml"></div>
+      </div>
+    </div>
+  </section>
+</section>

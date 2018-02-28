@@ -1,0 +1,17 @@
+
+<!--ngFor loop here and add background color class within transactions-li-container-->
+  <div *ngFor="let transactions of transactionsItemData; let i = index; let isLast = last" class="transactions-li-container">
+    <div class="dataBox" *ngFor="let data of transactions.dataPoints; let rowIndex = index" [ngClass]="data.style">
+        <div class="dataBox-text-left short-form-date" [ngClass]="{'data-hover': data.url != ''}" [innerHTML]="data.data_shortFormDate"></div>
+        <div class="dataBox-text-left long-form-date" [ngClass]="{'data-hover': data.url != ''}" [innerHTML]="data.data_longFormDate"></div>
+        <div class="transactions-li-timeline">
+          <div class="transactions-li-timeline-line" [ngClass]="{'transactions-li-timeline-line-first': i == 0}"></div>
+          <div class="transactions-li-timeline-circle"></div>
+        </div>
+        <circle-image class="dataBox-img"[data]="transactions.imageConfig"></circle-image>
+        <div class="dataBox-text-right">
+          <complex-inner-html [textItems]="data.value"></complex-inner-html>
+        </div>
+        <responsive-widget *ngIf="!((i + 1) % 10) && !isLast" embedPlace="widgetForPage"></responsive-widget>
+    </div>
+  </div>

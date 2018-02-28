@@ -1,0 +1,5 @@
+<!-- check if data is available and/or valid -->
+<section class="carousel">
+  <circle-button *ngIf="carouselData.length > 1" (scrollRight)="right()" (scrollLeft)="left()" ></circle-button>
+  <ng-content></ng-content>
+</section>

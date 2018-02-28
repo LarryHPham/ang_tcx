@@ -1,0 +1,29 @@
+<section class="stackRows row">
+  <div class="stackRow col-sm-12 col-md-6 col-lg-12" *ngFor="let stackRow of stackRowData;">
+    <a *ngIf="!stackRow.extUrl" class="stackSmall" [routerLink]="stackRow.articleUrl">
+      <div class="stackSmall-image">
+        <rectangle-image [data]="stackRow.imageConfig" [imgResize]="imgResize"></rectangle-image>
+      </div>
+    </a>
+    <a *ngIf="stackRow.extUrl" class="stackSmall" href="{{stackRow.articleUrl}}" target="_blank">
+      <div class="stackSmall-image">
+        <rectangle-image [data]="stackRow.imageConfig" [imgResize]="imgResize"></rectangle-image>
+      </div>
+    </a>
+    <div class="stackSmall-text">
+      <div class="stackSmall-text-keyword">
+        <a class="masterHover" [routerLink]="stackRow.keyUrl" [innerHTML]="stackRow.keyword"></a>
+        <span class="font-weight-normal" [innerHTML]="stackRow.timeStamp"></span>
+      </div>
+      <a *ngIf="!stackRow.extUrl" class="stackSmall-text-teaser masterHover" [routerLink]="stackRow.articleUrl">
+        <div class="stackSmall-text-subHeadline" [innerHTML]="stackRow.title"></div>
+      </a>
+      <a *ngIf="stackRow.extUrl" class="stackSmall-text-teaser masterHover" href="{{stackRow.articleUrl}}" target="_blank">
+        <div class="stackSmall-text-subHeadline" [innerHTML]="stackRow.title"></div>
+      </a>
+      <div class="stackSmall-citation" *ngIf="stackRow.citationInfo && stackRow.image_source == 'flickr'"><citation-component [citationInfo]="stackRow.citationInfo"></citation-component></div>
+    </div>
+
+  </div>
+    <!-- <div class="stackSmall-breakLine"></div> -->
+</section>

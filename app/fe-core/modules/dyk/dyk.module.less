@@ -1,0 +1,53 @@
+.dyk{
+  width:100%;
+  height:auto;
+  &-details{
+    border-left: solid 5px @highlightGrey;
+    border-bottom: solid 1px @highlightGrey;
+    .flexDisplay;
+    //.flexAlignItems(baseline);
+    .globalDefaultModFont(16px, 400, @black);
+    width: 100%;
+    &-info{
+      width: 90%;
+      text-align: left;
+      p{
+        margin: 20px;
+        @media @tablet{
+          margin:25px 0 25px 20px;
+        }
+      }
+    }
+    &-icon{
+      @media @tablet{
+        margin-left:3%;
+      }
+      //width: 10%;
+      .flexDisplay;
+      .flexDirection(column);
+      .flexJustify(center);
+      text-align: center;
+      .st_sharethis_large{
+        cursor: pointer;
+        span:first-child{
+          display: none;
+        }
+      }
+      .globalDefaultModFont(25px, 400, @masterBrandColor);
+      &:hover{
+        .st_sharethis_large{
+
+        }
+        color: @black;
+        @media @mobile{
+          color: @masterBrandColor;
+        }
+      }
+    }
+    @media @tablet{
+      &:hover{
+        border-left-color: @masterBrandColor;
+      }
+    }
+  }
+}

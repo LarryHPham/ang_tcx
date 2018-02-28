@@ -1,0 +1,27 @@
+<div class="dropdown">
+  <div class="dropdown-hdr" (keydown)="searchKeydown($event)" tabindex="0" >
+    <span class="dropdown-hdr-value"><b *ngIf="dropdownhdr"> {{prefixString}} </b> <span class="hy" *ngIf="dropdownhdr && prefixString!=''"> - &nbsp; </span><span [innerHtml]="selectedItem.value"></span></span>
+    <span class="dropdown-hdr-button">
+      <i class="fa {{dropdownHiddenIcon}}"></i>
+    </span>
+  </div>
+
+  <div class="dropdown-wrapper" style="display: none;">
+    <div class="dropdown-caret-top">
+
+    </div>
+    <div class="droptitle" *ngIf="!isModule">{{ddtitle}}</div>
+    <scrollable-content class="dropdown-list dropdown-list-scroll"
+      [class.no-title]="isModule"
+      (reloadScroller)="_reloadScroller"
+      [class.dropdown-list-scroll]="list.length > 4">
+      <div *ngFor="let item of list; let i=index"
+        class="dropdown-list-option {{item.class}}"
+        [ngClass]="{active: (i === selectedIndex)}"
+        [attr.data-key]="item.key"
+        (click)="setSelected(item)">
+        <span class="{{item.class}}-txt" [innerHtml]="item.value" [ngStyle]="{position: 'relative'}"></span>
+      </div>
+    </scrollable-content>
+  </div>
+</div>

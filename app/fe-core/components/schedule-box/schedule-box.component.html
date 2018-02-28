@@ -1,0 +1,92 @@
+<div *ngIf="boxData.eos != 'true'">
+<div *ngIf="topScope=='football' || topScope == 'basketball' || topScope == 'baseball' || topScope == 'sports'" class="schedule_box {{boxData.isLive}} football"><!--become a component <schedule-box>-->
+  <div class="schedule_box-date" *ngIf="boxData.isLive != 'schedule-live'" [innerHTML]="boxData.date">
+  </div>
+  <div class="schedule_box-date live" *ngIf="boxData.isLive == 'schedule-live'">
+    <span class="innings"><span class="innings-text" [innerHTML]="boxData.inning"></span></span>
+    <span class="liveText"><i class="fa fa-circle"></i> LIVE</span></div>
+  <div class="schedule_box-versus">
+    <!-- away data below -->
+    <div class="schedule_box-team">
+      <div class="schedule_box-image">
+        <circle-image [data]="boxData.awayImageConfig"></circle-image>
+      </div>
+      <a *ngIf="!boxData.extUrl && boxData.awayLink" target="_blank" [routerLink]="boxData.awayLink">
+        <span class="schedule_box-text">
+          {{boxData.awayTeamName}}
+        </span>
+      </a>
+      <a *ngIf="boxData.extUrl && boxData.awayLink" target="_blank" href="{{boxData.awayLink}}">
+        <span class="schedule_box-text">
+          {{boxData.awayTeamName}}
+        </span>
+      </a>
+      <div *ngIf="!boxData.awayLink">
+        <span class="schedule_box-regText">
+          {{boxData.awayTeamName}}
+        </span>
+      </div>
+    </div>
+    <!-- home data below -->
+    <div class="schedule_box-team">
+      <div class="schedule_box-image">
+        <circle-image [data]="boxData.homeImageConfig"></circle-image>
+      </div>
+      <a *ngIf="!boxData.extUrl" target="_blank" [routerLink]="boxData.homeLink">
+        <span class="schedule_box-text">
+          {{boxData.homeTeamName}}
+        </span>
+      </a>
+      <a *ngIf="boxData.extUrl" target="_blank" href="{{boxData.homeLink}}">
+        <span class="schedule_box-text">
+          {{boxData.homeTeamName}}
+        </span>
+      </a>
+    </div>
+    <a *ngIf="!boxData.extUrl" target="_blank" [routerLink]="boxData.reportLink">
+      <div *ngIf="boxData.isLive != 'schedule-live'" class="schedule_box-linkbox">
+        <span>{{boxData.reportDisplay}}</span>
+      </div>
+      <div *ngIf="boxData.isLive == 'schedule-live'" class="schedule_box-linkbox-live">
+        <span><i class="fa fa-circle"></i> LIVE GAME REPORT</span>
+      </div>
+    </a>
+    <a *ngIf="boxData.extUrl" target="_blank" href="{{boxData.reportLink}}">
+      <div *ngIf="boxData.isLive != 'schedule-live'" class="schedule_box-linkbox">
+        <span>{{boxData.reportDisplay}}</span>
+      </div>
+      <div *ngIf="boxData.isLive == 'schedule-live'" class="schedule_box-linkbox-live">
+        <span><i class="fa fa-circle"></i> LIVE GAME REPORT</span>
+      </div>
+    </a>
+  </div>
+</div><!--</schedule-box-football>-->
+
+<div *ngIf="topScope=='weather'" class="schedule_box weather"><!--become a component <schedule-box>-->
+  <div class="weather-date">{{boxData.unix_timestamp}}</div>
+  <img class="condition-image" src="{{boxData.icon}}">
+  <div class="condition">{{boxData.condition}}</div>
+  <div class="temp" [innerHTML]="boxData.temperature"></div>
+</div><!--</schedule-box-weather>-->
+
+<div *ngIf="topScope=='business'" class="schedule_box business"><!--become a component <schedule-box>-->
+  <a *ngIf="boxData.exchangeName != 'OTC'" class="masterHover" href="{{boxData.profileUrl}}" target="_blank">
+  <!-- <img class="company-logo" src="{{boxData.logoUrl}}"> -->
+  <circle-image [data]="boxData.imageConfig"></circle-image>
+  <div class="company-name">{{boxData.fullCompanyName}}</div></a>
+
+  <a *ngIf="boxData.exchangeName == 'OTC'">
+  <!-- <img class="company-logo" src="{{boxData.logoUrl}}"> -->
+  <circle-image [data]="boxData.imageConfig"></circle-image>
+  <div class="company-name">{{boxData.fullCompanyName}}</div></a>
+
+  <div class="exchange">{{boxData.exchangeName}}: {{boxData.companySymbol}}</div>
+  <div class="stock-value"><span class="current-value">${{boxData.currentStockValue}}</span> <span class="value-change" [class.positive]="boxData.stockChangeGain == '1'" [class.negative]="boxData.stockChangeGain == '0'"><i class="fa" [class.fa-arrow-up]="boxData.stockChangeGain == '1'" [class.fa-arrow-down]="boxData.stockChangeGain == '0'"></i> {{boxData.stockChangeAmount}} ({{boxData.stockChangePercent}}%)</span></div>
+  <a *ngIf="boxData.exchangeName != 'OTC'" target="_blank" href="{{boxData.profileUrl}}"><div class="view-profile">VIEW PROFILE</div></a>
+</div><!--</schedule-box-business>-->
+</div>
+<div *ngIf="boxData.eos == 'true'" class="schedule_box eos">
+    <img class="icon" src="{{boxData.icon}}">
+    <div class="mainMessage">{{boxData.mainMessage}}</div>
+    <div class="subMessage">{{boxData.subMessage}}</div>
+<div>

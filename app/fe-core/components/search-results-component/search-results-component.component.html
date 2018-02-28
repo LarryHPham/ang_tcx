@@ -1,0 +1,14 @@
+<div class="s-res-component row">
+    <div class="s-res-component_img col-md-5">
+        <rectangle-image [data]="singleArticleData.imagePathData"></rectangle-image>
+        <!--<img [src]="singleArticleData.imagePathData">-->
+    </div>
+    <div class="s-res-component_txt col-sm-12 col-md-7">
+        <a [href]="singleArticleData.article_url" class="s-res-component_txt_title"> {{singleArticleData.title}}</a>
+        <div class="s-res-component_txt_writeby" *ngIf="singleArticleData.publisher!='SNT Media'"> Written By: <b> {{singleArticleData.author}}, {{singleArticleData.publisher}}</b></div>
+        <div class="s-res-component_txt_post"> Posted On {{singleArticleData.publishedDate}}<span *ngIf="singleArticleData.citationInfo && singleArticleData.image_source == 'flickr'" class="trending-citation">&nbsp;&nbsp;|&nbsp;&nbsp;<citation-component [citationInfo]="singleArticleData.citationInfo"></citation-component></span></div>
+        <div class="s-res-component_txt_teaser"> {{singleArticleData.teaser}} </div>
+
+        <a [href]="singleArticleData.article_url" class="s-res-component_txt_readfull"> Read The Full Story <i class="fa fa-arrow-right-1"></i> </a>
+    </div>
+</div>

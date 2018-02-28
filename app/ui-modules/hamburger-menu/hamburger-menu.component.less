@@ -1,0 +1,112 @@
+.hamburger-component{
+  position: absolute;
+  width: 320px;
+  z-index: 9999;
+  .scrollable-item-wrapper {
+    max-height: ~"calc(100vh - 80px)";
+  }
+}
+.hamburger {
+  .disabled, .router-link-active {
+    pointer-events:all;
+    cursor:pointer;
+  }
+  &-division-select{
+    position:absolute;
+    right: 10px;
+    top: 17px;
+    z-index:999;
+    font-size: 14px;
+    &-button {
+      padding: 5px 10px;
+      border: 1px solid @white;
+      border-radius: 5px;
+    }
+    &-button:first-of-type {
+      margin-right: 10px;
+    }
+    .active {
+      background-color: @white;
+      color: @textEmphasisGrey;
+    }
+    &-button:hover {
+      border-color: @black;
+      background-color: @black;
+      color: @white;
+    }
+  }
+  ul {
+    margin: 0px;
+  }
+  li {
+    cursor: pointer;
+    padding: 12px 15px;
+    position: relative;
+    text-indent: 0px;
+    &:hover, &:focus, &:active{
+      background-color: @masterBrandColor;
+    }
+  }
+  .nester-parent {
+    height: 42px;
+    overflow: hidden;
+    padding: 0px 15px 0px 15px;
+    .nester-parent-title {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 0 12px 0;
+      cursor: pointer;
+    }
+    .toggle-nest {
+      position: absolute;
+      padding: 10px;
+      right: 30px;
+      top: 4px;
+      width: 13px;
+      height: 13px;
+    }
+    a .nester-child {
+      margin-left: -15px;
+      padding-left: 30px;
+      width: ~'calc(100% + 30px)';
+    }
+  }
+  .nester-parent.open {
+    height: auto;
+    background-color: #555555;
+  }
+  .nester-parent:hover.open{
+    background-color: #555555;
+  }
+  &-topics-list {
+    background-color: @fontIconGrey;
+    .globalDefaultModFont(16px, 400, @white);
+    a {
+      color: @white;
+    }
+
+  }//hamburger-topics-list ends
+  &-company {
+    background-color: @textEmphasisGrey;
+    h2 {
+      .globalDefaultModFont(22px, 800, @strokeGrey);
+      cursor: auto;
+      margin: 0px;
+      padding: 12px 20px;
+    }
+  }//hamburger-company ends
+&-nested{
+  &-list {
+    color: @white;
+    padding-bottom: 12px;
+    .globalDefaultModFont(16px, 400, @white);
+    &-item {
+      cursor: pointer;
+      padding: 12px 30px;
+      &:hover, &:focus, &:active{
+        background-color: @masterBrandColor;
+      }
+    }//hamburger-nested-list-item ends
+   }//hamburger-nested-list ends
+  }//hamburger-nested ends
+}//hamburger ends

@@ -1,0 +1,18 @@
+<header *ngIf="modHeadData" class='module-header dynamic-border-top'>
+  <span *ngIf="!modHeadData.hasIcon" class="module-header-line"></span>
+  <span *ngIf="modHeadData.hasIcon" class="module-header-icon"><i class="{{modHeadData.iconClass}}"></i></span>
+  <h3
+    class="module-title"
+    [innerHTML]="modHeadData.moduleTitle">
+
+  </h3>
+    <span *ngIf="modHeadData.moduleTitleProfile" class="iv" [innerHTML]="modHeadData.moduleTitleProfile">
+
+    </span>
+
+  <h3
+    class="module-identifier"
+    *ngIf="modHeadData.moduleIdentifier"
+    [innerHTML]="modHeadData.moduleIdentifier">
+  </h3>
+</header>

@@ -1,0 +1,17 @@
+<div class="art-hdr">
+    <!-- using third party sharethis -->
+    <div *ngIf="isMain" class='st_sharethis_large share' [attr.st_url]="shareLinks[0].link"><i
+            class='fa fa-share-alt'></i>
+        <span>Share This</span>
+    </div>
+    <span *ngIf="!isMain">
+        <div *ngFor="let links of shareLinks; let i = index" class="share-buttons shareOptions">
+            <span *ngIf="i == 0" class="st_sharethis_large" [attr.st_url]="links.link"><i
+                    class='fa fa-{{links.fontAwesome}}'></i>
+            </span>
+            <a href="{{links.link}}" *ngIf="i > 0" target="_blank">
+                <i class="fa fa-{{links.fontAwesome}}"></i>
+            </a>
+        </div>
+    </span>
+</div>

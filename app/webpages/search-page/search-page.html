@@ -1,0 +1,16 @@
+<div verticalWidgetScroll class="search-page container-fluid">
+    <div id = "rectangleCarousel">
+        <article-search-bar [searchTitle]="pageSearchTitle" [searchSubTitle]="pageSearchSubTitle" ></article-search-bar>
+    </div>
+    <div class="outer-wrap">
+        <div class="search-page-res col-sm-12 col-xl-9">
+
+            <search-filter (emitFilterOption)="chosenFilter1($event)" (emitSortOption)="chosenFilter2($event)" [userInput]="userInput" [keywords]="keywordFilter" [sortingFilter]="sortFilter" [defaultSelectedKey]="filter1" [defaultSortKey]="filter2"></search-filter>
+            <search-results (emitPageNum)="getPageOnClick($event)" [totalPages]="pageCount" [articleTotalCount]="articleCount" [searchArticlesData]="searchArticlesData" [userInput]="userInput" [currentPage]="currentPage"></search-results>
+
+        </div>
+        <div class="search-widget col-xl-3" id="verticalSideScroller">
+            <div class="widget_wrapper"><vertical-widget [category]="'trending'" [subCategory]="''"></vertical-widget></div>
+        </div>
+    </div>
+</div>

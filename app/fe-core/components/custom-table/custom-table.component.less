@@ -1,0 +1,221 @@
+.custom-table {
+  width: 100%;
+  // table-layout: fixed;
+  &-header {
+    position: relative;
+    padding: 8px 0px;
+    @media @mobile {
+      padding: 8px 15px;
+    }
+    text-align: center;
+    border: @strokeGrey 1px solid;
+    margin-bottom: 5px;
+    .globalDefaultFont(10px, 400);
+    white-space: nowrap;
+    @media @tablet {
+      &-sort:hover {
+        border-color: @masterBrandColor;
+        cursor: pointer;
+      }
+    }
+
+    &-name {
+      text-transform: uppercase;
+    }
+  }
+  .spacer {
+    display:none;
+  }
+
+  &-sort {
+    position: absolute;
+    right: 4px;
+  }
+
+  th+th &-header {
+    margin-left: 5px;
+  }
+
+  /** regular body and cell definitions **/
+  &-body {
+    tr {
+      height: 70px;
+      @media @mobile {
+        padding-left: 5px;
+        height: 40px;
+      }
+    }
+    th {
+      position: relative;
+    }
+    td {
+      position: relative;
+    }
+
+    &-cell {
+      .globalDefaultFont(14px, 400);
+      padding: 5px 0;
+      margin: 0 auto;
+      line-height: 18px;
+    }
+  }
+
+  /** compact body and cell definitions **/
+  &-compact {
+    tr {
+      height: 50px;
+    }
+
+    &-cell {
+      .globalDefaultFont(12px, 400);
+      padding: 10px 5px;
+      line-height: 14px;
+    }
+  }
+
+  td+td .custom-table-body-cell,
+  td+td .custom-table-compact-cell {
+    margin: 0 auto;
+  }
+
+  /** row definitions **/
+  &-row {
+
+    .bold-column {
+      font-weight: 800;
+      color: @masterBrandColor;
+      text-align: center;
+    }
+
+    .data-column, .date-column {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .image-column {
+      font-weight: 800;
+      text-align: left;
+      .image-round {
+        margin-right: 10px;
+        margin-left: 10px;
+        display: inline-block;
+      }
+      .table-cell-image {
+        .flexDisplay;
+        .flexAlignItems(center);
+        padding-left: 5px;
+        span {
+          min-height: 1.2em;
+          max-height: 2.5em; //approx 2x line-height
+          overflow: hidden;
+          text-overflow: ellipsis;
+          @media @mobile{
+            width:100%;
+          //  display:block;
+            text-align: center;
+          }
+          @media @tablet{
+            text-align: left;
+          }
+        }
+      }
+      @media @tablet {
+        a:hover {
+          color: @masterBrandColor;
+          text-decoration: none;
+          .image-round-hover {
+            div {
+              .flexDisplay;
+            }
+          }
+        }
+      }
+
+      a:focus {
+        color: @masterBrandColor;
+        text-decoration: none;
+      }
+    }
+
+    .highlight-box, .highlight-box {
+      width: 5px;
+      height:100%;
+      top: 0px;
+      bottom: 0px;
+      left: 0px;
+      position: absolute;
+    }
+
+    &-even {
+      background: @backgroundGrey;
+    }
+    &-odd {
+      background: @white;
+    }
+
+    &-selected,
+    &-selected .custom-table-compact-bold-column,
+    &-selected .custom-table-body-bold-column {
+      background-color: @lightMasterBrandColor;
+      border-color: @masterBrandColor;
+    }
+
+    &-selected th .highlight-box {
+      background-color: @masterBrandColor;
+    }
+  }
+
+  /** footer definitions **/
+  &-footer {
+    td {
+      .globalDefaultFont(12px, 800);
+      text-align: center;
+    }
+
+    background: @backgroundGrey;
+  }
+  .no-data{
+    height:70px;
+    border-left:5px solid @masterBrandColor;
+  }
+}
+
+.bottomStats{
+  display: block;
+  margin-top:-30px;
+  font-weight: 400;
+  margin-left:73px;
+  @media @mobile{
+    display: none;
+  }
+}
+@media @mobile {
+  table .widgetForPage .widgetWrapper {
+    height: 250px;
+    z-index: 2;
+    background-color:white;
+  }
+  .widgetForPage .widgetWrapper {
+    padding: 0px;
+  }
+.roster > responsive-widget {
+    display: none;
+  }
+.roster .custom-table-row .image-column .table-cell-image span {
+    text-align:left;
+  }
+.schedules-page {
+  custom-table {
+    min-width:320px;
+    }
+  .schedules-section {
+    overflow-x: scroll;
+    }
+  }
+  span .standings-division-rank {
+    display: none;
+  }
+}
+.standings-division-rank {
+  font-weight: 400;
+}

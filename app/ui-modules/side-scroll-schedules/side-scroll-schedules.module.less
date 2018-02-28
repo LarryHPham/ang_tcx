@@ -1,0 +1,369 @@
+.ss_container{
+  background-color: @white;
+  height: auto;
+  width: 100%;
+  .hide-mobile {
+    @media @mobile {
+      display: none;
+    }
+    @media @tablet {
+      display: initial;
+    }
+  }
+  .autocomplete-dropdown {
+    position: absolute;
+    margin-top: 7px;
+    width: 100%;
+    border: 1px solid @strokeGrey;
+    background-color: @white;
+    border-radius: 3px;
+    z-index: 99;
+    @media @tablet {
+      width: 300px;
+      right:0;
+    }
+    .scrollable-item-wrapper {
+      max-height: 184px;
+    }
+    .scrollable-item.showScroll::after {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    .arrow-up {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid @backgroundGrey;
+      position: absolute;
+      top:-5px;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;
+      @media @tablet {
+        left: 50px;
+      }
+    }
+    .arrow-up:after {
+      content: '';
+      width: 1px;
+      height: 1px;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid @strokeGrey;
+      position: absolute;
+      left: -5px;
+      top: -1px;
+      z-index: -1;
+    }
+    .autocomplete-dropdown-title {
+      width: 100%;
+    	font-style: italic;
+      height: 21px;
+    	border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+    	background-color: @backgroundGrey;
+      padding-left: 5px;
+      padding-top: 4px;
+      border-bottom: 1px solid @strokeGrey;
+      .globalDefaultModFont(10px, normal, @fontIconGrey);
+    }
+    .showScroll .scrollable-item-content  {
+      padding-right: 20px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .dropdown-item {
+      cursor: pointer;
+      padding: 10px;
+      border-bottom: 1px solid @strokeGrey;
+    }
+    .dropdown-item:last-of-type {
+      border-bottom: none;
+    }
+    @media @tablet{
+      .dropdown-item:hover {
+        background-color: @masterBrandColor;
+        color: @white;
+        margin-top: -1px;
+        padding-top:11px;
+        border-bottom: 1px solid @white;
+        .arrow-up {
+          border-bottom: 5px solid @masterBrandColor;
+        }
+      }
+      .dropdown-item:first-of-type:hover {
+        background-color: @masterBrandColor;
+        border-bottom: 1px solid @white;
+        margin-top: 0;
+        padding-top:10px;
+      }
+      .dropdown-item:last-of-type:hover {
+        background-color: @masterBrandColor;
+        margin-top: -1px;
+        padding-top:11px;
+        border-bottom: 1px solid @masterBrandColor;
+      }
+    }
+  }
+}
+.ss_title{
+  height: auto;
+  width: 100%;
+  padding: 0;
+  display: inline-block;
+  &-1{
+    background-color: @white;
+    border-radius: 3px;
+    display: inline-block;
+    height: 100%;
+    line-height: 30px;
+    width: auto;
+    text-align: center;
+    .globalDefaultModFont(14px, 400, @black);
+    float:right;
+    padding: 0 8px;
+    border: 1px solid @black;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  @media @tablet{
+    &-1:hover {
+      background-color: @black;
+      color: @white;
+      font-weight: 800;
+    }
+  }
+  .ss-title-active {
+    background-color: @black;
+    color: @white;
+    font-weight: 800;
+  }
+  &-2{
+    height: 100%;
+    line-height: 30px;
+    float:left;
+    @media @mobile {
+      margin-top: -30px;
+      height: auto;
+      width: 100%;
+      padding-bottom: 0;
+    }
+    @media @tablet {
+      height: auto;
+      padding-bottom: 15px;
+    }
+    @media @desktop-m {
+      margin-top: 0;
+      height: 30px;
+      width: auto;
+      padding-bottom: 0;
+    }
+    .globalDefaultModFont(24px, 400, @black);
+    i{
+      font-size: 24px;
+      vertical-align: middle;
+      color:@bulletGrey;
+      margin-right: 10px;
+    }
+    img {
+      margin-right: 10px;
+      vertical-align: -3px;
+    }
+  }
+}
+.ss_title .ss_title-1:last-of-type {
+  @media @mobile {
+    margin-left: 0;
+  }
+}
+.top-scope-baseball {
+  .ss_title-2 {
+    @media @mobile {
+      margin-top: 0;
+    }
+  }
+}
+.page-scope-sports {
+  @media @mobile {
+    .ss_title-2 {
+      margin-left: 10px;
+    }
+  }
+}
+.top-scope-weather {
+  @media @tablet {
+    padding: 10px 0 0;
+  }
+  @media @desktop-m {
+    padding: 5px 0 0;
+  }
+  .ss_title-2 {
+    @media @mobile {
+      font-size: 20px;
+    }
+    @media @tablet {
+      margin-top: -40px;
+    }
+    @media @desktop-m {
+      margin-top: 0;
+    }
+  }
+  .ss_title-1 {
+    @media @mobile {
+      margin-bottom: 15px;
+      width: ~"calc(33.3% - 4px)";
+    }
+    @media @tablet {
+      margin-bottom: 15px;
+      width: ~"calc(33.3% - 4px)";
+    }
+    @media @desktop-m {
+      margin-bottom: 0;
+      width: auto;
+    }
+  }
+  .ss_title-2 {
+    @media @tablet {
+      width: ~"calc(100% - 255px)";
+    }
+    @media @desktop-m {
+      width: auto;
+    }
+  }
+  .ss_title .ss_title-1:last-of-type {
+    @media @mobile {
+      margin-left: 0;
+    }
+    @media @tablet {
+      margin-left: 0;
+    }
+    @media @desktop-m {
+      margin-left: 5px;
+    }
+  }
+  .autocomplete-error {
+    i {
+      font-size: 28px;
+      display: inline-block;
+      margin: 10px 10px 5px 10px;
+      float: left;
+      color: @masterBrandColor;
+    }
+    .error-text {
+      font-size: 12px;
+      float: right;
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      width: ~"calc(100% - 50px)";
+    }
+  }
+}
+.weather-divider{
+  color: @bulletGrey;
+}
+.weather-search {
+  margin-left: 15px;
+  float:right;
+  position: relative;
+  @media @mobile {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom:10px;
+  }
+  @media @tablet {
+    margin-top: -43px;
+  }
+  @media @desktop-m {
+    margin-top: 0;
+  }
+  .fa-arrow-right-thin {
+    position: absolute;
+    right: 15px;
+    top: 6px;
+    cursor: pointer;
+    color: @masterBrandColor;
+  }
+  input[type=text]::-ms-clear {
+    display: none;
+  }
+  .weather-search-input {
+    height: 40px;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid @strokeGrey;
+    padding: 0px 20px;
+    font-size: 12px;
+    margin-top: -5px;
+    outline: 0px!important;
+    @media @tablet {
+      width: 250px;
+    }
+    @media @desktop-m {
+      width: 250px;
+    }
+  }
+  .inputPlaceholder(italic, @bulletGrey);
+}
+@media @mobile {
+  .ss_container{
+    // padding: 10px 10px 0 10px;
+    margin-top: 30px;
+  }
+  .ss_container.top-scope-weather{
+    padding: 10px 10px 0 10px;
+    margin-top: 40px;
+    .ss_title-2 {
+      margin-top: -40px;
+      height: auto;
+      width: 100%;
+      padding-bottom: 10px;
+    }
+  }
+  .ss_container.top-scope-business{
+    padding: 10px 0 0 0;
+    margin-top: 40px;
+    .ss_title{padding: 0 10px}
+    .ss_title-1{width: ~'calc(25% - 4px)'}
+    .ss_title-2 {
+      margin-top: -40px;
+      height: auto;
+      width: 100%;
+      padding-bottom: 10px;
+    }
+  }
+}
+@media @tablet {
+  .ss_container.top-scope-weather {
+    margin-top: 40px;
+  }
+
+  .ss_title{
+    height: 30px;
+    &-1{
+      font-size: 14px;
+      line-height: 30px;
+      height: 100%;
+    }
+    &-2{
+      font-size: 24px;
+    }
+  }
+}
+@media @desktop-m {
+  .ss_container.top-scope-weather{
+    margin-top: 0;
+  }
+  .ss_title{
+    padding: 0;
+  }
+}
+@media @desktop-l {
+  .ss_title{
+    // margin-left: 15px;
+  }
+}
+#active-dropdown{
+  display: block;
+}

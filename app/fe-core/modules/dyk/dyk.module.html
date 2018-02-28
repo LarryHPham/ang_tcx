@@ -1,0 +1,14 @@
+<section *ngIf="dykData" class="module-container dyk">
+  <module-header [modHeadData]="headerInfo"></module-header>
+  <div class="dyk-details" *ngFor="let dykInfo of dykData">
+    <template [ngIf]="dykInfo">
+      <div class="dyk-details-info">
+        <p>{{dykInfo}}</p>
+      </div>
+      <div class="dyk-details-icon">
+        <!-- using third party sharethis -->
+        <div class='st_sharethis_large' (mouseover)="locateShareThis()" data-toggle="tooltip title="><i class='fa fa-share-alt'></i></div>
+      </div>
+    </template>
+  </div>
+</section>

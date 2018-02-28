@@ -1,0 +1,332 @@
+.module-container .stats .pane {
+
+  min-height: 165px !important;
+  @media @mobile {
+    z-index: 0;
+  }
+}
+.stats {
+  .pane-content{
+    min-height: 122px !important;
+  }
+  .nav-tabs li{
+    margin:0px;
+  }
+  .nav-tabs li span{
+    position:relative;
+  }
+  .nav-tabs .shader{
+    -moz-transform:translateY(-30px);
+  }
+
+  .custom-table-row .image-column .table-cell-image span{
+    //width:100%;
+    @media @tablet {
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      top:-8px;
+      position: relative;
+      line-height: 13px;
+      text-align: left;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+
+    }
+
+
+    @media @mobile{
+      top:10px;
+      position: relative;
+      // transform: translateY(-23%);
+      //-webkit-transform: translateY(-23%);
+      line-height: 14px;
+      text-align: left;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+    }
+  }
+  .custom-table-body-cell{
+    line-height:17px;
+  }
+  .custom-table-row .image-column .image-round{
+    position: relative;
+    top: -6px;
+  }
+  .custom-table .spacer {
+    display:none;
+    @media @mobile {
+      width: 157px !important;
+      display:block;
+    }
+  }
+  .pane {
+    border-bottom: 1px solid @strokeGrey;
+
+    @media @mobile{
+      padding: 10px 5px 0px 10px;
+      min-height: 165px !important;
+
+    }
+    .shader{
+      top:74px;
+      //min-height:80px;
+    }
+  //hide the last table row's widget only on player stats page, so it can be desplayed after glossary instead
+  .table-widget-true {
+    display:none!important;
+  }
+  }
+  .pane-content{
+
+    @media @mobile{
+      margin-top:64px;
+    }
+  }
+  &-car {
+    .scc-details{
+      //top:0px;
+    }
+    .carousel{
+      @media @mobile {
+        height: 320px;
+      }
+    }
+    .scc-placeholder{
+      @media @mobile {
+        height: 320px;
+      }
+    }
+    .scc-details-mainImg{
+      @media @tablet {
+
+        .image-150{
+          left: 20px;
+        }
+        //margin-right: 20px;
+      }
+    }
+    .scc-details-type1-desc{
+      width:100%;
+    }
+
+
+    .scc-details-type1-hdr:hover{
+      color:@investKitBlue;
+    }
+
+    .scc-details-desc {
+      width: 100%;
+      @media @tablet{
+        margin-left:49px;
+        display:inline-block;
+        //position: relative;
+        //left:15px;
+      }
+    }
+  }
+
+  .image-column-hdr, .image-column {
+    width: 195px;
+    @media @mobile {
+      width: 150px;
+    }
+  }
+  .custom-table-sort  {
+    @media @mobile {
+      top: 8px;
+      //right: 6%;
+    }
+  }
+  .data-column-hdr,.data-column{
+    min-width: 55px;
+  }
+  table circle-image {
+    @media @mobile {
+      display: none;
+    }
+  }
+  .table-cell-image span {
+    @media @mobile {
+      margin-left: 10px;
+    }
+  }
+  th.image-column-column {
+    @media @mobile {
+      position: absolute;
+      z-index: 1;
+      left: 10px;
+      background-color: inherit;
+      height: 40px;
+      border-width: 0 5px 0 0;
+      border-style: solid;
+      border-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 1 100%;
+    }
+    .table-cell-image {
+      @media @mobile {
+        margin-top: 5px;
+      }
+    }
+  }
+  .image-column-hdr {
+    @media @mobile {
+      position: absolute;
+      z-index: 1;
+      left: 10px;
+      width: 155px;
+      border-width: 0 5px 0 0;
+      border-style: solid;
+      border-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 1 100%;
+      .custom-table-header {
+        margin-right:0!important;
+      }
+    }
+    background-color: @white;
+    .custom-table-header {
+      margin-right:5px;
+    }
+  }
+
+
+
+  &-table-title {
+    @media @mobile{
+      left:10px;
+    }
+    left:5px;
+    height: 40px;
+    margin:0px;
+    padding:0px;
+    .flexDisplay;
+    .flexAlignItems(center);
+    .flexJustify(space-between);
+    @media @mobile{
+      //height:30px;
+      width:100%;
+      position:absolute;
+      z-index: 1;
+      display: block;
+      //padding: 5px 5px ;
+      margin:0px;
+      padding: 0px;
+
+    }
+    h4 {
+      margin: 0px;
+      width: 62%;
+      .globalDefaultFont(18px, 400);
+      @media @mobile{
+        .globalDefaultFont(16px, 400);
+        width:250%;
+
+
+
+      }
+    }
+    //margin: 10px;
+  }
+
+  &-season-dropdown {
+    @media @mobile{
+      margin:0 2.5px 0 2.5px;
+    }
+    margin: 0px 0px 0px 7.5px;
+    float: right;
+    .flexDisplay;
+    .flexAlignItems(center);
+    .globalDefaultFont(12px, 400);
+    @media @mobile{
+      .globalDefaultFont(0px, 400);
+    }
+    .dropdown {
+      margin-left: 10px;
+      &:hover{
+        @media @tablet {
+          box-sizing: border-box;
+          -moz-box-sizing:border-box;
+          -webkit-box-sizing:border-box;
+        }
+      }
+      //margin-left: 10px;
+      width: auto;
+      @media @mobile{
+        width: auto;
+        height:30px;
+        position: relative;
+        float:left;
+        top: 8px;
+        //left: -10px;
+        margin-right: 14px;
+        //margin-left:15px;
+        .globalDefaultFont(12px, 400);
+
+      }
+      .dropdown-hdr{
+        height: 30px;
+        line-height: 1.5em;
+      }
+      .dropdown-hdr-button{
+        position: relative;
+        top: 3px;
+      }
+      .dropdown-list{
+        @media @mobile {
+          left: 2px;
+        }
+      }
+      .dropdown-list-option{
+        min-width:85px;
+        padding: 8px 8px;
+      }
+    }
+    .dropdown-hdr-value{
+      text-overflow: clip;
+      overflow:visible;
+    }
+
+  }
+
+  &-glossary {
+    &.g-content {
+      //position: absolute;
+      //z-index: 1;
+      //border-top: 1px solid @strokeGrey;
+      padding-bottom: 10px;
+      padding-top:10px;
+      @media @mobile{
+        margin-top:25px;
+      }
+    }
+
+    &-title {
+      margin: 0px 0px 10px 0px;
+      .globalDefaultFont(16px, 700);
+      @media @mobile {
+        position: absolute;
+        z-index: 1;
+        bottom: 89px;
+      }
+    }
+
+    &-box {
+      background-color: @backgroundGrey;
+
+      //border-top: 1px solid @strokeGrey;
+      padding: 10px 10px;
+      .globalDefaultFont(12px, 400);
+      @media @mobile{
+        position:absolute;
+        bottom:10px;
+      }
+
+      li {
+        line-height: 15px;
+
+      }
+      li span{
+        @media @mobile{
+          position:relative;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#00a4ca "/>
+    <meta http-equiv="Content-Language" content="en">
+    <title>TCX</title>
+    <link rel="icon" href="/app/public/mainLogo.jpg" />
+    <!--async css-->
+    <!--For better performance and to avoid CSS Flash of unstyled content and blank page load always place stylesheets with link tag on top of the head tag-->
+    <link href="/app/global/stylesheets/tcx-font.css" rel="stylesheet">
+    <link href="/app/global/stylesheets/master.css" rel="stylesheet">
+    <!--END css-->
+      <!-- 1. Load initial libraries -->
+    <script src="lib/initlib.min.js"></script>
+    <!-- crazy egg -->
+    <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0062/6913.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+
+    <app-domain>Loading...</app-domain>
+
+    <!--For better Performance and to avoid script blocking place external script tags always at the bottom of the body tag-->
+
+    <script async src="lib/nonangularlib.min.js"></script> <!--bundled dependencies-->
+
+    <!--share this bittons-->
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+
+
+    <!-- Load Configure SystemJS -->
+    <script src="lib/bundle.js"></script>
+
+
+    <!-- Disqus -->
+    <script async defer>
+        // setup DisQus config for initial load
+        var disqus_config = function () {
+            this.page.identifier = (window.location.pathname + " ").replace("/"," ");
+            this.page.url = window.location.href + "#!newthread";
+        };
+    </script>
+
+
+    <!--platform.js : execute widget code after all dependencies are loaded-->
+    <script >
+        window.___gcfg = {
+            lang: 'en-US',
+            parsetags: 'onload'
+        };
+    </script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
+
+
+    <!-- Google Analytics -->
+    <script>
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-85017411-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script src='https://www.google-analytics.com/analytics.js' async defer></script>
+    <!-- End Google Analytics -->
+
+
+    <!-- Share This button-->
+    <script type="text/javascript">
+      if ( window.stLight ) {
+        stLight.options({publisher: "ab81b5e8-9aea-4921-9930-26ce6925e901", doNotHash: true, doNotCopy: false, hashAddressBar: false, onhover: false});
+      }
+      else {
+        window.stButtons = {
+          locateElements: function() {}
+        };
+      }
+      </script>
+    <!-- social share button on home page -->
+
+   <!--old Google Analytics
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-85017411-1', 'auto');
+        // ga('send', 'pageview');
+    </script>-->
+
+
+
+
+  </body>
+</html>

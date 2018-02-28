@@ -1,0 +1,190 @@
+.calendar-picker{
+  width: 100%;
+  height:50px;
+  background-color: @backgroundGrey;
+  .flexDisplay;
+  .flexDirection(row);
+  .flexJustify(space-between);
+
+  &-carousel {
+    width:calc(~'100% - 50px');
+    @media @mobile {
+      width:100%;
+    }
+    height:auto;
+    padding: 3px 10px;
+    .flexDisplay;
+    .flexDirection(row);
+    .flexJustify(space-between);
+    button{
+      padding:0;
+      outline: none;
+      background-color: transparent;
+    }
+  } //&-carousel
+
+  &-dates {
+    width:80%;
+    height:auto;
+    .flexDisplay;
+    .flexDirection(row);
+    .flexJustify(space-between);
+    &-select{
+      .no-select;
+      width:60px;
+      height:44px;
+      text-align: center;
+      font-size: 10px;
+      border-radius: 5px;
+      padding:3px 0 5px;
+      @media @mobile {
+        display:none;
+        width:auto;
+        padding-top: 16px;
+        font-size: 16px;
+      }
+      &.active{
+        color:@white;
+        background-color: @masterBrandColor;
+        @media @mobile {
+          display: block;
+          color: @medGrey;
+          font-weight: 800;
+          background-color: transparent;
+          left: ~"calc( 50% - 35px)";
+          position: absolute;
+        }
+      }
+      &.nonactive{
+        color:@bulletGrey;
+      }
+      &.hover{
+        cursor: pointer;
+        &:hover{
+          color:@masterBrandColor;
+          background-color: @white;
+        }
+      }
+      & > span{
+        line-height: 12px;
+        display:block;
+      }
+      &-day{
+        font-size: 14px;
+        line-height: 12px;
+        font-weight: 800;
+        margin-top:2px;
+        padding-left: 3px;
+        & > sup{
+          font-size: 70%;
+        }
+      }
+    }
+    &.active{
+      color:@masterBrandColor;
+    }
+    &.inactive{
+      color:@bulletGrey;
+    }
+  } //&-dates
+
+  &-selection {
+    width:40px;
+    height:100%;
+    font-size: 25px;
+    text-align: left;
+    position: relative;
+    @media @mobile {
+      position: absolute;
+      left: ~"calc(50% - 70px)";
+    }
+    & > i{
+      color:@medGrey;
+      line-height: 2em;
+      cursor: pointer;
+    }
+    &:hover i{
+      color:@masterBrandColor;
+    }
+  } //&-selection
+
+  &-circles{
+    @hoverColor: @masterBrandColor;
+    @circleColor:@bulletGrey;//from base.less
+    font-size: 30px;
+    font-weight: 400;
+    color: @circleColor;
+    cursor: pointer;
+    border: 1px solid @circleColor;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    margin:4px 0;
+    z-index: 1;
+    .no-select;
+    &.left {
+      position: relative;
+      i {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        &:before {
+          position: absolute;
+          width: 35px;
+          top: 3px;
+          right: 0;
+          font-size: 25px;
+        } //&:before
+      } //i
+    } // &.left
+    &.right {
+      position: relative;
+      i {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        &:before {
+          position: absolute;
+          width: 35px;
+          top: 3px;
+          left: 0;
+          font-size: 25px;
+        } //&:before
+      } //i
+    } //&.right
+    @media @tablet{
+      &:hover{
+        color: @white;
+        background-color: @hoverColor;
+        border-color: @hoverColor;
+      }
+    }
+  }
+  @media @mobile {
+    .ng-datepicker {
+      left: ~"calc(50% - 160px)";
+      margin-top:50px;
+      .dp-ptr {
+        right: 139px;
+      }
+    }
+    .calendar-picker-selection {
+      height:50px;
+      width:150px;
+    }
+  }
+}
+
+.last-game-date {
+  .calendar-picker-circles.right {
+    pointer-events: none;
+    opacity: .25;
+  }
+} //last-game-date
+.inactive {
+  .calendar-picker-circles.right, .calendar-picker-circles.left {
+    pointer-events: none;
+    opacity: .25;
+  }
+} //.inactive

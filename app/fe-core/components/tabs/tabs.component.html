@@ -1,0 +1,13 @@
+<div class="side-scroller">
+<ul class="nav nav-tabs">
+  <div class="shader"></div>
+  <li
+    *ngFor="let tab of tabs"
+    (click)="selectTab(tab)"
+    [class.active]="tab.active"
+    [style.width]="tabWidth">
+    <span>{{tab.title}}</span>
+  </li>
+</ul>
+</div>
+<ng-content></ng-content>

@@ -1,0 +1,10 @@
+<td style="display:block" colspan=50 *ngIf="windowWidth < 1280">
+  <div class="widgetWrapper">
+    <div class="adSquare widgetHoz" id = "horizontalWidgetFrame">
+<!--
+      <iframe frameborder="0" scrolling="no" allowtransparency="true" [src]="srcLink | safeRUrl" [ngStyle]="{'display': 'block', 'height': '250px','width': '100%','margin': '0px','border': '0px','overflow': 'hidden','z-index': '0'}" ></iframe>
+-->
+    </div>
+  </div>
+</td>
+<div (window:resize)="onWindowLoadOrResize($event)"></div>

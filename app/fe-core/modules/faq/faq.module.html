@@ -1,0 +1,15 @@
+<section class="module-container faq" *ngIf="faqData && faqData.length > 0">
+  <module-header [modHeadData]="headerInfo"></module-header>
+  <div class="faq-details" *ngFor="let faqData of faqData" (click)="isSelected(faqData)" [class.active]="faqData.active">
+    <div class="faq-details-info">
+      <p> {{faqData.question}}</p>
+      <div class="faq-details-info-icon"><i class="fa fa-chevron-down"></i></div>
+    </div>
+    <div class="faq-details-answer">
+      <i class="fa fa-circle"> </i>
+      <span>
+        {{faqData.answer}}
+      </span>
+    </div>
+  </div>
+</section>

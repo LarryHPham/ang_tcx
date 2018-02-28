@@ -1,0 +1,335 @@
+.comparison {
+  font-family: @globalFont;
+  margin-bottom: 10px;
+  @media @mobile {
+    margin-bottom: 0;
+  }
+  &-double {
+    @media @mobile {
+      margin-bottom: 20px;
+    }
+  }
+  &-double-team {
+    @media @mobile {
+      margin-bottom: 30px;
+      height: 110px;
+    }
+  }
+  &-hr {
+    background-color: @strokeGrey;
+    height: 1px;
+    margin: 0 0 25px 0;
+    @media @fluid {
+      margin: 10px 0 10px 0;
+    }
+  }
+
+  &-single {
+    height: 100%;
+    &-logo {
+      border-radius: 50%;
+      border: 2px solid @strokeGrey;
+      box-sizing: border-box;
+      background-color: @white;
+      width: 125px;
+      height: 125px;
+      display: block;
+      margin: 0 auto;
+      background-position: center center;
+      background-size: contain;
+      @media @mobile {
+        width: 75px;
+        height: 75px;
+      }
+    }
+    &-team {
+      margin-top: 5px;
+      margin-left: 0;
+      max-width: 100%;
+      .globalDefaultFont(18px, 700);
+      line-height: 20px;
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      @media @mobile {
+        .globalDefaultFont(12px, 700);
+      }
+    }
+    &-record {
+      margin-left: 0;
+      max-width: 100%;
+      .globalDefaultFont(12px, 400);
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      @media @mobile {
+        .globalDefaultFont(10px, 400);
+      }
+    }
+  }
+
+  &-roster {
+    height: 100%;
+    &-image {
+      border-radius: 50%;
+      border: 2px solid @strokeGrey;
+      box-sizing: border-box;
+      background-color: @white;
+      width: 125px;
+      height: 125px;
+      display: block;
+      margin: 0 auto;
+      background-position: center center;
+      background-size: contain;
+      @media @mobile {
+        width: 75px;
+        height: 75px;
+      }
+    }
+    &-player {
+      margin-top: 5px;
+      margin-left: 0;
+      max-width: 100%;
+      .globalDefaultFont(18px, 700);
+      line-height: 20px;
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      @media @mobile {
+        .globalDefaultFont(12px, 700);
+      }
+    }
+    &-position {
+      margin-left: 0;
+      max-width: 100%;
+      .globalDefaultFont(12px, 400);
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 5px;
+      @media @mobile {
+        .globalDefaultFont(10px, 400);
+        margin-top: 0;
+        height: 12px;
+      }
+    }
+  }
+
+  &-upcoming {
+    height: 100%;
+    position: relative;
+    bottom: 10px;
+    &-profile {
+      position: relative;
+      margin-top: 20px;
+      &-left {
+        &-logo {
+          border-radius: 50%;
+          border: 2px solid @strokeGrey;
+          box-sizing: border-box;
+          background-color: @white;
+          width: 125px;
+          height: 125px;
+          position: relative;
+          z-index: 1;
+          background-position: center center;
+          background-size: contain;
+          .flexDisplay;
+          .flexAlignItems(center);
+          .flexJustify(center);
+          margin: 0 auto;
+          @media @mobile {
+            width: 75px;
+            height: 75px;
+          }
+        }
+        &-team {
+          .globalDefaultFont(18px, 800);
+          margin: 0 auto;
+          text-align: center;
+          position: relative;
+          top: 5px;
+          @media @mobile {
+            .globalDefaultFont(12px, 800);
+            top: 5px;
+          }
+        }
+        &-record {
+          .globalDefaultFont(14px, 400);
+          margin: 0 auto;
+          text-align: center;
+          padding-top: 5px;
+          position: relative;
+          top: 5px;
+          @media @mobile {
+            .globalDefaultFont(10px, 400);
+            top: 0;
+          }
+        }
+      }
+      &-right {
+        &-logo {
+          border-radius: 50%;
+          border: 2px solid @strokeGrey;
+          box-sizing: border-box;
+          background-color: @white;
+          width: 125px;
+          height: 125px;
+          position: relative;
+          z-index: 1;
+          background-position: center center;
+          background-size: contain;
+          .flexDisplay;
+          .flexAlignItems(center);
+          .flexJustify(center);
+          margin: 0 auto;
+          @media @mobile {
+            width: 75px;
+            height: 75px;
+          }
+        }
+        &-team {
+          .globalDefaultFont(18px, 800);
+          margin: 0 auto;
+          text-align: center;
+          position: relative;
+          top: 5px;
+          @media @mobile {
+            .globalDefaultFont(12px, 800);
+            top: 5px;
+          }
+        }
+        &-record {
+          .globalDefaultFont(14px, 400);
+          margin: 0 auto;
+          text-align: center;
+          padding-top: 5px;
+          position: relative;
+          top: 5px;
+          @media @mobile {
+            .globalDefaultFont(10px, 400);
+            top: 0;
+          }
+        }
+      }
+      &-data {
+        .globalDefaultFont(14px, 400);
+        text-align: center;
+        position: relative;
+        top: 45px;
+        @media @mobile {
+          top: 30px;
+          .globalDefaultFont(12px, 400);
+        }
+      }
+    }
+  }
+
+  &-player {
+    height: 100%;
+    position: relative;
+    bottom: 20px;
+    &-profile {
+      position: relative;
+      margin-top: 20px;
+      &-left {
+        &-image {
+          border-radius: 50%;
+          border: 2px solid @strokeGrey;
+          box-sizing: border-box;
+          background-color: @white;
+          width: 125px;
+          height: 125px;
+          position: relative;
+          top: 15px;
+          z-index: 1;
+          background-position: center center;
+          background-size: contain;
+          .flexDisplay;
+          .flexAlignItems(center);
+          .flexJustify(center);
+          margin: 0 auto;
+          @media @mobile {
+            width: 75px;
+            height: 75px;
+          }
+        }
+        &-name {
+          .globalDefaultFont(18px, 800);
+          margin: 0 auto;
+          text-align: center;
+          top: 20px;
+          @media @mobile {
+            .globalDefaultFont(12px, 800);
+          }
+        }
+        &-data {
+          .globalDefaultFont(14px, 400);
+          margin: 0 auto;
+          text-align: center;
+          top: 20px;
+          @media @mobile {
+            .globalDefaultFont(10px, 400);
+          }
+        }
+      }
+      &-right {
+        &-image {
+          border-radius: 50%;
+          border: 2px solid @strokeGrey;
+          box-sizing: border-box;
+          background-color: @white;
+          width: 125px;
+          height: 125px;
+          position: relative;
+          top: 15px;
+          z-index: 1;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: contain;
+          .flexDisplay;
+          .flexAlignItems(center);
+          .flexJustify(center);
+          margin: 0 auto;
+          @media @mobile {
+            width: 75px;
+            height: 75px;
+          }
+        }
+        &-name {
+          .globalDefaultFont(18px, 800);
+          margin: 0 auto;
+          text-align: center;
+          top: 20px;
+          @media @mobile {
+            .globalDefaultFont(12px, 800);
+          }
+        }
+        &-data {
+          .globalDefaultFont(14px, 400);
+          margin: 0 auto;
+          text-align: center;
+          top: 20px;
+          @media @mobile {
+            .globalDefaultFont(10px, 400);
+          }
+        }
+      }
+      &-vs {
+        .globalDefaultFont(16px, 400);
+        position: relative;
+        text-align: center;
+        margin: 0 auto;
+        top: 65px;
+        @media @mobile {
+          top: 45px;
+          .globalDefaultFont(12px, 400);
+        }
+      }
+    }
+  }
+}

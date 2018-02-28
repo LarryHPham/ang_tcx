@@ -1,0 +1,213 @@
+.hideMe{
+  display: none;
+}
+.comparison-bar{
+  &-container{
+    padding: 10px 10px;
+
+    &.background-even {
+      background-color: @backgroundGrey;
+    }
+  }
+
+  &-title{
+    font-size: 14px;
+    @media @tablet{
+      font-size: 16px;
+    }
+  }
+
+  &-qualifier {
+    .globalDefaultModFont(10px, 400, @bulletGrey);
+    padding-left: 6px;
+    @media @mobile{
+      white-space: nowrap;
+      padding-left: 0px;
+      padding-right: 30px;
+    }
+  }
+
+  &-capsule{
+    background-color: @highlightGrey;
+    border: 1px solid @backgroundGrey;
+    border-radius: 15px;
+    height: 15px;
+    margin-top: 2px;
+    margin-bottom: 15px;
+    position: relative;
+
+    &-stroke{
+      width: 0%;
+      border-radius: 15px;
+      bottom: 0px;
+      height: 100%;
+      left: 0px;
+      position: absolute;
+      .transitionPrefixes(1s width);
+      border-right: 1px solid @backgroundGrey;
+
+      &.stroke-top{
+        z-index: 5;
+      }
+    }
+
+    &-label{
+      z-index: 5;
+      top: 16px;
+      position: absolute;
+      right: 1px;
+      opacity: 1;
+      .transitionPrefixes(1s top);
+      .transitionPrefixes(1s bottom);
+      .transitionPrefixes(1s right);
+      .globalDefaultFont(14px, 400);
+      &.label-top{
+        top: -17px;
+        right: -10px;
+        .flexDisplay;
+        .flexDirection(row);
+        &.active{
+          z-index:6;
+          .fa-info-circle{
+            color: @black;
+          }
+        }
+      }//.label-top ends
+      @media @mobile{
+        font-size: 12px;
+      }
+    }
+  }
+}
+.infobox{
+  z-index: 6;
+  &-values{
+    .flexDisplay;
+    .flexDirection(column);
+  }
+  &-value1{
+    padding-right: 5px;
+  }
+  &-icons{
+    height: 21px;
+    .flexDisplay;
+    .flexDirection(column);
+    .fa{
+      font-size: 10px;
+      cursor: pointer;
+      color: @masterBrandColor;
+      padding: 0;
+      text-align: center;
+    }
+    .fa-sort-up{
+      color: @white;
+      visibility: hidden;
+      font-size: 16px;
+      padding: 5px 0;
+      text-align: center;
+      z-index: 6;
+      &.active{
+        visibility: visible;
+      }
+    }
+  }
+  &-box{
+    width: 226px;
+    min-height: 64px;
+    max-height: 194px;
+    overflow: auto;
+    background-color: @white;
+    border: 1px solid @highlightGrey;
+    display: none;
+    z-index: 5;
+    .fa-angle-right{
+      font-size: 30px;
+    }
+    &.active{
+      display: block;
+    }
+  }
+
+  &-display{
+    .flexDisplay;
+    .flexJustify(flex-end);
+    margin-right: 10px;
+    @media @mobile {
+      margin-top: 2px;
+    }
+  }
+
+  &-list{
+    padding-top: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid @highlightGrey;
+    position: relative;
+    &-item{
+      .flexDisplay;
+      .flexJustify(flex-start);
+      position: relative;
+      @media @tablet {
+        &:hover{
+          .fa-angle-right{
+            color: @masterBrandColor;
+          }
+          .border-3 img{
+            box-shadow: 0 0 0 2px @white;
+          }
+          .infobox-list-playerName{
+            color: @black;
+          }
+          .image-round-hover div{
+            .flexDisplay;
+          }
+        }
+      }
+    }
+    &-fa {
+      font-size: 18px;
+    }
+    &-details{
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 130px;
+      padding-right: 5px;
+      margin-top: 11px;
+      height: 1em;
+    }
+    &-view{
+      margin-top: 5px;
+    }
+    &-playerName{
+      .globalDefaultModFont(14px, 800, @masterBrandColor);
+
+    }
+    &-team{
+      position: absolute;
+      top: 33px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 130px;
+      left: 66px;
+      line-height: 1.2em;
+      .globalDefaultModFont(12px, 800, @masterBrandColor);
+      &:hover{
+        color: @black;
+      }
+      &-label {
+        color: @black;
+        font-style: italic;
+      }
+    }
+    &-image{
+      margin: 4px 12px 0 12px;
+      height: 42px;
+    }
+  }
+}
+#setMinWidth{
+  min-width: 43px;
+  @media @tablet{
+    min-width: 49px;
+  }
+}

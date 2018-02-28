@@ -1,0 +1,33 @@
+
+<section *ngIf="displayData" class="module-container">
+  <module-header [modHeadData]="headerInfo"></module-header>
+  <div class="news">
+    <div class="news-placeholder" [style.background-image]="'url(' + displayData.backgroundImage + ')'">
+      <circle-button (scrollRight)="right()" (scrollLeft)="left()"></circle-button>
+      <div class="news-text">
+        <div class='feature-btn articles'>
+          <span>
+            <i class='fa fa-newspaper-o'></i>
+          </span>
+          <span>
+            {{title}} <b>{{counter + 1}}/{{max}}</b>
+          </span>
+          <i></i>
+        </div>
+        <a href="{{displayData.newsUrl}}">
+          <div class="news-headline">{{displayData.title}}</div>
+          <div class="news-preview">{{displayData.description}}</div>
+        </a>
+        <div class="news-footer">
+          <span class="news-footer-author">{{displayData.author}}</span>
+          <span class="news-footer-created">{{displayData.published}}</span>
+          <div (mouseover)="locateShareThis()" class="st_sharethis_large"><i class="fa fa-share-alt"></i> Share</div>
+        </div>
+      </div>
+      <!-- center details ends -->
+    </div>
+    <module-footer [footerData]="displayData.footerData"></module-footer>
+
+    <!-- placeholder ends -->
+  </div>
+</section>

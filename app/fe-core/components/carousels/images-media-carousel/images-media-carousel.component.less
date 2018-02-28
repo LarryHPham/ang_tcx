@@ -1,0 +1,355 @@
+// height should only be specified for the module when it's on a profile page
+.images-media{}
+
+.profile-carousel-container {
+  .carousel {
+    @media @fluid {
+      width: 100%;
+    }
+  }
+
+  @media @mobile {
+    .expand-button {
+      color: @white;
+      &:hover {
+        color: @white;
+        background-color: @textEmphasisGrey;;
+      }
+    }
+  }
+}
+
+.carousel {
+  width: 100%;
+  height:100%;
+  position: relative;
+}
+
+.container {
+  &-img {
+    img {
+      width: 100%;
+    }
+    &-navigation {
+      .flexDisplay;
+      .flexAlignItems(center);
+      .flexJustify(flex-end);
+      @media @mobile{
+        margin-top: 20%;
+        .sliders-left, .sliders-right{
+          .globalDefaultFont(20px, 400);
+          width: 20px;
+          height: 50px;
+          background-color: @masterBrandColor;
+          .flexDisplay;
+          .flexDirection(column);
+          .flexJustify(center);
+        }
+        .sliders-left{border-radius: 0 12px 12px 0}
+        .sliders-right{border-radius: 12px 0 0 12px}
+      }
+      @media @tablet{
+        margin-top: 25%;
+        .sliders-left, .sliders-right{
+          .globalDefaultFont(60px, 400);
+        }
+      }
+    }
+  }
+
+  &-details {
+    .inlineFlexDisplay;
+    .flexDirection(row);
+    .flexAlignItems(center);
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 21%;
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.grey-bar {
+  .flexDisplay;
+  .flexAlignItems(center);
+  width: 100%;
+  height: 26px;
+  background-color: @masterButtonBackground;
+  position: absolute;
+  bottom: 0;
+  padding-right: 15px;
+  padding-left: 10px;
+  .globalDefaultModFont(10px, 400, @white);
+  &-counter {
+    position: relative;
+    left: 5px;
+    margin-right: 20px;
+    text-align: left;
+    .globalDefaultModFont(10px, 400, @white);
+    .fa-file-image-o {
+      padding-right: 3px;
+      margin-left: 0
+    }
+    &-bold {
+      font-weight: 800;
+      padding: 0 2px;
+    }
+  }
+  &-title {
+    width: ~"calc(100% - 270px)";
+    text-align: left;
+    .line-clamp;
+    .line-clamp-1;
+    @media @mobile {
+      display: none;
+    }
+  }
+  &-credit {
+    .flexDisplay;
+    .flexAlignItems(center);
+    text-align: right;
+    position: absolute;
+    right: 15px;
+    bottom: 8px;
+    &-bold {
+      font-style: italic;
+      padding-left: 3px;
+      font-weight: 800;
+    }
+  }
+}
+
+.expand {
+  cursor: pointer;
+  top: 10px;
+  left: 25px;
+}
+
+.expand-button {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: @textEmphasisGrey;
+  border: 1px solid rgba(255, 255, 255, .25);
+  position: absolute;
+  z-index: 1;
+  bottom: 30px;
+  right: 10px;
+  padding-top: 8px;
+  padding-left: 8px;
+  font-size: 16px;
+  //Override bootstrap color inherit
+  color: @white !important;
+}
+
+@media @tablet {
+  .expand-button:hover {
+    background-color: @white;
+    color: @textEmphasisGrey !important;
+  }
+}
+
+.virtual {
+  top: 10px;
+  right: 210px;
+}
+
+.sm-images {
+  background-color: @backgroundGrey;
+  height: 17.5%;
+  width: 100%;
+  border-bottom: 1px solid @strokeGrey;
+  overflow: hidden;
+  position: relative;
+  &-container {
+    width: 19.05%;
+    height: 85%;
+    margin: 1% 0 1% 0.8%;
+    float: left;
+  }
+  &-square-image {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background: @masterNoneBackground;
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    &:hover:after {
+      border: 2px solid @masterBrandColor;
+      background: @masterSqrtHoverAI;
+      cursor: pointer;
+      content: "";
+      width: 19.05%;
+      height: 85%;
+      position: absolute;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    &-active {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+}
+
+.carouselImageBoxSmall {
+  .carouselImageLinkSmall(19.05%, 85%);
+  border: 2px solid @masterBrandColor;
+}
+
+.carousel-modal-open {
+  display: block !important;
+}
+
+.carousel-modal {
+  //transform: translate(-15%, -10%);
+  @media @mobile{
+    top:130px;
+  }
+  top: 15%;
+  left: 10%;
+  width: 80%;
+  height:80%;
+  position: fixed;
+  z-index: 9999;
+  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.8);
+  display: none;
+  -webkit-animation: fadein .5s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein .5s; /* Firefox < 16 */
+  -ms-animation: fadein .5s; /* Internet Explorer */
+  -o-animation: fadein .5s; /* Opera < 12.1 */
+  animation: fadein .5s;
+  pointer-events: auto !important;
+  &-container {
+    .flexJustify(center);
+    .flexAlignItems(center);
+      max-height: 100%;
+      overflow: hidden;
+    img{
+        max-width:100%;
+      @media @tablet{
+        max-height: 100%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+  }
+  &-exit {
+    @media @mobile{
+      top:-33px;
+    }
+    top:-50px;
+    background-image: url("/app/public/CloseIcon.svg");
+    background-size: contain;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    right:0;
+    border-radius: 50%;
+    position: absolute;
+    background-color: transparent;
+    text-align: center;
+    line-height: 30px;
+    overflow: hidden;
+    &:hover{
+      background-image: url("/app/public/CloseIconBlue.svg");
+    }
+    @media @mobile {
+      width: 25px;
+      height: 25px;
+      line-height: 35px;
+      z-index: 1;
+      &:hover{
+        background-image: url("/app/public/CloseIcon.svg");
+      }
+    }
+  }
+
+}
+
+.carousel-modal-grey-bar {
+  width: 100%;
+  height: 26px;
+  position: absolute;
+  margin-top: 10px;
+  @media @tablet{
+    bottom:-30px;
+  }
+  left:0;
+  .globalDefaultModFont(11.2px, 400, @white);
+  .flexDisplay;
+  .flexJustify(center);
+  &-title {
+    .flexDisplay;
+    .flexJustify(flex-start);
+    .flexAlignItems(center);
+    @media @mobile {
+      display: none;
+    }
+  }
+  &-credit {
+    text-align: right;
+    &-bold {
+      font-style: italic;
+      padding-left: 3px;
+      font-weight: 400;
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

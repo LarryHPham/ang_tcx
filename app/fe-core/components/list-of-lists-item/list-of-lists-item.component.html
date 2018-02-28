@@ -1,0 +1,23 @@
+<div class="loli-container" *ngIf="item">
+  <div class="loli-container-left">
+    <circle-image [data]="item.dataPoints[0]"></circle-image>
+  </div>
+  <div class="loli-container-right">
+    <!--put in right box styles-->
+    <div class="dataBox">
+      <h2 class="loli-title">{{item.name}}</h2>
+    </div>
+    <div class="cta-container" id="container-loli">
+      <span class="cta-container-text" id="container-loli-text">
+        {{item.ctaDesc}}
+      </span>
+      <!-- <a class="cta-container-button" id = "container-loli-button"> -->
+       <a class="cta-container-button" [routerLink]="item.ctaUrl" id = "container-loli-button">
+        <span class="loli-icon" style="padding-top:0px; margin-left:15px;"></span> <!-- needed for button styles to apply correctly -->
+        <span [innerHTML]="item.ctaText"></span>
+        <i class="fa fa-angle-right"></i>
+      </a>
+    </div>
+  </div>
+</div>
+<responsive-widget *ngIf="!((rowIndex + 1) % 5) && rowIndex != 9" embedPlace="widgetForPage"></responsive-widget>

@@ -1,0 +1,11 @@
+<section class="module-container mvp">
+  <module-header [modHeadData]="modHeadData"></module-header>
+  <mvp-list *ngIf="mvpData && filter1"
+    [tabs]="mvpData"
+    [sortOptions]="filter1"
+    [selectedTabTitle]="selectedTabTitle"
+    (tabSelectedListener)="tabSelected($event)"
+    (dropdownPositionSelection)="dropdownChanged($event)"></mvp-list>
+  <loading-component *ngIf="!mvpData"></loading-component>
+  <module-footer [footerData]='footerData'></module-footer>
+</section>

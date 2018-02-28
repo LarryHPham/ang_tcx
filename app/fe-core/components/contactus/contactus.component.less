@@ -1,0 +1,174 @@
+.contactus {
+  &-container{
+    padding: 15px 10px 5px;
+    border-top: 1px solid @strokeGrey;
+    display: block;
+    background-color: @white;
+  }
+  &-fields{
+    .inputPlaceholder(normal, @bulletGrey);
+    div.checkbox:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-ui-error {
+    padding: 5px 0 0 0;
+    font-size: 12px;
+    color: red;
+    text-align: right;
+  }
+  &-required{
+    margin-bottom: 10px;
+    .globalDefaultFont(12px, 800);
+  }
+
+  &-question{
+    padding-bottom: 10px;
+  }
+
+  &-margin{
+    margin-bottom: 20px;
+    &-small{
+      margin-bottom: 10px;
+      .flexDisplay;
+      .flexDirection(column);
+      label {
+        width: 100%;
+      }
+    }
+    &-large{
+      margin-bottom: 15px;
+    }
+  }
+
+  &-labels{
+    margin-bottom: 10px;
+  }
+
+  &-label{
+    .globalDefaultModFont(14px, 800, @textEmphasisGrey);
+  }
+
+  &-textinput{
+    height: 35px;
+    padding: 0px 10px;
+    border: 1px solid @strokeGrey;
+    &.has-error {
+      border: 1px solid red;
+    }
+    &:focus{
+      outline: 2px solid @masterBrandColor;
+    }
+  }
+
+  &-checkbox{
+    margin-right: 10px;
+    &:focus{
+      outline: none;
+    }
+  }
+
+  &-textarea{
+    padding: 10px;
+    min-height: 168px;
+    resize: vertical;
+    border: 1px solid @strokeGrey;
+    &.has-error {
+      border: 1px solid red;
+    }
+    &:focus{
+      outline: 2px solid @masterBrandColor;
+    }
+  }
+
+  .textAreaPlaceholder(italic, @bulletGrey);
+  &-buttons{
+    height:36px;
+    .flexDisplay;
+    .flexJustify(center);
+    .flexAlignItems(center);
+    &-submit{
+      width: 120px;
+      height: 34px;
+      border-radius: 5px;
+      color: @white;
+      border: none;
+      background-color: @masterBrandColor;
+      float: right;
+      cursor: pointer;
+      .fa{
+        vertical-align: middle;
+      }
+      &:hover{
+        background-color: @black;
+      }
+      &:focus{
+        outline: none;
+      }
+      &[disabled] {
+        pointer-events: none;
+        opacity: .75;
+      }
+    }
+
+    &-reset{
+      width:50px;
+      color:@textEmphasisGrey;
+      float: right;
+      background-color: transparent;
+      border: none;
+      margin: 8px 55px 8px 0px;
+      text-align: center;
+      cursor: pointer;
+      &:hover{
+        color: @masterBrandColor;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+  }
+  .error-message {
+    text-align: right;
+    padding-top: 5px;
+    font-size: 12px;
+    color: red;
+  }
+}
+@media @tablet{
+  .contactus{
+    &-container{
+      padding: 10px 15px;
+    }
+
+    &-question{
+      padding-right: 10px;
+    }
+
+    &-margin{
+      margin-bottom: 30px;
+      &-small{
+        margin-bottom: 10px;
+        .flexDirection(row);
+      }
+      &-large{
+        margin-bottom: 50px;
+      }
+    }
+
+    &-labels{
+      margin-bottom: 0;
+    }
+
+    &-checkbox{
+      border: 1px solid @strokeGrey;
+      &-value{
+        width: auto;
+      }
+    }
+
+    &-buttons{
+      .flexJustify(flex-end);
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<carousel-dive *ngIf="carouselData">
+  <div class="carousel-dive" id="newsCarousel">
+    <div class="carousel-dive-right">
+      <i class="fa fa-angle-right" aria-hidden="true" id="carousel-dive-rightarrow" (click)="rightcarousel()"></i>
+    </div>
+    <div class="carousel-dive-left">
+      <i class="fa fa-angle-left" aria-hidden="true" id="carousel-dive-leftarrow" (click)="leftcarousel()"></i>
+    </div>
+    <div class="owl-carousel carousel_owl">
+      <div class="owl-item video-item" *ngFor = "let vidata of videoData" [ngStyle]="{'background-image': 'linear-gradient(180deg, rgba(40, 40, 40, 0.5) 0%, rgba(24, 24, 24, 0.65) 100%), url(' + vidata.thumbnail + ')'}">
+          <div class="carousel-item" [ngStyle]="{'cursor':'default'}">
+            <div class="carousel-item-container">
+            <div class="carousel-item-container-left">
+              <div class="carousel-item-container-left-video">
+                <iframe class="carousel-video-iframe" width="100%" height="100%" [src]="vidata.videoLink | safeRUrl" frameborder="0" scrolling = "no" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="carousel-item-container-right" id="lrgvidcarousel-right">
+              <div class="carousel-item-container-right-key">TOP VIDEOS</div>
+              <div class="carousel-item-container-right-title"><span>Today's Top Videos:</span><div id="cardivetitle" [innerHTML]="vidata.title | safeHtml"></div></div>
+               <div class="carousel-item-container-right-title-border"></div>
+               <div class="carousel-item-container-right-content">
+                  <span class="cardescription" [innerHTML]="vidata.description | safeHtml"></span>
+                  <span>Published on {{vidata.pubDate}}</span>
+               </div>
+              </div>
+            </div>
+          </div>
+      </div>
+       <div class="owl-item story-item" [routerLink]="data.articlelink" *ngFor = "let data of carouselData; let i = index;" [ngStyle]="{'background-image': 'linear-gradient(180deg, rgba(40, 40, 40, 0.5) 0%, rgba(24, 24, 24, 0.65) 100%), url(' + data.image_url + ')'}">
+          <div class="carousel-item">
+            <div class="carousel-item-container">
+            <div class="carousel-item-container-right" id="lrgcarousel-right" style="display:block;">
+              <div class="carousel-item-container-right-key" [innerHTML]="data.keyword | safeHtml"></div>
+              <div class="carousel-item-container-right-title" [innerHTML]="data.title | safeHtml"></div>
+                <div class="carousel-item-container-right-title-border"></div>
+              <div class="carousel-item-container-right-content" [innerHTML]="data.teaser | safeHtml">
+              </div>
+              <a [routerLink]="data.articlelink">
+                <div class="carousel-item-container-right-fullstory">Read the Full Story</div>
+              </a>
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+<div class="verticalScroll">
+</div>
+</carousel-dive>

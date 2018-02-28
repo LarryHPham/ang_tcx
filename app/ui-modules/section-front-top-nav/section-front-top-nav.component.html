@@ -1,0 +1,7 @@
+<div class="section-front-top-nav">
+  <span class="page-scope-{{pageScope}}">
+    <a class="ss_title-1" [class.ss-title-active]="scope.toUpperCase().replace('SPORTS','ALL').replace('ENTERTAINMENT','ALL') == scopeItem.toUpperCase()" *ngFor="let scopeItem of scopeList" [routerLink]=" pageLink + '/' + pageScope + '/' + scopeItem.toLowerCase().replace('all','')">
+      {{scopeItem}}
+    </a>
+  </span>
+</div>

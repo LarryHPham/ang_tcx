@@ -1,0 +1,188 @@
+#nav-inactive{
+  color: @strokeGrey;
+}
+.dir {
+  &-container{
+    padding: 35px 10px 15px;
+    margin-top: -20px;
+    @media @tablet{
+      margin-top: 0;
+      padding: 35px 15px 15px;
+    }
+  }
+  &-hdr {
+    border-bottom: 1px solid @strokeGrey;
+    @media @tablet{
+      margin-top: 20px;
+    }
+    &-loc {
+      font-size: 12px;
+      margin-bottom: 8px;
+
+      i.fa {
+        margin-right: 5px;
+        color: @masterBrandColor;
+      }
+
+      a {
+        color: @black;
+
+        &:hover{
+          color: @masterBrandColor;
+        }
+      }
+    }
+
+    &-title {
+      .globalDefaultFont(22px, 800);
+      line-height: 20px;
+      margin-top:0px;
+      margin-bottom: 15px;
+      margin-top: 0;
+    }
+  }
+
+  &-pag {
+    padding: 16px 0px 20px;
+    &-text {
+      &-lbl {
+        padding-right: 4px;
+      }
+    }
+
+    &-buttons {
+      width: 100%;
+      .flexDisplay;
+      .flexJustify(space-between);
+    }
+    &-skip {
+      color: @fontIconGrey;
+      &-disabled {
+        pointer-events: none;
+      }
+      &:focus, &:hover, &-active {
+        color: @masterBrandColor;
+      }
+    }
+    &-button {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: none;
+      background-color: @bulletGrey;
+      text-align: center;
+      padding-top: 1px;
+      margin: 0 5px;
+      .globalDefaultModFont(16px, 800, @white);
+
+      .fa {
+        font-weight: 400;
+      }
+
+      &-disabled {
+        pointer-events: none;
+      }
+
+      &-active {
+        background-color: @masterBrandColor;
+      }
+
+      &:focus, &:hover {
+        background-color: @black;
+        color: @white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &-nav {
+    padding: 12px 0px;
+    border-bottom: 1px solid @strokeGrey;
+
+    &-title {
+      .globalDefaultFont(18px, 100);
+      line-height: 20px;
+      margin-bottom: 4px;
+      margin-top: 0;
+    }
+
+    &-links {
+      .globalDefaultFont(14px, 400);
+      line-height: 20px;
+
+      a {
+        color: @black;
+
+        &:hover {
+          color: @masterBrandColor;
+        }
+      }
+
+      &-more {
+        color: @masterBrandColor !important;
+        font-weight: 800;
+      }
+    }
+
+    &-separator {
+      color: @bulletGrey;
+    }
+  }
+
+  &-list {
+    padding: 0px;
+    min-height: 362px;
+    &-item {
+      width: inherit;
+      height: auto;
+      border-bottom: 1px solid @strokeGrey;
+      border-left: 5px solid @highlightGrey;
+      padding: 12px 16px;
+      background-color: @backgroundGrey;
+      p {
+        margin: 0;
+        line-height: 18px;
+      }
+
+      &-small {
+        font-size: 12px;
+        &-dow{
+          display: none;
+          @media @tablet{
+            display: inline-block;
+          }
+        }
+      }
+
+      &-line {
+        font-size: 14px;
+      }
+
+      &-separator {
+        margin-right: 6px;
+        margin-left: 6px;
+        color: @textEmphasisGrey;
+        font-size: 12px;
+      }
+
+      a {
+        color: @masterBrandColor;
+      }
+    }
+
+    &-noresults {
+      border-bottom: 1px solid @strokeGrey;
+    }
+
+    .no-data {
+      border-left: 5px solid @highlightGrey;
+      height: 75px;
+      font-size: 16px;
+    }
+
+    li:nth-child(even) {
+      background-color: @white;
+    }
+  }
+}

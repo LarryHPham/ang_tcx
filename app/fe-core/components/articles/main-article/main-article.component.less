@@ -1,0 +1,111 @@
+.small-article-container {
+  margin: 0 -10px 0 -10px;
+}
+
+.large-article {
+  @media @mobile {
+    display: none;
+  }
+}
+
+.small-article {
+  @media @tablet {
+    display: none;
+  }
+}
+
+.main-article {
+  height: 200px;
+  margin: 10px;
+  padding: 0;
+  @media @mobile {
+    height: auto;
+    padding: 10px;
+    margin: 0 0 5px 0;
+  }
+  a {
+    color: @black;
+  }
+  &:hover {
+    a .main-article-container-title {
+      color: @masterBrandColor;
+    }
+  }
+  &:hover .articleBoxLarge {
+    .articleImageLinkWithHover(400px, 200px);
+    div {
+      left: 0;
+    }
+  }
+  &-image {
+    width: 300px;
+    height: 200px;
+    left: 0;
+    background-size: cover !important;
+    background-repeat: no-repeat;
+    display: inline-block;
+    float: left;
+  }
+  &-container {
+    color: inherit;
+    height: 189px;
+    float: left;
+    width: ~'calc(100% - 310px)';
+    padding: 0 27px 0 10px;
+    overflow: hidden;
+    &-title {
+      .globalDefaultFont(22px, 800);
+      color: inherit;
+      line-height: 25px;
+      text-align: left;
+      @media @mobile {
+        margin-bottom: 15px;
+      }
+    }
+    &-content {
+      .globalDefaultFont(14px, 400);
+      color: inherit;
+      line-height: 20px;
+      text-align: left;
+      margin-top: 10px;
+      height: 125px;
+      overflow: hidden;
+      @media @mobile {
+        &-small {
+          .flexDisplay;
+          font-size: 12px;
+          line-height: 14px;
+          padding-right: 25px;
+          height: 40px;
+          overflow: hidden;
+          padding-top: 10px;
+        }
+      }
+      &:hover {
+        color: @black;
+      }
+      &-read-more {
+        .globalDefaultModFont(12px, 800, @masterBrandColor);
+      }
+    }
+    &-keyword {
+      .globalDefaultFont(10px, 400);
+      margin: 1px 0 2px 0;
+    }
+    &-date {
+      .globalDefaultModFont(10px, 800, @bulletGrey);
+      padding-left: 1px;
+    }
+    &-source {
+      .globalDefaultFont(14px, 400);
+      font-style: italic;
+      line-height: 20px;
+      text-align: left;
+      margin-top: 10px;
+      &-b {
+        font-weight: 800;
+        font-style: normal;
+      }
+    }
+  }
+}

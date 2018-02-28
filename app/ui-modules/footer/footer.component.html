@@ -1,0 +1,28 @@
+<footer class="footer container-fluid" id="footer">
+  <section class="footer-main">
+    <div class="footer-top">
+    <div class="row">
+      <div class="footer-top-left col-xs-6 col-md-4">
+        <a class="col-xs-12" routerLink="/news-feed"><img class="footer-logo col-xs-6 col-md-4 col-xl-2" src={{logoUrl}}></a>
+      </div>
+      <div class="footer-top-right col-xs-6 col-md-4 offset-md-4">
+        <ul>
+            <a href="{{_siteFacebookUrl}}" target="_blank"><li id="share-facebook"><i class="fa fa-facebook"></i></li></a>
+            <a href="{{_siteTwitterUrl}}" target="_blank"><li id="share-twitter"><i class="fa fa-twitter"></i></li></a>
+        </ul>
+      </div>
+     </div>
+    </div>
+    <section class="footer-bottom col-md-6">
+      <ul>
+        <li><a [routerLink]="['about-us']" [innerHTML]="au | safeHtml"></a><span class="footer-separator">&nbsp;|&nbsp;</span></li>
+        <li><a [routerLink]="['terms-of-service']" [innerHTML]="service | safeHtml"></a><span class="footer-separator">&nbsp;|&nbsp;</span></li>
+        <li><a [routerLink]="['privacy-policy']" [innerHTML]="privacy | safeHtml"></a></li>
+      </ul>
+      <div class="footer-bottom-cit">
+        <p class="footer-bottom-citation"><i class="fa fa-copyright"></i> <span [innerHTML]="copyRight | safeHtml"></span></p>
+      </div>
+    </section>
+
+  </section>
+</footer>

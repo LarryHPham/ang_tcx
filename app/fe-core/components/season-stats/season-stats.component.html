@@ -1,0 +1,20 @@
+<div *ngIf="tabs" class="season-stats">
+  <div class="season-stats-car">
+    <slider-carousel *ngIf="carouselData" [carouselData]="carouselData" (indexNum)="indexNum($event)" [indexInput]="selectedIndex"></slider-carousel>
+  </div>
+  <tabs (tabSelected)="tabSelected($event)">
+    <tab *ngFor="let tab of tabs" [tabTitle]="tab.title" [active]="tab.isActive">
+      <loading-component *ngIf="!tab.isLoaded && !tab.hasError"></loading-component>
+      <div *ngIf="tab.isLoaded && tab.sections">
+        <h3 [innerHtml]="'<b>' + tab.title + ' : </b>' + 'Season Stats'"></h3>
+        <div *ngFor="let section of tab.sections" class="season-stats-tab-section">
+            <h4 [innerHtml]="section.groupName"></h4>
+            <custom-table [model]="section.tableData" [isCompactStyle]="'true'" (sortChanged)="updateCarousel($event)"></custom-table>
+        </div>
+      </div>
+      <div *ngIf="(!tab.sections && tab.isLoaded) || tab.title == 'Career Stats'" class="season-stats-no-data">
+          <no-data-box [data]="noDataMessage" [icon]="'fa fa-remove'"></no-data-box>
+      </div>
+    </tab>
+  </tabs>
+</div>

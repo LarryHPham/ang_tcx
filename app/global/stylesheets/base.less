@@ -1,0 +1,601 @@
+/*
+ToC
+  @Colors
+  @Fonts
+  @Borders
+  @Base Styles
+  @Code Styles
+  @Vendor Prefixes
+  @Module Box Shadow
+*/
+//Media Queries for responsive
+/** 4 official breakpoints were given by design, last updated: sept. 2016 **/
+@mobile:      ~"(max-width: 767px)";  // < 768px   bootstrap: sm
+@tablet:      ~"(min-width: 768px)";  // > 768px   bootstrap: md
+@desktop-m:   ~"(min-width: 992px)";  // > 992px   bootstrap: lg
+@desktop-l:   ~"(min-width: 1280px)"; // > 1280px  bootstrap: xl
+ // should be remove when stable
+@desktop-xl:  ~"(min-width: 1480px)";
+@small-grid:  ~"(min-width: 576px) and (max-width: 640px)";
+@fluid:       ~"(max-width: 999px)";
+
+/***********/
+/* @Colors */
+/***********/
+
+@white: #fff;
+@black: #000;
+// Body BG
+@bodyBg: @highlightGrey;
+
+// Brand Color Palette
+@touchDownLoyalBlue: #2d3e50;
+@homeRunLoyalRed: #bc2027;
+@homeRunLoyalLightRed: #fff7f7;
+@touchDownLoyalLightBlue: #F4F9FF;
+@sntMediaBlue: #009dfb;
+@tcxBlue: #00b9e3;
+@investKitBlue: #3098ff;
+@lifestylePurple: #65398e;
+@disasterPurple: #902d8e;
+@politicsRed: #ff0101;
+@synapsysRed: #ff3036;
+@sportsLoyalOrange: #f26f26;
+@crimeYellowOrange: #f6af05;
+@weatherYellow: #ffdf30;
+@joyfulHomeGreen: #44b224;
+@joyfulHomeGreen-hover: #339f33;
+
+// Icon links
+@homeRunLoyalIcon:'/app/public/icons/baseball-vertical-icon.png';
+@touchDownLoyalIcon:'/app/public/icons/football-vertical-icon.png';
+
+// Brand Color Image Hovers
+
+@imageHoverOpacity: 0.75;
+@imageHoverOpacityHalf: 0.5;
+@imageHoverOpacityCarousel: 0.85;
+
+@modBoxShadow: 0 0 10px 0 rgba(0,0,0,0.2);
+@whiteGradient: rgba(255, 255, 255, 0);
+@backgroundTransparent: rgba(0, 0, 0, 0.75);
+@storyOverlay: rgba(24,24,24,.65);
+
+@touchDownLoyalSqrtHover: rgba(45, 62, 80, @imageHoverOpacityHalf);
+@touchDownLoyalImageHover: rgba(45, 62, 80, @imageHoverOpacity);
+@tcxImageHover: rgba(0, 185, 227, @imageHoverOpacity);
+@sntMediaBlueImageHover: rgba(0, 157, 251, @imageHoverOpacity);
+@investKitBlueImageHover: rgba(48, 152, 255, @imageHoverOpacity);
+@lifestylePurpleImageHover: rgba(101, 57, 142, @imageHoverOpacity);
+@disasterPurpleImageHover: rgba(144, 45, 142, @imageHoverOpacity);
+@politicsRedImageHover: rgba(255, 1, 1, @imageHoverOpacity);
+@synapsysRedImageHover: rgba(255, 48, 54, @imageHoverOpacity);
+@sportsLoyalOrangeImageHover: rgba(242, 111, 38, @imageHoverOpacity);
+@crimeYellowOrangeImageHover: rgba(246, 175, 5, @imageHoverOpacity);
+@weatherYellowImageHover: rgba(255, 223, 48, @imageHoverOpacity);
+@joyfulHomeGreenHover: rgba(68, 178, 36, @imageHoverOpacity);
+@homeRunLoyalImageHover: rgba(188, 32, 39, @imageHoverOpacity);
+@featureBtn: rgba(54, 54, 54, 0.85);
+@homeRunLoyalSqrtHover: rgba(188,22,36,@imageHoverOpacityHalf);
+@touchdownLoyalSqrtHoverAI: rgba(45,62,50,@imageHoverOpacityCarousel);
+// Grey Color Palette; light to dark
+// We should only use these 6 types of grey
+// if there is ever a variation of one of those,please round to the closest color
+@subHeaderTabGrey: #464646;
+@backgroundGrey: #f2f2f2;
+@highlightGrey: #e1e1e1;
+@strokeGrey: #ccc;
+@bulletGrey: #999;
+@fontIconGrey: #444;
+@textEmphasisGrey: #272727;
+@medGrey: #666666;
+
+// Box Shadow for Image Borders
+@masterNoneBackground: rgba(0, 0, 0, 0);
+@masterButtonBackground: rgba(0, 0, 0, @imageHoverOpacityHalf);
+@masterLargeImageShadow: rgba(0,0,0,0.25);
+@masterSmallImageShadow: @strokeGrey;
+// Master Vertical Brand Colors
+@masterBrandColor: @tcxBlue;
+@masterBrandColorLink: #3098ff;
+@lightMasterBrandColor: @touchDownLoyalLightBlue;
+@masterImageHover: @tcxImageHover;
+@masterBackgroundColor: @backgroundGrey;
+@masterHighlightColor: @highlightGrey;
+@masterStrokeColor: @strokeGrey;
+@masterFontIconColor: @fontIconGrey;
+@masterTextEmphasisColor: @textEmphasisGrey;
+@masterTabIconColor: @homeRunLoyalRed;
+@masterSqrtHoverAI: @touchdownLoyalSqrtHoverAI;
+@masterFooter1: @darkBlueTD;
+@masterFooter2: @darkBlueTD2;
+
+//master ICON logo
+@masterIcon: @touchDownLoyalIcon;
+@masterIconHover:@touchDownLoyalIcon;
+//social media COLOR
+@facebook: #3b5998;
+@twitter: #00aced;
+@googlePlus: #dd4b39;
+@pinterest: #cb2027;
+@linkedin: #007fb3;
+@altShareGreen: #3eb43d;
+// Documentation Colors
+@moderateYellow: #b0cc5b;
+@wintergreen: #34a750;
+@wintergreenCompPurp: #8934a6;
+@standardRed: #ca1010;
+@docPrimaryAccentColor: @wintergreen;
+@docCompAccentColor: @wintergreenCompPurp;
+@docTetraLeftAccentColor:@moderateYellow;
+@darkBrown: #150c0c;
+@darkTouchDownBlue: #202e3d;
+@darkBlueTD: #1a2531;
+@darkBlueTD2: #121922;
+// Code Colors
+@activeBlue: #3098ff;
+@highlightBlue: #2795ff;
+@solarBlue: #268bd2;
+@solarBgColor: #002B36;
+@solarCyan: #2aa198;
+@solarOrange: #cb4b16;
+@activeRed: @homeRunLoyalRed;
+@activeGreen: #44b224;
+@solarRed: #dc322f;
+@darkText:#2d3e50;
+
+@gradientBlue: #3299ff;
+@gradientRed: #ff2232;
+/**********/
+/* @Fonts */
+/**********/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,800,400italic');
+@globalFont: 'Lato', sans-serif;
+
+.globalDefaultFont(@fontSize, @fontWeight) {
+  font-family: @globalFont;
+  font-size: @fontSize;
+  font-weight: @fontWeight;
+}
+
+.globalDefaultModFont(@fontSize, @fontWeight, @color) {
+  font-family: @globalFont;
+  font-size: @fontSize;
+  font-weight: @fontWeight;
+  color: @color;
+}
+
+/************/
+/* @Borders */
+/************/
+
+.docDashedBorderBottom {
+  border-bottom: 2px dashed @docTetraLeftAccentColor;
+}
+
+.docDashedBorderTop {
+  border-top: 2px dashed @docTetraLeftAccentColor;
+}
+
+.docDashedBorderLeftAndRight {
+  border-left: 2px dashed @docTetraLeftAccentColor;
+  border-right: 2px dashed @docTetraLeftAccentColor;
+}
+
+.capString{
+  text-transform: capitalize;
+}
+/****************/
+/* @Base Styles */
+/****************/
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body, html {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+body {
+  color:@black;
+  background: @white;
+  font-family: @globalFont;
+  overflow: auto;
+  font-size: 1rem;
+  margin: 0 !important;
+  background-color: @highlightGrey !important;
+  //min-width: 640px;
+  min-width: 320px;
+
+}
+
+button:focus{
+  outline:0 !important; //remove all outline color from all third parties including bootstrap grid
+}
+
+div {
+  line-height: 1;
+}
+
+p {
+  line-height: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:focus{ //overwritting bootstrap
+    text-decoration: none;
+    outline: none;
+    color: inherit;
+  }
+  &:hover{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+img{
+  .no-select;
+}
+#stwrapper{//sharethis box
+  .no-select;
+}
+/*******************/
+/* @Global Classes */
+/*******************/
+.font-weight-normal{
+  font-weight: 400 !important;
+}
+.hide-320{
+  @media @mobile{
+    display: none;
+  }
+}
+
+.hide-new320{
+  @media @mobile{
+    display: none!important;
+  }
+}
+.hide-768{
+  @media @tablet{
+    display: none!important;
+  }
+}
+
+.hide-under-lg{
+  @media @desktop-l{
+    display: none;
+  }
+}
+.responsive-widget{
+  .flexDisplay;
+  .flexJustify(center);
+  margin-bottom: 30px;
+  @media @desktop-l{display: none; margin-bottom: 0}
+}
+.no-select{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.text-heavy{
+  font-weight: 800;
+}
+.no-hover(@noHoverColor){
+  color: @noHoverColor;
+  &:hover{
+    color: @noHoverColor;
+  }
+}
+.masterHover, .masterHover div{
+  @media @desktop-m{
+    &:hover{
+      color: @masterBrandColor;
+    }
+  }
+}
+.text-heavy-link{
+  font-weight: 800;
+  &:hover{
+    color: @masterBrandColor;
+  }
+}
+a.text-master{
+  color: @masterBrandColor !important;
+  cursor: pointer;
+  &:hover{
+    @media @tablet{color: @black!important;}
+  }
+}
+.text-master{
+  color: @masterBrandColor;
+}
+/****************/
+/* @Code Styles */
+/****************/
+
+code {
+  padding: 2px 4px;
+}
+
+code.dir-name {
+  background-color: lightgray;
+  color: red;
+  font-size: 12px;
+}
+
+code.html-tag-dark {
+  color:@solarBlue;
+}
+
+code.html-tag-light {
+  background-color: lightgray;
+  color:@solarBlue;
+}
+
+code.html-class-name-dark {
+  color: @solarCyan;
+}
+
+code.html-class-name-light {
+  background-color: lightgray;
+  color: @solarCyan;
+}
+
+code.less-tag-dark {
+  color:@solarBlue;
+}
+
+code.less-class-name-light {
+  background-color: lightgray;
+  color: @solarOrange;
+}
+
+code.less-var-name-light {
+  background-color: lightgray;
+  color: @solarRed;
+}
+
+/********************/
+/* @Vendor Prefixes */
+/********************/
+// https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+.flexDisplay {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.inlineFlexDisplay {
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+
+.flexWrap (@flexWrap){
+  -webkit-flex-wrap: @flexWrap;
+  -moz-flex-wrap: @flexWrap;
+  -ms-flex-wrap: @flexWrap;
+  flex-wrap: @flexWrap;
+}
+
+.flexDirection(@flexDirectionParam) {
+  -webkit-flex-direction: @flexDirectionParam;
+  -moz-flex-direction: @flexDirectionParam;
+  -ms-flex-direction: @flexDirectionParam;
+  flex-direction: @flexDirectionParam;
+}
+
+.flexJustify(@flexJustifyParam) {
+  -webkit-justify-content: @flexJustifyParam;
+  -moz-justify-content: @flexJustifyParam;
+  -ms-justify-content: @flexJustifyParam;
+  justify-content: @flexJustifyParam;
+}
+
+.flexAlignItems(@flexAlignItemsParam) {
+  -webkit-align-items: @flexAlignItemsParam;
+  -moz-align-items: @flexAlignItemsParam;
+  -ms-align-items: @flexAlignItemsParam;
+  align-items: @flexAlignItemsParam;
+}
+
+.flexFlow(@flexFlowParam) {
+  -webkit-aflex-flow: @flexFlowParam;
+  -moz-flex-flow: @flexFlowParam;
+  -ms-flex-flow: @flexFlowParam;
+  flex-flow: @flexFlowParam;
+}
+
+.flexGrow(@flexGrowParam) {
+  -webkit-flex-grow: @flexGrowParam;
+  -moz-flex-grow: @flexGrowParam;
+  -ms-flex-grow: @flexGrowParam;
+  flex-grow: @flexGrowParam;
+}
+
+.borderRadiusPrefix(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.backgroundSize(@backgroundSize) {
+  -webkit-background-size: @backgroundSize;
+  -moz-background-size: @backgroundSize;
+  -o-background-size: @backgroundSize;
+  background-size: @backgroundSize;
+}
+
+.backgroundPosition(@backgroundPosition) {
+  -webkit-background-position: @backgroundPosition;
+  -moz-background-position: @backgroundPosition;
+  -o-background-position: @backgroundPosition;
+  background-position: @backgroundPosition;
+}
+
+.backgroundClipPBoxPrefixes {
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+.transformPrefixes(@transformation) {
+  -webkit-transform: @transformation;
+  -moz-transform: @transformation;
+  -ms-transform: @transformation;
+  -o-transform: @transformation;
+  transform: @transformation;
+}
+
+.transformStylePrefixes(@transformStyleVals) {
+  -webkit-transform-style: @transformStyleVals;
+  -moz-transform-style: @transformStyleVals;
+  -ms-transform-style: @transformStyleVals;
+  -o-transform-style: @transformStyleVals;
+  transform-style: @transformStyleVals;
+}
+
+.transformOriginPrefixes(@transformOriginVals) {
+  -webkit-transform-origin: @transformOriginVals;
+  -moz-transform-origin: @transformOriginVals;
+  -ms-transform-origin: @transformOriginVals;
+  transform-origin: @transformOriginVals;
+}
+
+.transitionPrefixes(@transitionVals) {
+  -webkit-transition: @transitionVals;
+  -moz-transition: @transitionVals;
+  -ms-transition: @transitionVals;
+  -o-transition: @transitionVals;
+  transition: @transitionVals;
+}
+
+.backfaceVisibility(@backfaceVisibility){
+  backface-visibility: @backfaceVisibility;
+  -webkit-backface-visibility: @backfaceVisibility;
+  -moz-backface-visibility: @backfaceVisibility;
+  -ms-backface-visibility: @backfaceVisibility;
+  -o-backface-visibility: @backfaceVisibility;
+}
+
+.perspective(@perspectiveVals){
+  -webkit-perspective: @perspectiveVals;
+  -moz-perspective: @perspectiveVals;
+  -ms-perspective: @perspectiveVals;
+  perspective: @perspectiveVals;
+}
+.textAreaPlaceholder(@taPlaceholderStyle, @taPlaceholderColor) {
+  &-textarea::-webkit-input-placeholder { font-style: @taPlaceholderStyle; color:@taPlaceholderColor;}
+  &-textarea::-moz-placeholder { font-style: @taPlaceholderStyle; color:@taPlaceholderColor;} /* firefox 19+ */
+  &-textarea:-ms-input-placeholder { font-style: @taPlaceholderStyle; color:@taPlaceholderColor;} /* ie */
+}
+.inputPlaceholder(@iPlaceholderStyle, @iPlaceholderColor) {
+  ::-webkit-input-placeholder { font-style: @iPlaceholderStyle; color:@iPlaceholderColor;}
+  ::-moz-placeholder { font-style: @iPlaceholderStyle; color:@iPlaceholderColor;} /* firefox 19+ */
+  :-moz-placeholder { font-style: @iPlaceholderStyle; color:@iPlaceholderColor;} /* firefox 18- */
+  :-ms-input-placeholder { font-style: @iPlaceholderStyle; color:@iPlaceholderColor;} /* ie */
+}
+/* Begin required CSS for line-clamp. */
+.line-clamp
+{
+  display            : block;
+  display            : -webkit-box;
+  -webkit-box-orient : vertical;
+  position           : relative;
+
+  line-height        : 1.2;
+  overflow           : hidden;
+  text-overflow      : ellipsis;
+  padding            : 0 !important;
+}
+.line-clamp:after
+{
+  content    : '...';
+  text-align : right;
+  bottom     : 0;
+  right      : 0;
+  width      : 25%;
+  display    : block;
+  position   : absolute;
+  height     : ~"calc(1em * 1.2)";
+  background : linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 75%);
+}
+@supports (-webkit-line-clamp: 1)
+{
+  .line-clamp:after
+  {
+    display : none !important;
+  }
+}
+.line-clamp-1
+{
+  -webkit-line-clamp : 1;
+  height             : ~"calc(1em * 1.2 * 1)";
+}
+.line-clamp-2
+{
+  -webkit-line-clamp : 2;
+  height             : ~"calc(1em * 1.2 * 2)";
+}
+.line-clamp-3
+{
+  -webkit-line-clamp : 3;
+  height             : ~"calc(1em * 1.2 * 3)";
+}
+.line-clamp-4
+{
+  -webkit-line-clamp : 4;
+  height             : ~"calc(1em * 1.2 * 4)";
+}
+.line-clamp-5
+{
+  -webkit-line-clamp : 5;
+  height             : ~"calc(1em * 1.2 * 5)";
+}
+/* End required CSS. line-clamp */
+
+/*********************/
+/* @Module Box Shadow */
+/*********************/
+
+
+// clear fix
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+.router-link-active{
+  .disabled;
+}

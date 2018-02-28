@@ -1,0 +1,108 @@
+@footballColor: #2d3e50;
+@basketballColor: #f26f26;
+@baseballColor: #bc2027;
+
+.scope-specific-box-score(@hex, @rgba) {
+  .module-header {
+    border-top: 3px solid @hex;
+    &-line {
+      background-color: @hex;
+    }
+  } //module-header
+
+  .calendar-picker-dates-select {
+    &:hover {
+      color: @hex;
+    }
+    &.nonactive {
+      color: @strokeGrey;
+    }
+    &.active {
+      &:hover {
+        color: @hex;
+      }
+      &.dynamic-background {
+        &:hover {
+          color: @white;
+        }
+      }
+      @media @tablet {
+        background-color: @hex;
+      }
+    } //&.active
+  } //.calendar-picker-dates-select
+
+  .calendar-picker-circles {
+    &.right {
+      &:hover {
+        color: @white;
+        background-color: @hex;
+        border-color: @hex;
+      }
+    }
+    &.left {
+      &:hover {
+        color: @white;
+        background-color: @hex;
+        border-color: @hex;
+      }
+    }
+  } //calendar-picker-circles
+
+  .calendar-picker-selection:hover {
+    i { color: @hex; }
+  }
+
+  .game-cat {
+    background-color: @hex;
+  }
+
+  .image-round-hover:hover {
+    .dynamic-background-hover {
+      background-color: @rgba;
+    }
+  }
+  .box-scores-info {
+    .rightPag, .leftPag {
+      color: @white;
+      background-color: @hex;
+      &.disabled {
+        background-color: @strokeGrey;
+      }
+    }
+  } //.box-scores-info
+
+  .ng-datepicker {
+    border: 1px solid @hex;
+    .controls, .day-names {
+      background-color: @hex;
+    }
+    .calendar>span>span.day.selected {
+      background-color: @hex;
+    }
+    .dp-ptr {
+      border-bottom: 8px solid @hex;
+    }
+  } //ng-datepicker
+
+  .scrollable-item-scroller {
+    background-color: @hex;
+  }
+  .game-box-main-details>span:first-child:hover.link {
+    color: @hex;
+  }
+} //.scope-specific-box-score(@hex, @rgba)
+
+.box-scores-container {
+  &.nfl, &.ncaaf {
+    .scope-specific-box-score( @footballColor, rgba(45, 62, 80, 0.75) );
+  }
+
+  &.nba, &.ncaam {
+    .scope-specific-box-score( @basketballColor, rgba(242, 111, 38, 0.75) );
+  }
+
+  &.mlb {
+    .scope-specific-box-score( @baseballColor, rgba(188, 32, 39, 0.75) );
+  }
+} //.box-scores-container

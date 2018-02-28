@@ -1,0 +1,8 @@
+<div *ngIf="videoData" class="row">
+  <div class="videoStackTop col-xs-12 col-md-7">
+    <video-stack-component [videoData]="[videoData[0]]"></video-stack-component>
+  </div>
+  <div class="videoStackBatch col-xs-12 col-md-5">
+    <video-stack-component [videoData]="videoData.slice(1, 1 + 4)"></video-stack-component>
+  </div>
+</div>

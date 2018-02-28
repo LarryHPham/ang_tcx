@@ -1,0 +1,229 @@
+.ng-datepicker-input {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height:100%;
+  background: none;
+  border:none;
+  font-size: 0;
+  cursor:pointer;
+}
+
+.ng-datepicker {
+  position: absolute;
+  z-index: 99;
+  width: 250px;
+  background: @white;
+  font-size: 12px;
+  color: @white;
+  display: inline-block;
+  border: 1px solid @masterBrandColor;
+  border-radius: 2px;
+  margin: 0;
+  padding: 0;
+  right:0;
+
+  .dp-ptr{
+    content: '';
+    border-bottom: 8px solid @masterBrandColor;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    position: absolute;
+    right: 20px;
+    top: -9px;
+  }
+}
+
+.ng-datepicker > .controls {
+  height:32px;
+  width: 100%;
+  background-color: @masterBrandColor;
+  display: inline-block;
+  padding: 10px 0 0 0;
+}
+
+.ng-datepicker > .controls i {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.ng-datepicker > .controls > .left {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: @black;
+  display: inline-block;
+  margin: 0 0 0 10px;
+  text-align: center;
+}
+
+.ng-datepicker > .controls > .left > i.prev-year-btn {
+  width:100%;
+  line-height: 20px;
+}
+
+.ng-datepicker > .controls > .left > i.prev-month-btn {
+  position: absolute;
+  top: 3px;
+  right: 0;
+  width:100%;
+}
+
+.ng-datepicker > .controls > span.date {
+  display: inline-block;
+  vertical-align: middle;
+  width: ~"calc(100% - 67px)";
+  text-align: center;
+  font-size: 18px;
+  color: @white;
+}
+
+.ng-datepicker > .controls > .right {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: @black;
+  display: inline-block;
+  margin: 0 10px 0 0;
+  text-align: center;
+}
+
+.ng-datepicker > .controls > .right > i.next-year-btn {
+  width:100%;
+  line-height: 20px;
+}
+
+.ng-datepicker > .controls > .right > i.next-month-btn {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width:100%;
+}
+
+.ng-datepicker > .day-names {
+  width: 100%;
+  background-color: @masterBrandColor;
+  height:32px;
+  line-height: 32px;
+  font-size: 10px;
+  font-weight: 800;
+  display: inline-block;
+}
+
+.ng-datepicker > .day-names > span {
+  width: 35px;
+  text-align: center;
+  color: @white;
+  float: left;
+  display: block;
+  text-transform: uppercase;
+}
+
+.ng-datepicker > .calendar {
+  width: 100%;
+  font-size: 10px;
+  display: inline-block;
+  padding: 0;
+}
+
+.ng-datepicker > .calendar > span > span.day {
+  width: 30px;
+  height: 30px;
+  float: left;
+  display: block;
+  color:@black;
+  margin:2.5px;
+  padding: 0;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+}
+
+// .ng-datepicker > .calendar > span:last-child > span.day {
+// }
+
+.ng-datepicker > .calendar > span:nth-child(7n) > span.day {
+  border-right: none;
+}
+
+.ng-datepicker > .calendar > span > span.day.disabled {
+  cursor: default;
+  pointer-events: none;
+  color:@strokeGrey;
+}
+
+.ng-datepicker > .calendar > span > span.day:hover {
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  background: @strokeGrey;
+  color: @black;
+  font-weight: 800;
+}
+
+.ng-datepicker > .calendar > span > span.day.selected {
+  width:30px;
+  height:30px;
+  border-radius: 50%;
+  background-color: @masterBrandColor;
+  cursor: default;
+  pointer-events: none;
+  color: @white !important;
+}
+
+.ng-datepicker > .calendar > span > span.day.today {
+  color:@fontIconGrey;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.ng-datepicker.static {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ng-datepicker.static > .controls {
+  width: 100%;
+  text-align: center;
+  background-color: #eee;
+  padding: 5px 0;
+}
+
+.ng-datepicker.static > .controls > .left > i.prev-month-btn {
+  margin-top: -6px;
+}
+
+.ng-datepicker.static > .controls > span.date {
+  width: auto;
+  float: none;
+  display: inline-block;
+  padding-top: 4px;
+}
+
+.ng-datepicker.static > .day-names {
+  width: 100%;
+  background-color: @masterBrandColor;
+}
+
+.ng-datepicker.static > .day-names > span {
+  width: calc(100%/7);
+}
+
+.ng-datepicker.static > .calendar {
+  width: 100%;
+}
+
+.ng-datepicker.static > .calendar > span > span.day {
+  width: calc(100%/7 - 1px);
+  height: 50px;
+  line-height: 50px;
+}

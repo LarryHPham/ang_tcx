@@ -1,0 +1,33 @@
+<section *ngIf="modelData" class="module-container">
+    <module-header [modHeadData]="moduleHeaderData"></module-header>
+    <div class="row comparison-module-tiles" [ngStyle]="gradient" [class.default-gradient]="!gradient">
+        <div class="col-xs-6">
+            <comparison-tile *ngIf="comparisonTileDataOne"
+                [comparisonTileInput]="comparisonTileDataOne"
+                [dropdownList1]="teamList"
+                [dropdownList2]="teamOnePlayerList"
+                (dropdownSwitched)="tileDropdownSwitched(0, $event)"></comparison-tile>
+        </div>
+        <div class="col-xs-6">
+            <comparison-tile *ngIf="comparisonTileDataTwo"
+                [comparisonTileInput]="comparisonTileDataTwo"
+                [dropdownList1]="teamList"
+                [dropdownList2]="teamTwoPlayerList"
+                (dropdownSwitched)="tileDropdownSwitched(1, $event)"></comparison-tile>
+        </div>
+        <div class="comparison-module-tiles-vs">
+            vs
+        </div>
+    </div>
+    <tabs (tabSelected)="tabSelected($event)">
+        <tab *ngFor="let tab of tabs; let i = index" [tabTitle]="tab.tabTitle" [active]="i == 0">
+            <comparison-legend *ngIf="comparisonLegendData" [comparisonLegendInput]="comparisonLegendData"></comparison-legend>
+            <div class="comparison-module-bars">
+                <comparison-bar *ngFor="let item of tab.barData; let i = index" [comparisonBarInput]="item" [index]="i"></comparison-bar>
+            </div>
+            <div *ngIf="!tab.barData" class="comparison-module-no-data">
+                <no-data-box [data]="noDataMessage" [icon]="'fa fa-remove'"></no-data-box>
+            </div>
+        </tab>
+    </tabs>
+</section>

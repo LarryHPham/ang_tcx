@@ -1,0 +1,9 @@
+
+<template ngFor let-item [ngForOf]="textItems">
+  <span *ngIf="item.text != 'empty'">
+    <a *ngIf="item.route" [routerLink]="item.route" class="main-text" [innerHtml]="item.text | safeHtml"></a>
+    <span *ngIf="!item.route && item.text && !item.specialText" class="main-text" [innerHtml]="item.text | safeHtml"></span>
+    <span *ngIf="!item.route && !item.text && item.specialText" class="special-text" [innerHtml]="item.specialText | safeHtml"></span>
+    <span *ngIf="!item.route && !item.text && !item.specialText" class="sub-text"[innerHtml]="item | safeHtml"></span>
+  </span>
+</template>

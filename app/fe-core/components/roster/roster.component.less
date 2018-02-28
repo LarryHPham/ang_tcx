@@ -1,0 +1,161 @@
+.roster {
+  .custom-table-row .image-column .table-cell-image span{
+    @media @tablet{
+      min-height: 2.6em;
+    }
+  }
+  .bottomStats{
+    @media @tablet {
+      display: block;
+      margin-top: -22px;
+      margin-left: 32%;
+    }
+  }
+  &-no-hover{
+    .no-hover(@white);
+  }
+  .image-column-hdr, .image-column {
+    width: 230px;
+    .table-cell-image {
+      span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    @media @mobile {
+      width: 30vw;
+      min-width:150px;
+      white-space: nowrap;
+    }
+  }
+  .custom-table-sort  {
+    @media @mobile {
+      top: 8px;
+    }
+  }
+  .data-column-hdr,.data-column{
+    min-width: 55px;
+  }
+  /*.data-column-hdr:nth-of-type(6) {
+    @media @mobile {
+      display: none;
+    }
+  }
+  .data-column:nth-of-type(5){
+    @media @mobile {
+      display: none;
+    }
+  }*/
+  table circle-image {
+    @media @mobile {
+      display: none;
+    }
+  }
+  .table-cell-image span {
+    @media @mobile {
+      margin-left: 10px;
+    }
+  }
+  th.image-column-column {
+    @media @mobile {
+      position: absolute;
+      z-index: 1;
+      left: 10px;
+      background-color: inherit;
+      height: 40px;
+      border-width: 0 5px 0 0;
+      border-style: solid;
+      border-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 1 100%;
+      background-clip: padding-box;
+    }
+    .table-cell-image {
+      @media @mobile {
+        margin-top: 5px;
+      }
+    }
+  }
+  .image-column-hdr {
+    @media @mobile {
+      position: absolute;
+      z-index: 1;
+      left: 10px;
+      border-width: 0 5px 0 0;
+      border-style: solid;
+      border-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)) 1 100%;
+      background-clip: padding-box;
+      box-sizing: content-box;
+      .custom-table-header {
+        margin-right:0!important;
+        border-right-color: transparent;
+      }
+    }
+    background-color: @white;
+    .custom-table-header {
+      margin-right:5px;
+    }
+  }
+  .custom-table .spacer {
+    @media @mobile {
+      width: 155px;
+      display:block;
+    }
+  }
+  .pane {
+    @media @mobile {
+      padding: 5px 0 5px 10px;
+      max-height: 380px;
+      min-height: 0!important;
+    }
+  }
+
+  .scc-details-desc {
+    @media @tablet {
+  //  margin-left: 30px;
+    }
+  }
+  .scc-details-mainImg {
+    @media @tablet {
+    margin-left: 20px;
+    }
+  }
+}
+roster-component {
+  .data-column.class-hdr {
+    display:none;
+  }
+  .data-column.class-column {
+    display:none;
+  }
+}
+roster-component.fbs {
+  .data-column.class-hdr {
+    display:block;
+  }
+  .data-column.class-column {
+    display:block;
+  }
+  .data-column.age-hdr , td.data-column.age-column {
+    display:none;
+  }
+  .data-column.salary-hdr , td.data-column.salary-column {
+    display:none;
+  }
+
+  .image-column-hdr, .image-column {
+    @media @mobile {
+      width: 41vw;
+      min-width:150px;
+    }
+  }
+  .nfl-only {
+    display:none;
+  }
+}
+team-roster-page {
+  .pane {
+  max-height: none!important;
+  }
+}
+ roster-component responsive-widget#widgetforpagep.table-widget-false  {
+  display: none!important;
+}

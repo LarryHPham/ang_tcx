@@ -1,0 +1,110 @@
+.stackRows{
+  overflow: hidden;
+  padding: 0 10px;
+  div:last-of-type {
+    .stacksmall {margin-bottom:0;}
+  }
+}
+
+.stackSmall {
+    &-citation{
+      @media @desktop-m{
+        display: none;
+      }
+    }
+    float:left;
+    .flexDisplay;
+    &-image {
+      background-color: @white;
+      margin-right: 10px;
+      min-width: 85px;
+    }
+    &-text{
+      .flexDisplay;
+      .flexDirection(column);
+      &-keyword {
+        display: inline-block;
+         margin-bottom: 5px;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         text-transform: uppercase;
+         .globalDefaultModFont(10px, 800, @black);
+         > a{
+           margin-right: 5px;
+         }
+         > span:last-child{
+           color: @bulletGrey;
+           overflow: hidden;
+           height: 20px;
+           white-space: nowrap;
+         }
+      }
+      &-subHeadline {
+        .globalDefaultModFont(14px, 400, @black);
+        line-height: 1.2em;
+        margin-right: 15px;
+        p{line-height: 1em;}
+      }
+    }
+}
+.stackRow{padding-bottom: 15px; margin-bottom: 15px}
+.stackRow:nth-child(n+7){display: none}
+@media @mobile{
+  .stackRow{
+    border-bottom: 1px solid @strokeGrey;
+    .flexDisplay;
+  }
+  .stackRow:nth-child(6){
+    border-bottom: transparent;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  //Select all but the first six
+}
+@media @tablet {
+  .stackSmall {
+    &-image{min-width: 82px}
+    &-text {
+      &-keyword {z-index: 1}
+    }
+  }
+  .stackRow{
+    border-bottom: 1px solid @strokeGrey;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    max-width: 47.5%;
+  }
+  .stackRow:nth-child(even){
+    max-width: 50%;
+    margin-right: 0;
+  }
+  .stackRows{
+    padding: 0;
+    margin-bottom: -15px;
+  }
+}
+
+@media @desktop-m {
+  .stackRows {
+      display: block;
+      height: auto;
+      overflow: visible;
+      margin-left: 15px;
+  }
+  .stackRow{max-width: 100%}
+  .stackRow:nth-child(even){
+    max-width: 100%;
+    margin-right: 0;
+  }
+  .stackSmall {
+    width: 100%;
+    height: auto;
+    .col-xs-12;
+    &-image {display: none}
+    &-text {
+      height: auto;
+      width: 100%;
+      &-keyword{margin-left: 0}
+    }
+  }//stackSmall ends
+}

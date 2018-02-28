@@ -1,0 +1,161 @@
+<larousel [videoData]="videoData" [graphData]="graphData" [carData]="carData" [toggleData]="toggleData" (displayedData)="displayArray($event)" (displayedItem)="checkCurrent($event)">
+  <template  [ngIf]="displayedItems">
+    <template  ngFor let-item [ngForOf]="displayedItems">
+      <!-- BELOW TOGGLE CAROUSEL -->
+      <div class="newsbox" *ngIf="item.type == 'toggle'" [ngClass]="{'clone': item.type2 == 'clone'}">
+        <div class="carousel_toggle">
+          <img src="{{item.data.midImage}}" onerror="this.src='/app/public/Image-Placeholder-2.jpg'" alt="Football Image"/>
+          <div class="carousel_toggle-container">
+            <img src="{{item.data.nfl.image}}" onerror="this.src='/app/public/Image-Placeholder-2.jpg'" alt="Football Image"/>
+            <div class="carousel_toggle-container-left">
+              <div class="carousel_toggle-container-content">
+                <div class="carousel_toggle-mainText">
+                    {{item.data.nfl.title}}
+                </div>
+                <div class="carousel_toggle-subText">
+                    {{item.data.nfl.subtext}}
+                </div>
+                <button (click)="routeNavigate(item.data.nfl.buttonScope)" class="{{item.data.nfl.buttonClass}}">
+                  <span class="carousel_toggle-button-text1">{{item.data.nfl.scope}}</span>
+                  <span class="carousel_toggle-button-text2">{{item.data.nfl.buttonText}}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="carousel_toggle-container">
+            <img src="{{item.data.ncaaf.image}}" onerror="this.src='/app/public/Image-Placeholder-2.jpg'" alt="Football Image"/>
+            <div class="carousel_toggle-container-right">
+              <div class="carousel_toggle-container-content">
+                <div class="carousel_toggle-mainText">
+                    {{item.data.ncaaf.title}}
+                </div>
+                <div class="carousel_toggle-subText">
+                    {{item.data.ncaaf.subtext}}
+                </div>
+                <button (click)="routeNavigate(item.data.ncaaf.buttonScope)" class="{{item.data.ncaaf.buttonClass}}">
+                  <span class="carousel_toggle-button-text1">{{item.data.ncaaf.scope}}</span>
+                  <span class="carousel_toggle-button-text2">{{item.data.ncaaf.buttonText}}</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ABOVE TOGGLE CAROUSEL -->
+      <!-- BELOW VIDEO CAROUSEL -->
+      <div class="newsbox"
+      *ngIf="item.type == 'video'"
+      [ngClass]="{'clone': item.type2 == 'clone', 'videoActive': currentDisplayed.type == 'video'}">
+        <div class="newsbox-background" [ngStyle]="{'background-image': 'linear-gradient(180deg, rgba(40, 40, 40, 0.5) 0%, rgba(24, 24, 24, 0.65) 100%), url(' + item.data.video_thumbnail + ')'}"></div>
+        <div class="newsbox-item video-width" [ngStyle]="{'cursor':'default'}">
+          <div class="newsbox-item-container">
+            <div class="newsbox-item-container-left">
+              <div *ngIf="item.type2 != 'clone'" class="newsbox-item-container-left-video">
+                <iframe width="100%" height="100%"  [src]="item.data.embed_url | safeRUrl" frameborder="0" scrolling = "no" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="newsbox-item-container-right" id="lrgvidnewsbox-right">
+              <a *ngIf="item.data.keyLink" class="newsbox-item-container-right-key" [routerLink]="item.data.keyUrl" [innerHTML]="item.data.keyword | safeHtml"></a>
+              <div *ngIf="!item.data.keyLink" class="newsbox-item-container-right-dupKey" [innerHTML]="item.data.keyword | safeHtml"></div>
+              <a class="newsbox-item-container-right-title" [routerLink]="item.data.video_url">
+                <span class="newsbox-item-container-right-title-span">Today's News:</span>
+                <div id="cardivetitle" class="newsbox-item-container-right-title-headline" [innerHTML]="item.data.title | safeHtml"></div>
+              </a>
+              <div class="newsbox-item-container-right-title-border"></div>
+              <a class="newsbox-item-container-right-content" [routerLink]="item.data.video_url">
+                <span class="cardescription" [innerHTML]="item.data.teaser | safeHtml"></span>
+                <span>Published on <span [innerHTML]="item.data.time_stamp | safeHtml"></span></span>
+              </a>
+              <a [routerLink]="item.data.video_url">
+                <div class="newsbox-item-container-right-fullstory">Read the Full Article <i class="fa fa-arrow-right"></i></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ABOVE VIDEO CAROUSEL -->
+      <!-- BELOW GRAPH CAROUSEL -->
+      <div class="newsbox"
+      *ngIf="item.type == 'graph'"
+      [ngStyle]="{'background-image': 'linear-gradient(180deg, rgba(40, 40, 40, 0.5) 0%, rgba(24, 24, 24, 0.65) 100%), url(' + item.data.current.background + ')'}"
+      [ngClass]="{'clone': item.type2 == 'clone'}">
+        <div class="newsbox-item graph-item" [ngStyle]="{'cursor':'default'}">
+          <div class="newsbox-item-container">
+            <div class="weather-graph">
+              <div class="weather-graph-container1">
+                <div class="weather-graph-info">
+                  <div class="weather-graph-info-image"><img src="{{item.data.current.current_icon}}" alt='Weather Icon'/></div>
+                  <div class="weather-graph-info-data"><span *ngIf="item.data.current.temperature_high">{{item.data.current.temperature_high}}</span><span *ngIf="!item.data.current.temperature_high && item.data.current.current_temperature ">{{item.data.current.current_temperature}}</span>&deg;<span *ngIf="item.data.current.temperature_low" class="weather-graph-info-subdata">/{{item.data.current.temperature_low}}&deg;</span></div>
+                </div>
+                <div class="weather-graph-border1"></div>
+                <div class="weather-graph-content">
+                  <div class="weather-graph-content-text1">{{item.data.current.location}}</div>
+                  <div class="weather-graph-content-text2">{{item.data.current.current_time}}</div>
+                  <div class="weather-graph-content-text3" [innerHTML]="item.data.current.description"></div>
+                </div>
+              </div>
+              <div class="weather-graph-border2"></div>
+              <div class="weather-graph-container2">
+                <div class="weather-graph-subtitle">Daily Forecast</div>
+                <div class="weather-graph-chart">
+                  <line-chart *ngIf="item.data.current.options" [options]="item.data.current.options"></line-chart>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ABOVE GRAPH CAROUSEL -->
+      <!-- BELOW NEWS CAROUSEL -->
+      <div class="newsbox story-item"
+      *ngIf="item.type == 'carousel' && !item.data.extUrl"
+      [ngClass]="{'clone': item.type2 == 'clone'}">
+        <div class="newsbox-item">
+          <div class="newsbox-item-container">
+            <div class="newsbox-item-container-right" id="lrgnewsbox-right" style="display:block;">
+              <a *ngIf="item.data.keyLink" class="newsbox-item-container-right-key" [routerLink]="item.data.keyUrl" [innerHtml]="item.data.keywords | safeHtml"></a>
+              <div *ngIf="!item.data.keyLink" class="newsbox-item-container-right-dupKey" [innerHTML]="item.data.keywords | safeHtml"></div>
+              <a [routerLink]="item.data.articlelink">
+                <div class="newsbox-item-container-right-title">
+                  <span class="newsbox-item-container-right-title-span" [innerHTML]="item.data.title | safeHtml"></span>
+                  <span class="newsbox-item-container-right-title-headline" [innerHTML]="item.data.headline | safeHtml"></span>
+                </div>
+                <div class="newsbox-item-container-right-title-border"></div>
+                <div class="newsbox-item-container-right-content" [innerHTML]="item.data.teaser | safeHtml">
+                </div>
+                <div [routerLink]="item.data.articlelink">
+                  <div class="newsbox-item-container-right-fullstory">Read the Full Article <i class="fa fa-arrow-right"></i></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="item.data.image_source == 'flickr'" class="newsbox-citation"><citation-component [citationInfo]="item.data.citationInfo"></citation-component></div>
+      </div>
+      <div class="newsbox story-item"
+      *ngIf="item.type == 'carousel' && item.data.extUrl"
+      [ngClass]="{'clone': item.type2 == 'clone'}">
+        <div class="newsbox-item">
+          <div class="newsbox-item-container">
+            <div class="newsbox-item-container-right" id="lrgnewsbox-right" style="display:block;">
+              <a *ngIf="item.data.keyLink" class="newsbox-item-container-right-key" [routerLink]="item.data.keyUrl" [innerHtml]="item.data.keywords | safeHtml"></a>
+              <div *ngIf="!item.data.keyLink" class="newsbox-item-container-right-dupKey" [innerHTML]="item.data.keywords | safeHtml"></div>
+
+              <a href="{{item.data.articlelink}}" target="_blank">
+              <div class="newsbox-item-container-right-title">
+                <span class="newsbox-item-container-right-title-span" [innerHTML]="item.data.title | safeHtml"></span>
+                <span class="newsbox-item-container-right-title-headline" [innerHTML]="item.data.headline | safeHtml"></span>
+              </div>
+              <div class="newsbox-item-container-right-title-border"></div>
+              <div class="newsbox-item-container-right-content" [innerHTML]="item.data.teaser | safeHtml">
+              </div>
+                <div class="newsbox-item-container-right-fullstory">Read the Full Article <i class="fa fa-arrow-right"></i></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ABOVE NEWS CAROUSEL -->
+    </template>
+  </template>
+</larousel>

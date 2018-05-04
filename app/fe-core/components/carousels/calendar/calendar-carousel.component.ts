@@ -42,7 +42,6 @@ export class CalendarCarousel implements OnInit {
     //on load grab the input chosenParam and set new variable for currently viewing dates that is used for any changes without changing initial input while it goes through validation
     var params = this.chosenParam;
     this.currDateView = {scope: params.scope, teamId: params.teamId, date: params.date};
-
     // console.log(this.chosenParam);
     //make call to week api to grab to see if any games are available (true/false)
     this.callWeeklyApi(this.chosenParam)
@@ -215,7 +214,7 @@ export class CalendarCarousel implements OnInit {
     // // console.log('4. calendar-carousel - callWeeklyApi - params - ',params);
     // this.weeklyApi = null;// resets call to load loading Gif as it waits for data
     return this._boxScores.weekCarousel(params.scope, params.date, params.teamId)
-    .map(data=>{
+    .map((data:any)=>{
       this.weeklyApi = data.data;
       this.weeklyDates = this.weekFormat(params.date, this.weeklyApi);
     });

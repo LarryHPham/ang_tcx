@@ -99,7 +99,7 @@ export class SyndicatedArticlePage implements OnDestroy, AfterViewInit{
 
     private getSyndicateArticle(articleID, partner) {
         this._synservice.getSyndicateArticleService(articleID).subscribe(
-            data => {
+            (data:any) => {
                 try{
                     if(data.data && data.data[0].article_data.article && data.data[0].title) {
                         this.errorPage=false;

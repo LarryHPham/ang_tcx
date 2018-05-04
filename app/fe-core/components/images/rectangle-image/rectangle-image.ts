@@ -10,9 +10,6 @@ export class RectangleImage implements OnInit{
     @Input() imgResize: number;
     ngOnInit() {
       var testImage = "/app/public/Tile_Overlay.png";
-      if(this.imgResize && this.data != null){
-        this.data.imageUrl += "&width=" + this.imgResize;
-      }
       if(typeof this.data === undefined || this.data == null){
         this.data = {
           imageUrl: testImage,

@@ -26,24 +26,28 @@ export class SyndicateArticleService {
         this.headerOptions.search=params;
         var callURL = this._syndicateUrl;
         var mainArticleUrl;
-        return this._http.get(callURL, this.headerOptions).retry(2)
-            .map(res => {
-               mainArticleUrl = res.url;
-               return res.json()
-            })
-            .map(data => {
-             try{
-                 if(data){
-                     return data
-                 }else throw new Error ("Failed API call at getSyndicateArticleService method : " + mainArticleUrl );
-
-             }catch(e){
-                 console.debug(e.message);
-             }
-            })
-            .catch((error:any) => {
-                return Observable.throw(new Error(error.status));
-            })
+        return new Observable(observer => {
+            observer.next(null);
+            observer.complete();
+        });
+        // return this._http.get(callURL, this.headerOptions).retry(2)
+        //     .map(res => {
+        //        mainArticleUrl = res.url;
+        //        return res.json()
+        //     })
+        //     .map(data => {
+        //      try{
+        //          if(data){
+        //              return data
+        //          }else throw new Error ("Failed API call at getSyndicateArticleService method : " + mainArticleUrl );
+        //
+        //      }catch(e){
+        //          console.debug(e.message);
+        //      }
+        //     })
+        //     .catch((error:any) => {
+        //         return Observable.throw(new Error(error.status));
+        //     })
     }
 
     transformMainArticle(data,c,sc,ai,et){

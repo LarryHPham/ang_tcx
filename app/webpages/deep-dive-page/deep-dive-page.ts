@@ -50,7 +50,6 @@ export class DeepDivePage implements OnInit{
     scrollTopPrev:number = 0;
     errorPage: boolean = false;
     partnerID: string = GlobalSettings.storedPartnerId();
-    scrollingWidget;
 
     constructor(
         private _schedulesService:SchedulesService,
@@ -76,7 +75,7 @@ export class DeepDivePage implements OnInit{
               if(res){
                   this.geoLocation = res.state;
                   this.selectedLocation = res.city + "-" + res.state;
-                  // this.getHourlyWeatherData(this.topScope);
+                  this.getHourlyWeatherData('weather');
                   this.getSideScroll();
               }else throw new Error("Geo Location data unavailable!")
           }catch(e){
@@ -84,6 +83,7 @@ export class DeepDivePage implements OnInit{
           }
 
       });
+      // this.getSideScroll();
     }
 
     private sectionFrontName(str:string){
@@ -112,10 +112,12 @@ export class DeepDivePage implements OnInit{
 
         this._schedulesService.setupSlideScroll(this.topScope, this.sideScrollData, changeScope, 'league', 'pregame', this.callLimit, this.callCount, this.selectedLocation, (sideScrollData) => {
           this.scopeList = this.tcxVars.scopeList;
-          if (this.tcxVars.showEventSlider) {
-            this.sideScrollData = sideScrollData;
-            this.scrollLength = this.sideScrollData.blocks.length;
-          }
+          this.sideScrollData = sideScrollData;
+          this.scrollLength = this.sideScrollData.blocks.length;
+          // if (this.tcxVars.showEventSlider) {
+          //   this.sideScrollData = sideScrollData;
+          //   this.scrollLength = this.sideScrollData.blocks.length;
+          // }
           this.safeCall = true;
           this.callCount++;
         }, null, null)
@@ -251,28 +253,36 @@ export class DeepDivePage implements OnInit{
       if(this.scope == 'all'){
         pageScope = 'trending';
       }
-      this._deepDiveData.getCarouselData(pageScope, this.carouselData, '15', '1', this.geoLocation, (carData)=>{
-        try{
-          if(carData && carData.length > 0){
-            this.carouselData = carData;
-          } else throw new Error('No carousel article data available');
-        }catch(e){
-          console.log(e.message);
-          this.carouselData = null;
-/*          this.errorPage = true;
-          var self=this;
-          var partner = this.partnerID;
-          setTimeout(function () {
-              //removes error page from browser history
-              self._location.replaceState('/');
-              if(partner){
-                self._router.navigateByUrl('/' + partner, 'news');
-              } else {
-                self._router.navigateByUrl('/news-feed');
-              }
-          }, 5000);*/
+      this.carouselData = [
+        {
+          title:"Title",
+          keyLink:"keyLinks",
+          keywords:"keywords",
+          headline:"Headline",
+          teaser:"Lorem ipsum dolor sit amet, utroque torquatos eu vis, eu mutat doming pertinacia usu. Vix in euismod interesset, in duis quas expetenda eos, cum id dictas civibus invidunt. Te nominati recteque quo. Vocent euismod vim cu."
+        },
+        {
+          title:"Big Title",
+          keyLink:"keyLinks",
+          keywords:"keys",
+          headline:"Headline TITLE",
+          teaser:"Lorem ipsum dolor sit amet, utroque torquatos eu vis, eu mutat doming pertinacia usu. Vix in euismod interesset, in duis quas expetenda eos, cum id dictas civibus invidunt. Te nominati recteque quo. Vocent euismod vim cu. Lorem ipsum dolor sit amet, utroque torquatos eu vis, eu mutat doming pertinacia usu. Vix in euismod interesset, in duis quas expetenda eos, cum id dictas civibus invidunt. Te nominati recteque quo. Vocent euismod vim cu."
+        },
+        {
+          title:"Title 2",
+          keyLink:"keyLinks",
+          keywords:"keyword",
+          headline:"Headline TITLE 2",
+          teaser:"Lorem ipsum dolor sit amet, utroque torquatos eu vis, eu mutat doming pertinacia usu. Vix in euismod interesset, in duis quas expetenda eos, cum id dictas civibus invidunt. Te nominati recteque quo. Vocent euismod vim cu. Lorem ipsum dolor sit amet, utroque torquatos eu vis, eu mutat doming pertinacia usu. Vix in euismod interesset, in duis quas expetenda eos, cum id dictas civibus invidunt. Te nominati recteque quo. Vocent euismod vim cu."
+        },
+        {
+          title:"Sub Title 2",
+          keyLink:"keyLinks",
+          keywords:"keywords",
+          headline:"SUB Headline TITLE 2",
+          teaser:"Lorem ipsum dolor sit amet, utroque torquatos eu vis, eu mutat doming pertinacia usu. Vix in euismod interesset, in duis quas expetenda eos, cum id dictas civibus invidunt. Te nominati recteque quo. Vocent euismod vim cu."
         }
-      })
+      ]
     }
 
     getDeepDiveVideo(){
@@ -280,35 +290,38 @@ export class DeepDivePage implements OnInit{
         if(this.scope == 'all'){
             pScope = 'trending';
         }
-      this._deepDiveData.getDeepDiveVideoBatchService(this.scope, 5, 1).subscribe(
-        data => {
-          try{
-              if(data){
-                  this.carouselVideo = this._deepDiveData.transformSportVideoBatchData([data[0]], this.scope);
-                  this.getDataCarousel();
-              }else throw new Error("Carousel Video is not available for" + " " + pScope);
-          }catch(e){
-              this.carouselVideo = null;
-              this.getDataCarousel();
-              console.log(e.message);
-          }
-        });
+        this.carouselVideo = null;
+        this.getDataCarousel();
+      // this._deepDiveData.getDeepDiveVideoBatchService(this.scope, 5, 1).subscribe(
+      //   data => {
+      //     try{
+      //         if(data){
+      //             this.carouselVideo = this._deepDiveData.transformSportVideoBatchData([data[0]], this.scope);
+      //             this.getDataCarousel();
+      //         }else throw new Error("Carousel Video is not available for" + " " + pScope);
+      //     }catch(e){
+      //         this.carouselVideo = null;
+      //         console.log("GET CAROUSEL DATA");
+      //         this.getDataCarousel();
+      //         console.log(e.message);
+      //     }
+      //   });
     }
 
-    // getHourlyWeatherData(scope){//only if its weather scope that has graph
-    //   if( scope == 'weather'){//weather requires {city-state} as a parameter
-    //     this._schedulesService.getWeatherCarousel('hourly', this.selectedLocation).subscribe(
-    //       data => {
-    //         this.carouselGraph = data;
-    //         this.getDataCarousel();
-    //       },
-    //       err => {
-    //         this.carouselGraph = this._schedulesService.getDummyGraphResult();
-    //         this.getDataCarousel();
-    //         console.log("Error getting graph batch data:", err);
-    //       });
-    //   }
-    // }
+    getHourlyWeatherData(scope){//only if its weather scope that has graph
+      if( scope == 'weather'){//weather requires {city-state} as a parameter
+        this._schedulesService.getWeatherCarousel('hourly', this.selectedLocation).subscribe(
+          data => {
+            this.carouselGraph = data;
+            this.getDataCarousel();
+          },
+          err => {
+            this.carouselGraph = this._schedulesService.getDummyGraphResult();
+            this.getDataCarousel();
+            console.log("Error getting graph batch data:", err);
+          });
+      }
+    }
 
     ngOnInit(){
       this.initializePage();
@@ -324,7 +337,7 @@ export class DeepDivePage implements OnInit{
             this.carouselGraph = null;
             this.carouselVideo = null;
             this.carouselData = null;
-            this.category = param['category'] ? param['category'] : 'all';
+            this.category = param['category'] ? param['category'] : 'football';
             this.category = this.category.replace(/--/g," ");
             this.scope = param['subCategory'] ? param['subCategory'] : this.category;
             this.scope = this.scope.replace(/--/g," ");
@@ -334,12 +347,15 @@ export class DeepDivePage implements OnInit{
               this.tcxVars = GlobalSettings.getTCXscope(this.category);
             }
             this.topScope = this.tcxVars ? this.tcxVars.topScope : this.category;
+            // this.topScope = 'football'; // TODO TESTING
+            // this.scope = 'nfl'; // TODO TESTING
+
             this.changeScopeVar = this.tcxVars.scope=='news-feed'?this.tcxVars.weatherscope?this.tcxVars.weatherscope:this.tcxVars.scope:this.tcxVars.scope;
             this.deepDiveType = GlobalSettings.getTCXscope(this.scope).pageType ? GlobalSettings.getTCXscope(this.scope).pageType : 3;
             this.getGeoLocation();
             this.getDeepDiveVideo();
             this.sectionFrontName(this.scope);
-            this.addMetaTags();
+            // this.addMetaTags();
           });
     }
   }

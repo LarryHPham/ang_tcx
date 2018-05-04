@@ -64,16 +64,16 @@ const appRoutes: Routes = [
         component: AppComponent,
         children: relativeChildRoutes
     },
-    {
-        path: ':partner_id/news',
-        component: AppComponent,
-        children: relativeChildRoutes
-    },
-    {
-        path: ':partner_id',
-        redirectTo:':partner_id/news',
-        pathMatch:'full'
-    },
+    // {
+    //     path: ':partner_id/news',
+    //     component: AppComponent,
+    //     children: relativeChildRoutes
+    // },
+    // {
+    //     path: ':partner_id',
+    //     redirectTo:':partner_id/news',
+    //     pathMatch:'full'
+    // },
     {
         path: '',
         redirectTo:'news-feed',

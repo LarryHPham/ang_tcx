@@ -6,29 +6,29 @@ export class GlobalSettings {
     private static _proto = window.location.protocol;
     private static _partnerId:string;
 
-    private static _newsUrl:string = 'newsapi.synapsys.us';
+    private static _newsUrl:string = '';
 
-    private static _apiUrl:string = '-article-library.synapsys.us';
-    private static _financeUrl:string = '-finance-api.synapsys.us';
-    private static _weatherUrl:string = '-weather.synapsys.us/tcx';
-    private static _searchAPIUrl:string ='-search-api.synapsys.us';
+    private static _apiUrl:string = '';
+    private static _financeUrl:string = '';
+    private static _weatherUrl:string = '';
+    private static _searchAPIUrl:string ='';
 
 
-    private static _articleBatchUrl:string= "-article-library.synapsys.us/articles";
-    private static _domainApiUrl:string= "w1.synapsys.us/widgets/deepdive/bar/domain_api.php?dom=";
+    private static _articleBatchUrl:string= "";
+    private static _domainApiUrl:string= "";
 
     // private static _partnerApiUrl: string = 'apireal.synapsys.us/listhuv/?action=get_partner_data&domain=';
-    private static _partnerApiUrl: string = 'synapview.synapsys.us/synapview/?action=get_header_data&vertical=sports&domain='; // sports being passed into vertical to only grab sports
+    private static _partnerApiUrl: string = ''; // sports being passed into vertical to only grab sports
 
     //two different api since there is a possibility that these urls are going to change
-    private static _widgetUrl: string = 'w1.synapsys.us';
-    private static _geoUrl: string = 'waldo.synapsys.us';
+    private static _widgetUrl: string = '';
+    private static _geoUrl: string = '';
     // private static _geoUrl: string = 'w1.synapsys.us';
 
     //main domain for all our images
-    public static _imageUrl:string = 'images.synapsys.us';
-    public static _sportsimageUrl:string = 'sports-images.synapsys.us';
-    public static _financeImageUrl:string = 'images.investkit.com';
+    public static _imageUrl:string = '';
+    public static _sportsimageUrl:string = '';
+    public static _financeImageUrl:string = '';
 
     //this changes per vertical
     private static _homepageUrl:string = '.tcxmedia.com';
@@ -54,9 +54,9 @@ export class GlobalSettings {
     private static _copyrightInfo: string = "USA Today Sports Images";
 
     //this is proned to be removed but used as dummy data
-    private static _tdlAPI: string = '-touchdownloyal-api.synapsys.us/tcx';
-    private static _hrlAPI: string = '-homerunloyal-api.synapsys.us/tcx';
-    private static _tcxAPI: string = '-article-library.synapsys.us/tcx';
+    private static _tdlAPI: string = '';
+    private static _hrlAPI: string = '';
+    private static _tcxAPI: string = '';
     static _imgSmLogo: number = 45;
     static _imgMdLogo: number = 70;
     static _imgLgLogo: number = 85;
@@ -833,7 +833,7 @@ export class GlobalSettings {
       if(width < 100){//increase quality if smaller than 100, default is set to 70
         resizePath += "&quality=90";
       }
-      return resizePath;
+      return '';
     }
 
     static getImageUrl(relativePath, width:number=1920):string {
@@ -846,7 +846,8 @@ export class GlobalSettings {
         relPath = relativePath != null && relativePath != "" ? this._proto + "//" + this._imageUrl + relativePath: '/app/public/no-image.png';
       }
       relPath += this.resizeImage(width);
-      return relPath;
+      // TODO: RETURN PLACEMENT
+      return '/app/public/no-image.png';
     }
 
     static getSportsImageUrl(relativePath, width?:number):string {
@@ -855,7 +856,8 @@ export class GlobalSettings {
         var relPath = relativePath != null && relativePath != "" ? this._proto + "//" + "prod" +  "-" + this._sportsimageUrl + '/' + relativePath: '/app/public/no-image.png';
         width = width ? width : 1920;//if null, set limit to 1920 because it should not be over 1920 width
         relPath += this.resizeImage(width);
-        return relPath;
+        // TODO: RETURN PLACEMENT
+        return '/app/public/no-image.png';
     }
 
     static getHeadlineUrl():string {

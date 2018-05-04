@@ -21,7 +21,8 @@ export class DeepDiveSectionFront implements OnInit {
     @Input() category: string;
     @Input() deepDiveType: any;
     loadingShow:boolean;
-    articleData: Array<ArticleStackData>;
+    // articleData: Array<ArticleStackData>;
+    articleData: Array<any>;
     articleCallLimit: number = 31;
     callArticleApi: boolean = true;
     callVideoApi: boolean = true;
@@ -32,8 +33,10 @@ export class DeepDiveSectionFront implements OnInit {
     dateParam: any;
     articlesperPage:any;
     newArray: Array<any> = [];
-    videoDataTop: Array<VideoStackData>;
-    videoDataBatch: Array<VideoStackData>;
+    // videoDataTop: Array<VideoStackData>;
+    // videoDataBatch: Array<VideoStackData>;
+    videoDataTop: Array<any>;
+    videoDataBatch: Array<any>;
     videoCallLimit: number = 5;
     safeCounter: number = 0;
     searchData: any;
@@ -68,7 +71,7 @@ export class DeepDiveSectionFront implements OnInit {
 
     ngOnInit() {
         window.scrollTo(0, 0);
-        //this.callModules(this.blockIndex);
+        this.callModules(this.blockIndex);
         this.createSearchBox(this.scope);
         this.getDateParams();
 
@@ -160,7 +163,6 @@ export class DeepDiveSectionFront implements OnInit {
         this.searchData.searchSubTitle = GlobalSettings.getTCXscope(event).searchSubTitle;
     }
     createSearchBox(scope) {
-
         this.searchBoxScope = scope=="sports"? "nfl":scope;
 
         var modSearchTitle;
@@ -211,7 +213,7 @@ export class DeepDiveSectionFront implements OnInit {
         this.dateParam = {
             scope: this.scope,//current profile page
             teamId: '',
-            date: moment.tz(currentUnixDate, 'America/New_York').format('YYYY-MM-DD')
+            date: moment(currentUnixDate).add("1", "day").format('YYYY-MM-DD')// TODO: added one day
         }
     } //getDateParams
 
@@ -226,6 +228,9 @@ export class DeepDiveSectionFront implements OnInit {
                 data => {
                     try{
                         if (data) {
+                            if(!currentPageObject['videoStack']){
+                              currentPageObject['videoStack'] = {};
+                            }
                             if(pageNum!=1){
                                 currentPageObject['videoStack'] = this._deepDiveData.transformSportVideoBatchData(data, this.scope);
                                 this.callVideoApi = true;
@@ -242,12 +247,13 @@ export class DeepDiveSectionFront implements OnInit {
                 });
         }
 
+
         if(this.callArticleApi){
             this.routeSubscription=this._deepDiveData.getDeepDiveBatchService(this.scope, callLimit, passPage)
                 .subscribe(data => {
                     try{
                         if (data) {
-                           this.loadingShow=true;
+                            this.loadingShow=true;
                             this.articleData = this._deepDiveData.transformToArticleStack(data, this.category);
                             currentPageObject['stackTop1'] = this.articleData.length && pageNum != 1 ? this.articleData.splice(0, 1) : null;
                             currentPageObject['stackRow1'] = this.articleData.length && pageNum != 1 ? this.articleData.splice(0, 6) : null;
@@ -258,10 +264,11 @@ export class DeepDiveSectionFront implements OnInit {
                             currentPageObject['stackRow3'] =  this.articleData.length ? this.articleData.splice(0, 4) : null;
                             currentPageObject['recData2'] = this.articleData.length > 3 ? this.articleData.length >= 3 && this.articleData.length < 6 ? this.articleData.splice(0, 3) : this.articleData.splice(0, 6):null;
                             this.newArray.push(currentPageObject);
-                            if(data.length < callLimit){
-                                this.callArticleApi = false;
-                                this.loadingShow=false;
-                            }
+                            //TODO;
+                            // if(data.length < callLimit){
+                            //     this.callArticleApi = false;
+                            //     this.loadingShow=false;
+                            // }
                         }else throw new Error('Article stack have no articles');
                     }catch(e){
                         this.loadingShow=false;

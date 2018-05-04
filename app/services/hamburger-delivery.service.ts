@@ -101,11 +101,11 @@ export class HamburgerDeliveryService {
       {
         menuTitle: "Travel",
         url: topRoute + '/travel'
-      }
-      // {
-      //   menuTitle: "Weather",
-      //   url: topRoute + '/weather'
-      // },
+      },
+      {
+        menuTitle: "Weather",
+        url: topRoute + '/weather'
+      },
       // {
       //   menuTitle: "Automotive",
       //   url: topRoute + '/automotive'

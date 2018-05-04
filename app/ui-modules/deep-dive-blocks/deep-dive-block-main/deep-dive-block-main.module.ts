@@ -24,19 +24,33 @@ export class DeepDiveBlockMain implements OnInit {
     @Output() emitscope = new EventEmitter();
     @Output() emitLocation = new EventEmitter();
     private callApi: boolean = true;
-    private commonarticleStack:Array<ArticleStackData>;
-    private trendingStack: Array<ArticleStackData>;
-    private recDataSports: Array<ArticleStackData>;
-    private businessStack: Array<ArticleStackData>;
-    private politicsStack: Array<ArticleStackData>;
-    private recDataEntertain: Array<ArticleStackData>;
-    private foodStack: Array<ArticleStackData>;
-    // private recDataHealth: Array<ArticleStackData>;
-    private lifestyleStack: Array<ArticleStackData>;
-    private estateStack: Array<ArticleStackData>;
-    private recDataTravel: Array<ArticleStackData>;
-    // private weatherStack: Array<ArticleStackData>;
-    private recDataAuto: Array<ArticleStackData>;
+    // private commonarticleStack:Array<ArticleStackData>;
+    // private trendingStack: Array<ArticleStackData>;
+    // private recDataSports: Array<ArticleStackData>;
+    // private businessStack: Array<ArticleStackData>;
+    // private politicsStack: Array<ArticleStackData>;
+    // private recDataEntertain: Array<ArticleStackData>;
+    // private foodStack: Array<ArticleStackData>;
+    // // private recDataHealth: Array<ArticleStackData>;
+    // private lifestyleStack: Array<ArticleStackData>;
+    // private estateStack: Array<ArticleStackData>;
+    // private recDataTravel: Array<ArticleStackData>;
+    // // private weatherStack: Array<ArticleStackData>;
+    // private recDataAuto: Array<ArticleStackData>;
+
+    private commonarticleStack:Array<any>;
+    private trendingStack: Array<any>;
+    private recDataSports: Array<any>;
+    private businessStack: Array<any>;
+    private politicsStack: Array<any>;
+    private recDataEntertain: Array<any>;
+    private foodStack: Array<any>;
+    // private recDataHealth: Array<any>;
+    private lifestyleStack: Array<any>;
+    private estateStack: Array<any>;
+    private recDataTravel: Array<any>;
+    // private weatherStack: Array<any>;
+    private recDataAuto: Array<any>;
 
     private videoDataBatch1: Array<VideoStackData>;
     private videoDataBatch2: Array<VideoStackData>;
@@ -122,50 +136,52 @@ export class DeepDiveBlockMain implements OnInit {
 
         var batchNum=this.batchNum;
         var geoLoc= this.geoLocation;
-        this._deepDiveData.getDeepDiveBatchService(ctype,count,batchNum,geoLoc).subscribe(data=>{
-            try{
-                if(data){
-                    if(imgMobile==true){
-                        data = data.length > 2 ? data.length >=3 && data.length < 6 ? data.splice(0,3) : data.splice(0,6): null;
-                        this.commonarticleStack = this._deepDiveData.transformToArticleStack(data, ctype, GlobalSettings._imgMobile);
-                        getobjectStackArray(ctype, this.commonarticleStack)
-                    }else {
-                        this.commonarticleStack = this._deepDiveData.transformToArticleStack(data, ctype);
-                        getobjectStackArray(ctype, this.commonarticleStack)
-                    }
-                }else throw new Error("Error getting" + ctype + "News data");
-            }catch(e){
-                console.log(e.message);
-            }
-        },
-        err=>{
-            console.log("Error getting" + ctype + "News data");
-        })
+        // this._deepDiveData.getDeepDiveBatchService(ctype,count,batchNum,geoLoc).subscribe(data=>{
+        //     try{
+        //         console.log("MAIN",data);
+        //         if(data){
+        //             if(imgMobile==true){
+        //                 // data = data.length > 2 ? data.length >=3 && data.length < 6 ? data.splice(0,3) : data.splice(0,6): null;
+        //                 data = null;
+        //                 this.commonarticleStack = this._deepDiveData.transformToArticleStack(data, ctype, GlobalSettings._imgMobile);
+        //                 getobjectStackArray(ctype, this.commonarticleStack)
+        //             }else {
+        //                 this.commonarticleStack = this._deepDiveData.transformToArticleStack(data, ctype);
+        //                 getobjectStackArray(ctype, this.commonarticleStack)
+        //             }
+        //         }else throw new Error("Error getting" + ctype + "News data");
+        //     }catch(e){
+        //         console.log(e.message);
+        //     }
+        // },
+        // err=>{
+        //     console.log("Error getting" + ctype + "News data");
+        // })
     }
 
     getDeepDiveVideo() {
-        this._deepDiveData.getDeepDiveVideoBatchService("sports", 15, 1, this.geoLocation)
-            .subscribe(data => {
-                try{
-                    if(data){
-                        if (data.length > 0) {
-                            let videoBatch1 = data.splice(0, 5);
-                            this.videoDataBatch1 = videoBatch1 ? this._deepDiveData.transformSportVideoBatchData(videoBatch1, "sports") : null;
-                            if (data.length > 1) {
-                                let videoBatch2 = data.splice(0, 5);
-                                let videoBatch3 = data.splice(0, 5);
-                                this.videoDataBatch2 = videoBatch2 ? this._deepDiveData.transformSportVideoBatchData(videoBatch2, "sports") : null;
-                                this.videoDataBatch3 = videoBatch3 ? this._deepDiveData.transformSportVideoBatchData(videoBatch3, "sports") : null;
-                            }
-                        }
-                    }else throw new Error(" Video Articles are missing for sports in the home page");
-                }catch(e){
-                    console.log(e.message);
-                }
-            },
-            err => {
-                console.log("Error getting video batch data");
-            });
+        // this._deepDiveData.getDeepDiveVideoBatchService("sports", 15, 1, this.geoLocation)
+        //     .subscribe(data => {
+        //         try{
+        //             if(data){
+        //                 if (data.length > 0) {
+        //                     let videoBatch1 = data.splice(0, 5);
+        //                     this.videoDataBatch1 = videoBatch1 ? this._deepDiveData.transformSportVideoBatchData(videoBatch1, "sports") : null;
+        //                     if (data.length > 1) {
+        //                         let videoBatch2 = data.splice(0, 5);
+        //                         let videoBatch3 = data.splice(0, 5);
+        //                         this.videoDataBatch2 = videoBatch2 ? this._deepDiveData.transformSportVideoBatchData(videoBatch2, "sports") : null;
+        //                         this.videoDataBatch3 = videoBatch3 ? this._deepDiveData.transformSportVideoBatchData(videoBatch3, "sports") : null;
+        //                     }
+        //                 }
+        //             }else throw new Error(" Video Articles are missing for sports in the home page");
+        //         }catch(e){
+        //             console.log(e.message);
+        //         }
+        //     },
+        //     err => {
+        //         console.log("Error getting video batch data");
+        //     });
     }
     callModules(index) {
       var self=this;

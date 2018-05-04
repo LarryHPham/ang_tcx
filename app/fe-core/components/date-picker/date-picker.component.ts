@@ -88,7 +88,7 @@ export class DatePicker implements AfterViewInit {
   callMonthApi(params){
     // this.weeklyApi = null;// resets call to load loading Gif as it waits for data
     return this._boxScores.validateMonth(params.scope, params.date, params.teamId)
-    .map(data=>{
+    .map((data:any)=>{
       this.monthlyDates = this.monthFormat(params.date, data.data);
     });
   }

@@ -1,15 +1,13 @@
 <section verticalWidgetScroll class="deep-dive-page container-fluid" >
   <div *ngIf="carouselData == null" class="no-carousel-margin"></div>
-  <section *ngIf="errorPage">
+  <!-- <section *ngIf="errorPage">
       <div class="loading-container">
           <span class="loading-text">The page you are trying to reach is unavailable. You will be redirected to your previous page shortly.</span>
       </div>
-  </section>
-  <!-- Place Top Carousel Here in deep-dive-container-1, it should always take full width -->
+  </section> -->
   <section *ngIf="carouselData" class="deep-dive-container1" id="rectangleCarousel">
      <news-box [carData]="carouselData" [videoData]="carouselVideo" [graphData]="carouselGraph"></news-box>
-   </section><!-- deep-dive-container1 ends -->
-   <!-- Place modules and deep dive blocks in deep-dive-container 2 -->
+   </section>
    <section class="deep-dive-container2">
      <div class="deep-dive-container2a col-sm-12 col-xl-9">
        <div *ngIf="sectionName && deepDiveType != 'all'">
@@ -25,9 +23,8 @@
                                 [geoLocation]="geoLocation">
        </deep-dive-section-front>
     </div>
-    <!-- Ads should place inside deep-dive-container-2b -->
-    <div class="deep-dive-container2b col-xl-3" id="verticalSideScroller">
+    <!-- <div class="deep-dive-container2b col-xl-3" id="verticalSideScroller">
         <vertical-widget [category]="category" [subCategory]="scope"></vertical-widget>
-    </div>
-  </section><!-- deep-dive-container2 ends -->
+    </div> -->
+  </section>
 </section>

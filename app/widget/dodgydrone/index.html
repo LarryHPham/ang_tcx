@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Dodgy Drone - SNT Media</title>
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+	<script src="gamestates/boot.min.js"></script>
+	<script src="gamestates/preload.min.js"></script>
+	<script src="gamestates/demo.min.js"></script>
+	<script src="gamestates/gameloop.min.js"></script>
+	<script src="gamestates/gameover.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+	</style>
+	<div id="DodgyDrone">
+		<script type="text/javascript">
+			var game = new Phaser.Game(300, 350, Phaser.CANVAS, 'DodgyDrone');
+			game.state.add("Boot", boot);
+			game.state.add("Preload", preload);
+			game.state.add("Demo", demo);
+			game.state.add("GameLoop", gameloop);
+			game.state.add("GameOver", gameover);
+			game.state.start("Boot");
+		</script>
+	</div>
+</head>
+
+<body>
+</body>
+
+</html>

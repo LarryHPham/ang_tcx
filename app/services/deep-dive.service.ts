@@ -349,7 +349,7 @@ export class DeepDiveService {
         title: "<span> Today's News: </span>",
         headline: titleTrim ? titleTrim : "",
         keywords: key ? key : "NEWS",
-        keyUrl: val['keywords'][0] ? VerticalGlobalFunctions.formatSectionFrontRoute(keyhyphen.toLowerCase()) : ["/news-feed"],
+        keyUrl: val['keywords'][0] ? VerticalGlobalFunctions.formatSectionFrontRoute(keyhyphen.toLowerCase()) : ["/"],
         teaser: teaserTrim ? teaserTrim.replace('_', ': ').replace(/<p[^>]*>/g, "") : "",
         article_id: val['article_id'],
         article_url: val['article_url'],

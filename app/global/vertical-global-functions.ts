@@ -56,7 +56,7 @@ export class VerticalGlobalFunctions {
     if(partner){
       route = '/'+partner+'/news'
     }else{
-      route = '/news-feed'
+      route = '/'
     }
     return route;
   }

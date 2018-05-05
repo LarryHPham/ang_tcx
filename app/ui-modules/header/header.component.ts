@@ -142,7 +142,7 @@ export class HeaderComponent implements OnInit {
         if(this.partnerID){
           this.homeUrl = ["/"+this.partnerID, "news"];
         }else{
-          this.homeUrl = ["/news-feed"];
+          this.homeUrl = ["/"];
         }
         this.getTrendingData();
         stButtons.locateElements();

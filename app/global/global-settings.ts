@@ -537,7 +537,7 @@ export class GlobalSettings {
         },
         'all':{
           parentScope: null,
-          scope:'news-feed',
+          scope:'',
             weatherscope:'hourly',
             scopeList: ["10 Day", "5 Day", "Hourly"],
           topScope: 'all',
@@ -559,7 +559,7 @@ export class GlobalSettings {
       if(category[section] == null){// default return
         return {
           parentScope: null,
-          scope:'news-feed',
+          scope:'',
           topScope: null,
           displayName: section ? GlobalFunctions.toTitleCase(section) : null,
           verticalApi: null,
@@ -902,7 +902,7 @@ export class GlobalSettings {
       if(partnerPage && (name == '' || name == 'news')){
         hide = true;
         isHome = true;
-      }else if(!partnerPage && (name == '' || name == 'news-feed')){
+      }else if(!partnerPage && (name == '' || name == '')){
         hide = false;
         isHome = true;
       }else{

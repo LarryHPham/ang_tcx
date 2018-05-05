@@ -122,7 +122,7 @@ export class SyndicatedArticlePage implements OnDestroy, AfterViewInit{
                         if(partner){
                           self.router.navigateByUrl('/' + partner, 'news');
                         } else {
-                          self.router.navigateByUrl('/news-feed');
+                          self.router.navigateByUrl('/');
                         }
                     }, 5000);
 
@@ -137,7 +137,7 @@ export class SyndicatedArticlePage implements OnDestroy, AfterViewInit{
                     if(this.checkPartner || this.partnerID){
                       self.router.navigateByUrl('/' + this.partnerID, 'news');
                     } else {
-                      self.router.navigateByUrl('/news-feed');
+                      self.router.navigateByUrl('/');
                     }
                   }, 5000);
             }
@@ -167,7 +167,7 @@ export class SyndicatedArticlePage implements OnDestroy, AfterViewInit{
                         if(partner){
                           self.router.navigateByUrl('/' + partner, 'news');
                         } else {
-                          self.router.navigateByUrl('/news-feed');
+                          self.router.navigateByUrl('/');
                         }
                     }, 5000);
 
@@ -183,7 +183,7 @@ export class SyndicatedArticlePage implements OnDestroy, AfterViewInit{
                     if(partner){
                       self.router.navigateByUrl('/' + this.partnerID, 'news');
                     } else {
-                      self.router.navigateByUrl('/news-feed');
+                      self.router.navigateByUrl('/');
                     }
                 }, 5000);
             }

@@ -9,7 +9,7 @@
       <span class="story">Stories About This Game:</span>
     </div>
 
-    <a href="{{article.urlRouteArray}}">
+    <a href="{{article.urlRouteArray}}" [ngStyle]="{'width': '100%';'display':'block'}">
       <div class="game-article-image embed-responsive embed-responsive-16by9" [ngStyle]="{'background-image': 'url(' + article.imageConfig.imageUrl + ')'}">
       </div>
 

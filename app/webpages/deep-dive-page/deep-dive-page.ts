@@ -350,7 +350,7 @@ export class DeepDivePage implements OnInit{
             // this.topScope = 'football'; // TODO TESTING
             // this.scope = 'nfl'; // TODO TESTING
 
-            this.changeScopeVar = this.tcxVars.scope=='news-feed'?this.tcxVars.weatherscope?this.tcxVars.weatherscope:this.tcxVars.scope:this.tcxVars.scope;
+            this.changeScopeVar = this.tcxVars.scope==''?this.tcxVars.weatherscope?this.tcxVars.weatherscope:this.tcxVars.scope:this.tcxVars.scope;
             this.deepDiveType = GlobalSettings.getTCXscope(this.scope).pageType ? GlobalSettings.getTCXscope(this.scope).pageType : 3;
             this.getGeoLocation();
             this.getDeepDiveVideo();

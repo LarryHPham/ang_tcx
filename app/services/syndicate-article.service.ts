@@ -189,7 +189,7 @@ export class SyndicateArticleService {
                     timeStamp: date,
                     title: val.title? val.title.replace(/\'/g, "'"): "",
                     extUrl:val.source != "snt_ai" ? false : true,
-                    keyUrl: val['keywords'][0] ? VerticalGlobalFunctions.formatSectionFrontRoute(val['keywords'][0]) : ["/news-feed"],
+                    keyUrl: val['keywords'][0] ? VerticalGlobalFunctions.formatSectionFrontRoute(val['keywords'][0]) : ["/"],
                     articleUrl: val.source != "snt_ai" ? VerticalGlobalFunctions.formatArticleRoute(c, scope, val.article_id, articleType) : GlobalSettings.getOffsiteLink(val.scope, "article", VerticalGlobalFunctions.formatExternalArticleRoute(val.scope, articleType, val.event_id)),
 
                 }

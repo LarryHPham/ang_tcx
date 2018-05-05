@@ -60,29 +60,10 @@ const relativeChildRoutes = [
 
 const appRoutes: Routes = [
     {
-        path: 'news-feed',
+        path: '',
         component: AppComponent,
         children: relativeChildRoutes
     },
-    // {
-    //     path: ':partner_id/news',
-    //     component: AppComponent,
-    //     children: relativeChildRoutes
-    // },
-    // {
-    //     path: ':partner_id',
-    //     redirectTo:':partner_id/news',
-    //     pathMatch:'full'
-    // },
-    {
-        path: '',
-        redirectTo:'news-feed',
-        pathMatch:'full'
-    },
-    {
-        path: 'about-us',
-        component: AboutUsPage
-    }
     ];
 
 // [routerLink]=["jimmy", {relativeTo: this.route}]

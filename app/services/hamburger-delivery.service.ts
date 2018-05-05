@@ -9,7 +9,7 @@ export class HamburgerDeliveryService {
     var topRoute = "";
     var partner = GlobalSettings.storedPartnerId();
     if (partner == null || partner == ""){
-      topRoute = "/news-feed";
+      topRoute = "/";
     }
     else {
       topRoute = "/" + partner + "/news";

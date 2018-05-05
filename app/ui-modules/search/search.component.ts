@@ -238,7 +238,7 @@ export class Search{
         if(this.partnerID){
           this._router.navigate(['/'+this.partnerID, 'news', 'search', 'articles', term]);
         } else {
-          this._router.navigate(['/news-feed','search','articles',term]);
+          this._router.navigate(['/','search','articles',term]);
         }
         // this._router.navigate(searchRoute);
 
